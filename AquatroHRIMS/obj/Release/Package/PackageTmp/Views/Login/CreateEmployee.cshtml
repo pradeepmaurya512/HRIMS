@@ -1,0 +1,187 @@
+﻿@model AquatroHRIMS.ViewModel.LoginViewModel
+@{
+    ViewBag.Title = "CreateEmployee";
+}
+<h3><b>Add Employee</b></h3>
+<script src="~/Scripts/ValidationCreateEmployee.js"></script>
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {       
+        $("#ddlDepartment").change(function () {
+            var deptIndex1 = $(this).val();            
+            if (deptIndex1 != 0)
+                $("#spnDept").hide();
+        });
+        $("#ddlDesignation").change(function () {
+            var desigIndex1 = $(this).val();
+            if (desigIndex1 != 0)
+                $("#spnDesig").hide();
+        });
+        $("#ddlReportingHead").change(function () {
+            var reptHeadIndex1 = $(this).val();
+            if (reptHeadIndex1 != 0)
+                $("#spnReptHead").hide();
+        });       
+    });
+</script>
+@using (Html.BeginForm("CreateEmployee","Login", FormMethod.Post)) 
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal" style="border:solid 1px black;">
+        <div style="height:15px"></div>
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            <div class="col-md-12">
+                @Html.LabelFor(model => model.objtblLogin.tblEmployee.varFirstName, new { @class = " col-md-2" })
+                <div class="col-md-3">
+                    @Html.TextBoxFor(m => m.objtblLogin.tblEmployee.varFirstName, new { @class = "form-control", @placeholder = "First Name", id = "txtFirstName", minlength="2" })
+                    @Html.ValidationMessageFor(model => model.objtblLogin.tblEmployee.varFirstName)
+                </div>
+                <div class="col-md-3">
+                    @Html.TextBoxFor(model => model.objtblLogin.tblEmployee.varMiddleName, new { @class = "form-control", @Placeholder = "Middle Name", id = "txtMiddleName", minlength = "2" })
+                    @Html.ValidationMessageFor(model => model.objtblLogin.tblEmployee.varMiddleName)                   
+                </div>
+                
+                <div class="col-md-3">
+                    @Html.TextBoxFor(model => model.objtblLogin.tblEmployee.varLastName, new { @class = "form-control", @Placeholder = "Last Name", id = "txtLastName", minlength = "2" })
+                    @Html.ValidationMessageFor(model => model.objtblLogin.tblEmployee.varLastName)
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-12">
+                @Html.LabelFor(model => model.objtblLogin.tblEmployee.varOfficeEmailAdd, new { @class = " col-md-2" })
+                <div class="col-md-3">
+                    @Html.TextBoxFor(m => m.objtblLogin.tblEmployee.varOfficeEmailAdd, new { @class = "form-control", @Placeholder = "abc@a4technology.com", id = "txtLoginName", type="email" })                   
+                    @Html.ValidationMessageFor(model => model.objtblLogin.tblEmployee.varOfficeEmailAdd)
+                </div>                
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <div class="col-md-12">
+                @Html.LabelFor(model => model.objtblLogin.tblEmployee.intDepartmentID, new { @class = " col-md-2" })
+                <div class="col-md-3">
+                    @Html.DropDownListFor(m => m.objtblLogin.tblEmployee.intDepartmentID, @Model.DepartmentModel, new { @class = "form-control", id = "ddlDepartment" })                   
+                    <span id="spnDept" style="display: none; color: #b94a48;">Department is Compulsory!!</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <div class="col-md-12">
+                @Html.LabelFor(model => model.objtblLogin.tblEmployee.intDesignationId, new { @class = " col-md-2" })
+                <div class="col-md-3">
+                    @Html.DropDownListFor(m => m.objtblLogin.tblEmployee.intDesignationId, @Model.DesignationModel, new { @class = "form-control", id = "ddlDesignation" })                   
+                    <span id="spnDesig" style="display: none; color: #b94a48;">Designation is Compulsory!!</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-12">
+                @Html.LabelFor(model => model.objtblLogin.tblEmployee.varDOJ, new { @class = " col-md-2" })
+                <div class="col-md-3">
+                    @Html.TextBoxFor(m => m.objtblLogin.tblEmployee.varDOJ, new { @class = "form-control", type = "date" })
+                    @Html.ValidationMessageFor(model => model.objtblLogin.tblEmployee.varDOJ)
+                </div>
+            </div>
+        </div>
+        
+    @*<div class="form-group">
+            <div class="col-md-12">
+                @Html.LabelFor(model => model.objtblLogin.varLoginName, new { @class = " col-md-2" })
+                <div class="col-md-3">
+                    @Html.TextBoxFor(m => m.objtblLogin.varLoginName, new { @class = "form-control", @Placeholder = "abc@a4technology.com", id = "txtLoginName" })
+                    @Html.ValidationMessageFor(model => model.objtblLogin.varLoginName)
+                </div>
+            </div>
+        </div>*@
+        <div class="form-group">
+            <div class="col-md-12">
+                @Html.LabelFor(model => model.objtblLogin.varPassword, new { @class = " col-md-2" })
+                <div class="col-md-3">
+                    @Html.TextBoxFor(m => m.objtblLogin.varPassword, new { @class = "form-control", @Placeholder = "Password", id = "txtPassword", type = "password", minlength = "6" })
+                    @Html.ValidationMessageFor(model => model.objtblLogin.varPassword)
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-12">
+                @Html.LabelFor(model => model.varConfirmPassword, new { @class = "col-md-2" })
+                <div class="col-md-3">
+                    @Html.TextBoxFor(m => m.varConfirmPassword, new { @class = "form-control", @Placeholder = "Password", id = "txtPassword", type = "password", minlength = "6" })
+                    @Html.ValidationMessageFor(model => model.varConfirmPassword)
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-12">
+                @Html.LabelFor(model => model.objtblLogin.tblEmployee.intReportingHead, new { @class = " col-md-2" })
+                <div class="col-md-3">
+                    @Html.DropDownListFor(m => m.objtblLogin.tblEmployee.intReportingHead, @Model.EmployeeModel, new { @class = "form-control", id = "ddlReportingHead" })
+                    @*@Html.ValidationMessageFor(model => model.tblEmployee.intReportingHead)*@
+                    <span id="spnReptHead" style="display: none; color: #b94a48;">Reporting Head is Compulsory!!</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-12">
+                @*@Html.LabelFor(model => model.AccessId, new { @class = " col-md-2" })*@
+                @Html.Label("Access Levels", new { @class = " col-md-2" })
+                <div class="col-md-3">
+                    @Html.ListBoxFor(m => m.AccessId, @Model.AccessList as MultiSelectList, new { @class = "form-control", id = "lstAccess", name = "lstAccess" })
+                    @Html.ValidationMessageFor(model => model.tblEmployee.intReportingHead)
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-12">
+                @Html.LabelFor(model => model.objtblLogin.tblEmployee.IsActive, new { @class = " col-md-2" })
+                <div class="col-md-3">
+                    @Html.RadioButtonFor(model => model.objtblLogin.tblEmployee.IsActive, true, new { @checked = true })Active  &nbsp;
+                    @Html.RadioButtonFor(model => model.objtblLogin.tblEmployee.IsActive, false) InActive
+                    @Html.ValidationMessageFor(model => model.objtblLogin.tblEmployee.IsActive)
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create " id="btnCreate" class="btn btn-primary" onclick="fnValidation();" />
+                <input type="reset" value="Reset" class="btn btn-primary" onclick="fnReset();" />
+            </div>
+        </div>
+    </div>
+}
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+@*<tr>
+        <td style="width:150px">Access Levels</td>
+        <td>
+            <div id="divStudentlist" style="height: 200px; overflow: auto;border:solid 1px black; width:230px;">
+                @foreach (var names in @Model.AccessList)
+                {
+                    var checkBoxId = "chk" + names.Value;
+                    var tdId = "td" + names.Value;
+                    <table width="100%">
+                        <tr>
+                            <td style="width:2px">
+                                <input type="checkbox" id="@checkBoxId" style="margin-left:20px" value="@names.Value" />
+                            </td>
+                            <td id="@tdId" style="margin-left:-20px;width:100px">
+                                @names.Text
+                            </td>
+                        </tr>
+                    </table>
+                }
+            </div>
+        </td>
+    </tr>*@               

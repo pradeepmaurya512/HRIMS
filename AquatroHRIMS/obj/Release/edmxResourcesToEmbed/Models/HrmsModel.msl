@@ -1,0 +1,548 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="HRIMSModelStoreContainer" CdmEntityContainer="HRIMSdbEntities">
+    <EntitySetMapping Name="tblAccesses">
+      <EntityTypeMapping TypeName="HRIMSModel.tblAccess">
+        <MappingFragment StoreEntitySet="tblAccess">
+          <ScalarProperty Name="intAccessID" ColumnName="intAccessID" />
+          <ScalarProperty Name="varAccessName" ColumnName="varAccessName" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="dtCreatedOn" ColumnName="dtCreatedOn" />
+          <ScalarProperty Name="dtUpdatedOn" ColumnName="dtUpdatedOn" />
+          <ScalarProperty Name="intCreatedby" ColumnName="intCreatedby" />
+          <ScalarProperty Name="intUpdatedby" ColumnName="intUpdatedby" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblActivityDetails">
+      <EntityTypeMapping TypeName="HRIMSModel.tblActivityDetail">
+        <MappingFragment StoreEntitySet="tblActivityDetails">
+          <ScalarProperty Name="intActivityID" ColumnName="intActivityID" />
+          <ScalarProperty Name="varActivityName" ColumnName="varActivityName" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="dtCreatedOn" ColumnName="dtCreatedOn" />
+          <ScalarProperty Name="dtUpdatedOn" ColumnName="dtUpdatedOn" />
+          <ScalarProperty Name="intCreatedby" ColumnName="intCreatedby" />
+          <ScalarProperty Name="intUpdatedby" ColumnName="intUpdatedby" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblAllowances">
+      <EntityTypeMapping TypeName="HRIMSModel.tblAllowance">
+        <MappingFragment StoreEntitySet="tblAllowances">
+          <ScalarProperty Name="intAllowancesID" ColumnName="intAllowancesID" />
+          <ScalarProperty Name="varAllowancesName" ColumnName="varAllowancesName" />
+          <ScalarProperty Name="dtCreatedOn" ColumnName="dtCreatedOn" />
+          <ScalarProperty Name="dtUpdatedOn" ColumnName="dtUpdatedOn" />
+          <ScalarProperty Name="intCreatedby" ColumnName="intCreatedby" />
+          <ScalarProperty Name="intUpdatedby" ColumnName="intUpdatedby" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblAllowancesManagements">
+      <EntityTypeMapping TypeName="HRIMSModel.tblAllowancesManagement">
+        <MappingFragment StoreEntitySet="tblAllowancesManagement">
+          <ScalarProperty Name="intAllowancesMgtID" ColumnName="intAllowancesMgtID" />
+          <ScalarProperty Name="intEmployeeID" ColumnName="intEmployeeID" />
+          <ScalarProperty Name="intAllowancesID" ColumnName="intAllowancesID" />
+          <ScalarProperty Name="varAllowancesAmount" ColumnName="varAllowancesAmount" />
+          <ScalarProperty Name="dtCreatedOn" ColumnName="dtCreatedOn" />
+          <ScalarProperty Name="dtUpdatedOn" ColumnName="dtUpdatedOn" />
+          <ScalarProperty Name="intCreatedby" ColumnName="intCreatedby" />
+          <ScalarProperty Name="intUpdatedby" ColumnName="intUpdatedby" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblCities">
+      <EntityTypeMapping TypeName="HRIMSModel.tblCity">
+        <MappingFragment StoreEntitySet="tblCity">
+          <ScalarProperty Name="intCityID" ColumnName="intCityID" />
+          <ScalarProperty Name="varCityName" ColumnName="varCityName" />
+          <ScalarProperty Name="dtCreatedOn" ColumnName="dtCreatedOn" />
+          <ScalarProperty Name="dtUpdatedOn" ColumnName="dtUpdatedOn" />
+          <ScalarProperty Name="intCreatedby" ColumnName="intCreatedby" />
+          <ScalarProperty Name="intUpdatedby" ColumnName="intUpdatedby" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblClientDetails">
+      <EntityTypeMapping TypeName="HRIMSModel.tblClientDetail">
+        <MappingFragment StoreEntitySet="tblClientDetails">
+          <ScalarProperty Name="intClientID" ColumnName="intClientID" />
+          <ScalarProperty Name="varClientName" ColumnName="varClientName" />
+          <ScalarProperty Name="varClientEmailID" ColumnName="varClientEmailID" />
+          <ScalarProperty Name="varClientDescription" ColumnName="varClientDescription" />
+          <ScalarProperty Name="dtCreatedOn" ColumnName="dtCreatedOn" />
+          <ScalarProperty Name="dtUpdatedOn" ColumnName="dtUpdatedOn" />
+          <ScalarProperty Name="intCreatedby" ColumnName="intCreatedby" />
+          <ScalarProperty Name="intUpdatedby" ColumnName="intUpdatedby" />
+          <ScalarProperty Name="varClientPhoneNo" ColumnName="varClientPhoneNo" />
+          <ScalarProperty Name="varClientAddress" ColumnName="varClientAddress" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblClientTeams">
+      <EntityTypeMapping TypeName="HRIMSModel.tblClientTeam">
+        <MappingFragment StoreEntitySet="tblClientTeam">
+          <ScalarProperty Name="intClientTeamID" ColumnName="intClientTeamID" />
+          <ScalarProperty Name="varClientTeamMemName" ColumnName="varClientTeamMemName" />
+          <ScalarProperty Name="intActive" ColumnName="intActive" />
+          <ScalarProperty Name="dtCreatedOn" ColumnName="dtCreatedOn" />
+          <ScalarProperty Name="dtUpdatedOn" ColumnName="dtUpdatedOn" />
+          <ScalarProperty Name="intCreatedby" ColumnName="intCreatedby" />
+          <ScalarProperty Name="intUpdatedby" ColumnName="intUpdatedby" />
+          <ScalarProperty Name="varClientTeamMemEmail" ColumnName="varClientTeamMemEmail" />
+          <ScalarProperty Name="intClientId" ColumnName="intClientId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblCountries">
+      <EntityTypeMapping TypeName="HRIMSModel.tblCountry">
+        <MappingFragment StoreEntitySet="tblCountry">
+          <ScalarProperty Name="intCountryID" ColumnName="intCountryID" />
+          <ScalarProperty Name="varCountryName" ColumnName="varCountryName" />
+          <ScalarProperty Name="dtCreatedOn" ColumnName="dtCreatedOn" />
+          <ScalarProperty Name="dtUpdatedOn" ColumnName="dtUpdatedOn" />
+          <ScalarProperty Name="intCreatedby" ColumnName="intCreatedby" />
+          <ScalarProperty Name="intUpdatedby" ColumnName="intUpdatedby" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblDepartments">
+      <EntityTypeMapping TypeName="HRIMSModel.tblDepartment">
+        <MappingFragment StoreEntitySet="tblDepartment">
+          <ScalarProperty Name="intDepartmentID" ColumnName="intDepartmentID" />
+          <ScalarProperty Name="varDepartmentName" ColumnName="varDepartmentName" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="dtCreatedOn" ColumnName="dtCreatedOn" />
+          <ScalarProperty Name="dtUpdatedOn" ColumnName="dtUpdatedOn" />
+          <ScalarProperty Name="intCreatedby" ColumnName="intCreatedby" />
+          <ScalarProperty Name="intUpdatedby" ColumnName="intUpdatedby" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblDesignations">
+      <EntityTypeMapping TypeName="HRIMSModel.tblDesignation">
+        <MappingFragment StoreEntitySet="tblDesignation">
+          <ScalarProperty Name="intDesignationID" ColumnName="intDesignationID" />
+          <ScalarProperty Name="varDesignationName" ColumnName="varDesignationName" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="dtCreatedOn" ColumnName="dtCreatedOn" />
+          <ScalarProperty Name="dtUpdatedOn" ColumnName="dtUpdatedOn" />
+          <ScalarProperty Name="intCreatedby" ColumnName="intCreatedby" />
+          <ScalarProperty Name="intUpdatedby" ColumnName="intUpdatedby" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblEmployees">
+      <EntityTypeMapping TypeName="HRIMSModel.tblEmployee">
+        <MappingFragment StoreEntitySet="tblEmployee">
+          <ScalarProperty Name="intEmployeeID" ColumnName="intEmployeeID" />
+          <ScalarProperty Name="varFirstName" ColumnName="varFirstName" />
+          <ScalarProperty Name="varLastName" ColumnName="varLastName" />
+          <ScalarProperty Name="varMiddleName" ColumnName="varMiddleName" />
+          <ScalarProperty Name="intEmpRoleID" ColumnName="intEmpRoleID" />
+          <ScalarProperty Name="intDesignationId" ColumnName="intDesignationId" />
+          <ScalarProperty Name="varCurrAddressLine1" ColumnName="varCurrAddressLine1" />
+          <ScalarProperty Name="varCurrAddressLine2" ColumnName="varCurrAddressLine2" />
+          <ScalarProperty Name="intCurrCountryID" ColumnName="intCurrCountryID" />
+          <ScalarProperty Name="intCurrStateID" ColumnName="intCurrStateID" />
+          <ScalarProperty Name="intCurrCityID" ColumnName="intCurrCityID" />
+          <ScalarProperty Name="varCurrPostalCode" ColumnName="varCurrPostalCode" />
+          <ScalarProperty Name="varPhoneNo" ColumnName="varPhoneNo" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="intLeaveBalance" ColumnName="intLeaveBalance" />
+          <ScalarProperty Name="varGender" ColumnName="varGender" />
+          <ScalarProperty Name="charMarritalStatus" ColumnName="charMarritalStatus" />
+          <ScalarProperty Name="varPANNo" ColumnName="varPANNo" />
+          <ScalarProperty Name="varWorkTelNo" ColumnName="varWorkTelNo" />
+          <ScalarProperty Name="intReportingHead" ColumnName="intReportingHead" />
+          <ScalarProperty Name="varOfficeEmailAdd" ColumnName="varOfficeEmailAdd" />
+          <ScalarProperty Name="varPersonalEmailAdd" ColumnName="varPersonalEmailAdd" />
+          <ScalarProperty Name="varFatherSpouceName" ColumnName="varFatherSpouceName" />
+          <ScalarProperty Name="varMotherName" ColumnName="varMotherName" />
+          <ScalarProperty Name="varEmergencyContactName" ColumnName="varEmergencyContactName" />
+          <ScalarProperty Name="varEmergencyContactNumber" ColumnName="varEmergencyContactNumber" />
+          <ScalarProperty Name="intEmergencyContactRelationshipID" ColumnName="intEmergencyContactRelationshipID" />
+          <ScalarProperty Name="intDepartmentID" ColumnName="intDepartmentID" />
+          <ScalarProperty Name="varPermAddressLine1" ColumnName="varPermAddressLine1" />
+          <ScalarProperty Name="varPermAddressLine2" ColumnName="varPermAddressLine2" />
+          <ScalarProperty Name="intPermCountryID" ColumnName="intPermCountryID" />
+          <ScalarProperty Name="intPermStateID" ColumnName="intPermStateID" />
+          <ScalarProperty Name="intPermCityID" ColumnName="intPermCityID" />
+          <ScalarProperty Name="varPermPostalCode" ColumnName="varPermPostalCode" />
+          <ScalarProperty Name="varAccessLevel" ColumnName="varAccessLevel" />
+          <ScalarProperty Name="varDOJ" ColumnName="varDOJ" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblEmployeeGoals">
+      <EntityTypeMapping TypeName="HRIMSModel.tblEmployeeGoal">
+        <MappingFragment StoreEntitySet="tblEmployeeGoals">
+          <ScalarProperty Name="intStatus" ColumnName="intStatus" />
+          <ScalarProperty Name="intTitle" ColumnName="intTitle" />
+          <ScalarProperty Name="intGoalID" ColumnName="intGoalID" />
+          <ScalarProperty Name="varGoalDescription" ColumnName="varGoalDescription" />
+          <ScalarProperty Name="dtStartdate" ColumnName="dtStartdate" />
+          <ScalarProperty Name="dtEndDate" ColumnName="dtEndDate" />
+          <ScalarProperty Name="varCompletion" ColumnName="varCompletion" />
+          <ScalarProperty Name="varManagerComment" ColumnName="varManagerComment" />
+          <ScalarProperty Name="intEmployeeID" ColumnName="intEmployeeID" />
+          <ScalarProperty Name="dtCreatedOn" ColumnName="dtCreatedOn" />
+          <ScalarProperty Name="dtUpdatedOn" ColumnName="dtUpdatedOn" />
+          <ScalarProperty Name="intCreatedby" ColumnName="intCreatedby" />
+          <ScalarProperty Name="intUpdatedby" ColumnName="intUpdatedby" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblEmployeeQualificationDetails">
+      <EntityTypeMapping TypeName="HRIMSModel.tblEmployeeQualificationDetail">
+        <MappingFragment StoreEntitySet="tblEmployeeQualificationDetails">
+          <ScalarProperty Name="intQualificationID" ColumnName="intQualificationID" />
+          <ScalarProperty Name="intEmployeeID" ColumnName="intEmployeeID" />
+          <ScalarProperty Name="varQualificationLevel" ColumnName="varQualificationLevel" />
+          <ScalarProperty Name="varUniversityName" ColumnName="varUniversityName" />
+          <ScalarProperty Name="varSpecialization" ColumnName="varSpecialization" />
+          <ScalarProperty Name="dtStartYear" ColumnName="dtStartYear" />
+          <ScalarProperty Name="dtEndYear" ColumnName="dtEndYear" />
+          <ScalarProperty Name="varPercentage" ColumnName="varPercentage" />
+          <ScalarProperty Name="intCreatedBy" ColumnName="intCreatedBy" />
+          <ScalarProperty Name="dtCreatedOn" ColumnName="dtCreatedOn" />
+          <ScalarProperty Name="intUpdatedBy" ColumnName="intUpdatedBy" />
+          <ScalarProperty Name="dyUpdatedOn" ColumnName="dyUpdatedOn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblHolidayLists">
+      <EntityTypeMapping TypeName="HRIMSModel.tblHolidayList">
+        <MappingFragment StoreEntitySet="tblHolidayList">
+          <ScalarProperty Name="intHolidayListId" ColumnName="intHolidayListId" />
+          <ScalarProperty Name="varOccasionName" ColumnName="varOccasionName" />
+          <ScalarProperty Name="varDescription" ColumnName="varDescription" />
+          <ScalarProperty Name="varDate" ColumnName="varDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="dtCreatedOn" ColumnName="dtCreatedOn" />
+          <ScalarProperty Name="dtUpdatedOn" ColumnName="dtUpdatedOn" />
+          <ScalarProperty Name="intCreatedby" ColumnName="intCreatedby" />
+          <ScalarProperty Name="intUpdatedby" ColumnName="intUpdatedby" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblLeaveTypes">
+      <EntityTypeMapping TypeName="HRIMSModel.tblLeaveType">
+        <MappingFragment StoreEntitySet="tblLeaveType">
+          <ScalarProperty Name="intLeaveTypeID" ColumnName="intLeaveTypeID" />
+          <ScalarProperty Name="varLeaveTypeName" ColumnName="varLeaveTypeName" />
+          <ScalarProperty Name="dtCreatedOn" ColumnName="dtCreatedOn" />
+          <ScalarProperty Name="dtUpdatedOn" ColumnName="dtUpdatedOn" />
+          <ScalarProperty Name="intCreatedby" ColumnName="intCreatedby" />
+          <ScalarProperty Name="intUpdatedby" ColumnName="intUpdatedby" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblLinkDetails">
+      <EntityTypeMapping TypeName="HRIMSModel.tblLinkDetail">
+        <MappingFragment StoreEntitySet="tblLinkDetails">
+          <ScalarProperty Name="iID" ColumnName="iID" />
+          <ScalarProperty Name="sProjectStatus" ColumnName="sProjectStatus" />
+          <ScalarProperty Name="sTechnicalSkill" ColumnName="sTechnicalSkill" />
+          <ScalarProperty Name="sMeetGoals" ColumnName="sMeetGoals" />
+          <ScalarProperty Name="sAttention" ColumnName="sAttention" />
+          <ScalarProperty Name="sPerformance" ColumnName="sPerformance" />
+          <ScalarProperty Name="sImproveComment" ColumnName="sImproveComment" />
+          <ScalarProperty Name="sAdditionalComment" ColumnName="sAdditionalComment" />
+          <ScalarProperty Name="dtCreatedOn" ColumnName="dtCreatedOn" />
+          <ScalarProperty Name="bIsActive" ColumnName="bIsActive" />
+          <ScalarProperty Name="objClientID" ColumnName="objClientID" />
+          <ScalarProperty Name="objEmployeeDetail" ColumnName="objEmployeeDetail" />
+          <ScalarProperty Name="objProjectDetail" ColumnName="objProjectDetail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblLogins">
+      <EntityTypeMapping TypeName="HRIMSModel.tblLogin">
+        <MappingFragment StoreEntitySet="tblLogin">
+          <ScalarProperty Name="intLoginId" ColumnName="intLoginId" />
+          <ScalarProperty Name="varUserName" ColumnName="varUserName" />
+          <ScalarProperty Name="varPassword" ColumnName="varPassword" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="intEmployeeID" ColumnName="intEmployeeID" />
+          <ScalarProperty Name="IsChkLoginCount" ColumnName="IsChkLoginCount" />
+          <ScalarProperty Name="varLoginName" ColumnName="varLoginName" />
+          <ScalarProperty Name="dtCreatedOn" ColumnName="dtCreatedOn" />
+          <ScalarProperty Name="dtUpdatedOn" ColumnName="dtUpdatedOn" />
+          <ScalarProperty Name="intCreatedBy" ColumnName="intCreatedBy" />
+          <ScalarProperty Name="intUpdatedBy" ColumnName="intUpdatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblNews">
+      <EntityTypeMapping TypeName="HRIMSModel.tblNew">
+        <MappingFragment StoreEntitySet="tblNews">
+          <ScalarProperty Name="intNewsID" ColumnName="intNewsID" />
+          <ScalarProperty Name="varNewsTopic" ColumnName="varNewsTopic" />
+          <ScalarProperty Name="varNewsDescription" ColumnName="varNewsDescription" />
+          <ScalarProperty Name="varPublishTo" ColumnName="varPublishTo" />
+          <ScalarProperty Name="intCreatedBy" ColumnName="intCreatedBy" />
+          <ScalarProperty Name="intUpdatedBy" ColumnName="intUpdatedBy" />
+          <ScalarProperty Name="dtCreatedOn" ColumnName="dtCreatedOn" />
+          <ScalarProperty Name="dtUpdatedOn" ColumnName="dtUpdatedOn" />
+          <ScalarProperty Name="intActive" ColumnName="intActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblPaySlips">
+      <EntityTypeMapping TypeName="HRIMSModel.tblPaySlip">
+        <MappingFragment StoreEntitySet="tblPaySlip">
+          <ScalarProperty Name="intPaySlipId" ColumnName="intPaySlipId" />
+          <ScalarProperty Name="intEmployeeID" ColumnName="intEmployeeID" />
+          <ScalarProperty Name="varBasic" ColumnName="varBasic" />
+          <ScalarProperty Name="varHRA" ColumnName="varHRA" />
+          <ScalarProperty Name="varConveyance" ColumnName="varConveyance" />
+          <ScalarProperty Name="intProfessionalTax" ColumnName="intProfessionalTax" />
+          <ScalarProperty Name="intProvidentFund" ColumnName="intProvidentFund" />
+          <ScalarProperty Name="dtCreatedOn" ColumnName="dtCreatedOn" />
+          <ScalarProperty Name="dtUpdatedOn" ColumnName="dtUpdatedOn" />
+          <ScalarProperty Name="intCreatedby" ColumnName="intCreatedby" />
+          <ScalarProperty Name="intUpdatedby" ColumnName="intUpdatedby" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblPositions">
+      <EntityTypeMapping TypeName="HRIMSModel.tblPosition">
+        <MappingFragment StoreEntitySet="tblPositions">
+          <ScalarProperty Name="intPositionId" ColumnName="intPositionId" />
+          <ScalarProperty Name="varPositionName" ColumnName="varPositionName" />
+          <ScalarProperty Name="varPositionDescription" ColumnName="varPositionDescription" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="varStatus" ColumnName="varStatus" />
+          <ScalarProperty Name="dtCreatedOn" ColumnName="dtCreatedOn" />
+          <ScalarProperty Name="dtUpdatedOn" ColumnName="dtUpdatedOn" />
+          <ScalarProperty Name="intCreatedby" ColumnName="intCreatedby" />
+          <ScalarProperty Name="intUpdatedby" ColumnName="intUpdatedby" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblProjectDetails">
+      <EntityTypeMapping TypeName="HRIMSModel.tblProjectDetail">
+        <MappingFragment StoreEntitySet="tblProjectDetails">
+          <ScalarProperty Name="intCompletionID" ColumnName="intCompletionID" />
+          <ScalarProperty Name="intProjectID" ColumnName="intProjectID" />
+          <ScalarProperty Name="varProjectName" ColumnName="varProjectName" />
+          <ScalarProperty Name="intInternalProjectHead" ColumnName="intInternalProjectHead" />
+          <ScalarProperty Name="varProjectDescription" ColumnName="varProjectDescription" />
+          <ScalarProperty Name="dtProjectStartDate" ColumnName="dtProjectStartDate" />
+          <ScalarProperty Name="dtProjectEndDate" ColumnName="dtProjectEndDate" />
+          <ScalarProperty Name="intProjectStatus" ColumnName="intProjectStatus" />
+          <ScalarProperty Name="intClientID" ColumnName="intClientID" />
+          <ScalarProperty Name="varClientProjectHead" ColumnName="varClientProjectHead" />
+          <ScalarProperty Name="varTeamMemDetails" ColumnName="varTeamMemDetails" />
+          <ScalarProperty Name="dtCreatedOn" ColumnName="dtCreatedOn" />
+          <ScalarProperty Name="dtUpdatedOn" ColumnName="dtUpdatedOn" />
+          <ScalarProperty Name="intCreatedby" ColumnName="intCreatedby" />
+          <ScalarProperty Name="intUpdatedby" ColumnName="intUpdatedby" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblRecruitments">
+      <EntityTypeMapping TypeName="HRIMSModel.tblRecruitment">
+        <MappingFragment StoreEntitySet="tblRecruitment">
+          <ScalarProperty Name="intRecruitmentID" ColumnName="intRecruitmentID" />
+          <ScalarProperty Name="varFirstName" ColumnName="varFirstName" />
+          <ScalarProperty Name="varMiddleName" ColumnName="varMiddleName" />
+          <ScalarProperty Name="varLastName" ColumnName="varLastName" />
+          <ScalarProperty Name="varEmailID" ColumnName="varEmailID" />
+          <ScalarProperty Name="varMobileNum" ColumnName="varMobileNum" />
+          <ScalarProperty Name="intPositionID" ColumnName="intPositionID" />
+          <ScalarProperty Name="varResume" ColumnName="varResume" />
+          <ScalarProperty Name="dtApplicationDate" ColumnName="dtApplicationDate" />
+          <ScalarProperty Name="varComment" ColumnName="varComment" />
+          <ScalarProperty Name="varStatus" ColumnName="varStatus" />
+          <ScalarProperty Name="dtCreatedOn" ColumnName="dtCreatedOn" />
+          <ScalarProperty Name="dtUpdatedOn" ColumnName="dtUpdatedOn" />
+          <ScalarProperty Name="intCreatedby" ColumnName="intCreatedby" />
+          <ScalarProperty Name="intUpdatedby" ColumnName="intUpdatedby" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblRecruitmentTypes">
+      <EntityTypeMapping TypeName="HRIMSModel.tblRecruitmentType">
+        <MappingFragment StoreEntitySet="tblRecruitmentType">
+          <ScalarProperty Name="intRecruitmentTypeID" ColumnName="intRecruitmentTypeID" />
+          <ScalarProperty Name="varRecruitmentType" ColumnName="varRecruitmentType" />
+          <ScalarProperty Name="varPositionDescription" ColumnName="varPositionDescription" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="dtCreatedOn" ColumnName="dtCreatedOn" />
+          <ScalarProperty Name="dtUpdatedOn" ColumnName="dtUpdatedOn" />
+          <ScalarProperty Name="intCreatedby" ColumnName="intCreatedby" />
+          <ScalarProperty Name="intUpdatedby" ColumnName="intUpdatedby" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblStates">
+      <EntityTypeMapping TypeName="HRIMSModel.tblState">
+        <MappingFragment StoreEntitySet="tblState">
+          <ScalarProperty Name="intStateID" ColumnName="intStateID" />
+          <ScalarProperty Name="varStateName" ColumnName="varStateName" />
+          <ScalarProperty Name="dtCreatedOn" ColumnName="dtCreatedOn" />
+          <ScalarProperty Name="dtUpdatedOn" ColumnName="dtUpdatedOn" />
+          <ScalarProperty Name="intCreatedby" ColumnName="intCreatedby" />
+          <ScalarProperty Name="intUpdatedby" ColumnName="intUpdatedby" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblStatus">
+      <EntityTypeMapping TypeName="HRIMSModel.tblStatus">
+        <MappingFragment StoreEntitySet="tblStatus">
+          <ScalarProperty Name="intStatusID" ColumnName="intStatusID" />
+          <ScalarProperty Name="varStatus" ColumnName="varStatus" />
+          <ScalarProperty Name="intCreatedby" ColumnName="intCreatedby" />
+          <ScalarProperty Name="intUpdatedby" ColumnName="intUpdatedby" />
+          <ScalarProperty Name="dtCreatedOn" ColumnName="dtCreatedOn" />
+          <ScalarProperty Name="dtUpdatedOn" ColumnName="dtUpdatedOn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblTimeSheets">
+      <EntityTypeMapping TypeName="HRIMSModel.tblTimeSheet">
+        <MappingFragment StoreEntitySet="tblTimeSheet">
+          <ScalarProperty Name="intTimesheetId" ColumnName="intTimesheetId" />
+          <ScalarProperty Name="intClientID" ColumnName="intClientID" />
+          <ScalarProperty Name="intProjectID" ColumnName="intProjectID" />
+          <ScalarProperty Name="intActivityID" ColumnName="intActivityID" />
+          <ScalarProperty Name="varActivityDescription" ColumnName="varActivityDescription" />
+          <ScalarProperty Name="varTimeSlot" ColumnName="varTimeSlot" />
+          <ScalarProperty Name="dtTimesheetDate" ColumnName="dtTimesheetDate" />
+          <ScalarProperty Name="intEmployeeID" ColumnName="intEmployeeID" />
+          <ScalarProperty Name="dtCreatedOn" ColumnName="dtCreatedOn" />
+          <ScalarProperty Name="dtUpdatedOn" ColumnName="dtUpdatedOn" />
+          <ScalarProperty Name="intCreatedby" ColumnName="intCreatedby" />
+          <ScalarProperty Name="intUpdatedby" ColumnName="intUpdatedby" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblTrainings">
+      <EntityTypeMapping TypeName="HRIMSModel.tblTraining">
+        <MappingFragment StoreEntitySet="tblTrainings">
+          <ScalarProperty Name="intTrainingID" ColumnName="intTrainingID" />
+          <ScalarProperty Name="varTrainigsName" ColumnName="varTrainigsName" />
+          <ScalarProperty Name="intTrainerID" ColumnName="intTrainerID" />
+          <ScalarProperty Name="varTrainingStartDate" ColumnName="varTrainingStartDate" />
+          <ScalarProperty Name="varTrainingEndDate" ColumnName="varTrainingEndDate" />
+          <ScalarProperty Name="varTrainingDetails" ColumnName="varTrainingDetails" />
+          <ScalarProperty Name="varStatus" ColumnName="varStatus" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="dtCreatedOn" ColumnName="dtCreatedOn" />
+          <ScalarProperty Name="dtUpdatedOn" ColumnName="dtUpdatedOn" />
+          <ScalarProperty Name="intCreatedBy" ColumnName="intCreatedBy" />
+          <ScalarProperty Name="intUpdatedBy" ColumnName="intUpdatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblUserLeaveManagements">
+      <EntityTypeMapping TypeName="HRIMSModel.tblUserLeaveManagement">
+        <MappingFragment StoreEntitySet="tblUserLeaveManagement">
+          <ScalarProperty Name="intLeaveMgtID" ColumnName="intLeaveMgtID" />
+          <ScalarProperty Name="intEmployeeID" ColumnName="intEmployeeID" />
+          <ScalarProperty Name="dtLeaveStartDate" ColumnName="dtLeaveStartDate" />
+          <ScalarProperty Name="dtLeaveEndDate" ColumnName="dtLeaveEndDate" />
+          <ScalarProperty Name="varLeaveDescription" ColumnName="varLeaveDescription" />
+          <ScalarProperty Name="intLeaveTypeId" ColumnName="intLeaveTypeId" />
+          <ScalarProperty Name="varStatus" ColumnName="varStatus" />
+          <ScalarProperty Name="varManagerComment" ColumnName="varManagerComment" />
+          <ScalarProperty Name="dtCreatedOn" ColumnName="dtCreatedOn" />
+          <ScalarProperty Name="dtUpdatedOn" ColumnName="dtUpdatedOn" />
+          <ScalarProperty Name="intCreatedby" ColumnName="intCreatedby" />
+          <ScalarProperty Name="intUpdatedby" ColumnName="intUpdatedby" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblUserRelationships">
+      <EntityTypeMapping TypeName="HRIMSModel.tblUserRelationship">
+        <MappingFragment StoreEntitySet="tblUserRelationship">
+          <ScalarProperty Name="intRelationshipID" ColumnName="intRelationshipID" />
+          <ScalarProperty Name="varRelationshipName" ColumnName="varRelationshipName" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="dtCreatedOn" ColumnName="dtCreatedOn" />
+          <ScalarProperty Name="dtUpdatedOn" ColumnName="dtUpdatedOn" />
+          <ScalarProperty Name="intCreatedby" ColumnName="intCreatedby" />
+          <ScalarProperty Name="intUpdatedby" ColumnName="intUpdatedby" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblUserRoles">
+      <EntityTypeMapping TypeName="HRIMSModel.tblUserRole">
+        <MappingFragment StoreEntitySet="tblUserRole">
+          <ScalarProperty Name="intUserRoleID" ColumnName="intUserRoleID" />
+          <ScalarProperty Name="varRoleName" ColumnName="varRoleName" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="dtCreatedOn" ColumnName="dtCreatedOn" />
+          <ScalarProperty Name="dtUpdatedOn" ColumnName="dtUpdatedOn" />
+          <ScalarProperty Name="intCreatedby" ColumnName="intCreatedby" />
+          <ScalarProperty Name="intUpdatedby" ColumnName="intUpdatedby" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblVacancises">
+      <EntityTypeMapping TypeName="HRIMSModel.tblVacancise">
+        <MappingFragment StoreEntitySet="tblVacancise">
+          <ScalarProperty Name="intVacanciseID" ColumnName="intVacanciseID" />
+          <ScalarProperty Name="intPositionID" ColumnName="intPositionID" />
+          <ScalarProperty Name="varExperience" ColumnName="varExperience" />
+          <ScalarProperty Name="varJobLocation" ColumnName="varJobLocation" />
+          <ScalarProperty Name="intNoOfPositions" ColumnName="intNoOfPositions" />
+          <ScalarProperty Name="varJobDescription" ColumnName="varJobDescription" />
+          <ScalarProperty Name="varPublisher" ColumnName="varPublisher" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="dtCreatedOn" ColumnName="dtCreatedOn" />
+          <ScalarProperty Name="dtUpdatedOn" ColumnName="dtUpdatedOn" />
+          <ScalarProperty Name="intCreatedby" ColumnName="intCreatedby" />
+          <ScalarProperty Name="intUpdatedby" ColumnName="intUpdatedby" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblWorkExperiences">
+      <EntityTypeMapping TypeName="HRIMSModel.tblWorkExperience">
+        <MappingFragment StoreEntitySet="tblWorkExperience">
+          <ScalarProperty Name="intWorkExpID" ColumnName="intWorkExpID" />
+          <ScalarProperty Name="intEmployeeID" ColumnName="intEmployeeID" />
+          <ScalarProperty Name="varCompanyName" ColumnName="varCompanyName" />
+          <ScalarProperty Name="varDesignation" ColumnName="varDesignation" />
+          <ScalarProperty Name="varJobProfile" ColumnName="varJobProfile" />
+          <ScalarProperty Name="dtFromDate" ColumnName="dtFromDate" />
+          <ScalarProperty Name="dtEndDate" ColumnName="dtEndDate" />
+          <ScalarProperty Name="intCreatedBy" ColumnName="intCreatedBy" />
+          <ScalarProperty Name="dtCreatedOn" ColumnName="dtCreatedOn" />
+          <ScalarProperty Name="intUpdatedBy" ColumnName="intUpdatedBy" />
+          <ScalarProperty Name="dtUpdatedOn" ColumnName="dtUpdatedOn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblCompletions">
+      <EntityTypeMapping TypeName="HRIMSModel.tblCompletion">
+        <MappingFragment StoreEntitySet="tblCompletion">
+          <ScalarProperty Name="intUpdatedBy" ColumnName="intUpdatedBy" />
+          <ScalarProperty Name="dtUpdatedOn" ColumnName="dtUpdatedOn" />
+          <ScalarProperty Name="intCreatedby" ColumnName="intCreatedby" />
+          <ScalarProperty Name="dtCreatedOn" ColumnName="dtCreatedOn" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="varComplition" ColumnName="varComplition" />
+          <ScalarProperty Name="intCompletionId" ColumnName="intCompletionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblGoalTitles">
+      <EntityTypeMapping TypeName="HRIMSModel.tblGoalTitle">
+        <MappingFragment StoreEntitySet="tblGoalTitle">
+          <ScalarProperty Name="dtUpdatedOn" ColumnName="dtUpdatedOn" />
+          <ScalarProperty Name="intUpdatedBy" ColumnName="intUpdatedBy" />
+          <ScalarProperty Name="dtCreatedOn" ColumnName="dtCreatedOn" />
+          <ScalarProperty Name="intCreatedBy" ColumnName="intCreatedBy" />
+          <ScalarProperty Name="varTitleDesc" ColumnName="varTitleDesc" />
+          <ScalarProperty Name="varTitleName" ColumnName="varTitleName" />
+          <ScalarProperty Name="intTilteID" ColumnName="intTilteID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,2832 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="HRIMSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tblAccess">
+          <Key>
+            <PropertyRef Name="intAccessID" />
+          </Key>
+          <Property Name="intAccessID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="varAccessName" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="dtCreatedOn" Type="datetime" />
+          <Property Name="dtUpdatedOn" Type="datetime" />
+          <Property Name="intCreatedby" Type="int" />
+          <Property Name="intUpdatedby" Type="int" />
+        </EntityType>
+        <EntityType Name="tblActivityDetails">
+          <Key>
+            <PropertyRef Name="intActivityID" />
+          </Key>
+          <Property Name="intActivityID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="varActivityName" Type="varchar" MaxLength="500" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="dtCreatedOn" Type="datetime" />
+          <Property Name="dtUpdatedOn" Type="datetime" />
+          <Property Name="intCreatedby" Type="int" />
+          <Property Name="intUpdatedby" Type="int" />
+        </EntityType>
+        <EntityType Name="tblAllowances">
+          <Key>
+            <PropertyRef Name="intAllowancesID" />
+          </Key>
+          <Property Name="intAllowancesID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="varAllowancesName" Type="varchar" MaxLength="500" />
+          <Property Name="dtCreatedOn" Type="datetime" />
+          <Property Name="dtUpdatedOn" Type="datetime" />
+          <Property Name="intCreatedby" Type="int" />
+          <Property Name="intUpdatedby" Type="int" />
+        </EntityType>
+        <EntityType Name="tblAllowancesManagement">
+          <Key>
+            <PropertyRef Name="intAllowancesMgtID" />
+          </Key>
+          <Property Name="intAllowancesMgtID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="intEmployeeID" Type="int" />
+          <Property Name="intAllowancesID" Type="int" />
+          <Property Name="varAllowancesAmount" Type="money" />
+          <Property Name="dtCreatedOn" Type="datetime" />
+          <Property Name="dtUpdatedOn" Type="datetime" />
+          <Property Name="intCreatedby" Type="int" />
+          <Property Name="intUpdatedby" Type="int" />
+        </EntityType>
+        <EntityType Name="tblCity">
+          <Key>
+            <PropertyRef Name="intCityID" />
+          </Key>
+          <Property Name="intCityID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="varCityName" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="dtCreatedOn" Type="datetime" />
+          <Property Name="dtUpdatedOn" Type="datetime" />
+          <Property Name="intCreatedby" Type="int" />
+          <Property Name="intUpdatedby" Type="int" />
+        </EntityType>
+        <EntityType Name="tblClientDetails">
+          <Key>
+            <PropertyRef Name="intClientID" />
+          </Key>
+          <Property Name="intClientID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="varClientName" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="varClientEmailID" Type="varchar" MaxLength="200" />
+          <Property Name="varClientDescription" Type="varchar" MaxLength="500" />
+          <Property Name="dtCreatedOn" Type="datetime" />
+          <Property Name="dtUpdatedOn" Type="datetime" />
+          <Property Name="intCreatedby" Type="int" />
+          <Property Name="intUpdatedby" Type="int" />
+          <Property Name="varClientAddress" Type="varchar(max)" />
+          <Property Name="varClientPhoneNo" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblClientTeam">
+          <Key>
+            <PropertyRef Name="intClientTeamID" />
+          </Key>
+          <Property Name="intClientTeamID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="varClientTeamMemName" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="intActive" Type="bit" />
+          <Property Name="dtCreatedOn" Type="datetime" />
+          <Property Name="dtUpdatedOn" Type="datetime" />
+          <Property Name="intCreatedby" Type="int" />
+          <Property Name="intUpdatedby" Type="int" />
+          <Property Name="varClientTeamMemEmail" Type="varchar" MaxLength="100" />
+          <Property Name="intClientId" Type="int" />
+        </EntityType>
+        <EntityType Name="tblCompletion">
+          <Key>
+            <PropertyRef Name="intCompletionId" />
+          </Key>
+          <Property Name="intCompletionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="varComplition" Type="varchar" MaxLength="500" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="dtCreatedOn" Type="datetime" />
+          <Property Name="intCreatedby" Type="int" />
+          <Property Name="dtUpdatedOn" Type="datetime" />
+          <Property Name="intUpdatedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="tblCountry">
+          <Key>
+            <PropertyRef Name="intCountryID" />
+          </Key>
+          <Property Name="intCountryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="varCountryName" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="dtCreatedOn" Type="datetime" />
+          <Property Name="dtUpdatedOn" Type="datetime" />
+          <Property Name="intCreatedby" Type="int" />
+          <Property Name="intUpdatedby" Type="int" />
+        </EntityType>
+        <EntityType Name="tblDepartment">
+          <Key>
+            <PropertyRef Name="intDepartmentID" />
+          </Key>
+          <Property Name="intDepartmentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="varDepartmentName" Type="varchar" MaxLength="500" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="dtCreatedOn" Type="datetime" />
+          <Property Name="dtUpdatedOn" Type="datetime" />
+          <Property Name="intCreatedby" Type="int" />
+          <Property Name="intUpdatedby" Type="int" />
+        </EntityType>
+        <EntityType Name="tblDesignation">
+          <Key>
+            <PropertyRef Name="intDesignationID" />
+          </Key>
+          <Property Name="intDesignationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="varDesignationName" Type="varchar" MaxLength="500" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="dtCreatedOn" Type="datetime" />
+          <Property Name="dtUpdatedOn" Type="datetime" />
+          <Property Name="intCreatedby" Type="int" />
+          <Property Name="intUpdatedby" Type="int" />
+        </EntityType>
+        <EntityType Name="tblEmployee">
+          <Key>
+            <PropertyRef Name="intEmployeeID" />
+          </Key>
+          <Property Name="intEmployeeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="varFirstName" Type="varchar" MaxLength="500" />
+          <Property Name="varLastName" Type="varchar" MaxLength="500" />
+          <Property Name="varMiddleName" Type="varchar" MaxLength="500" />
+          <Property Name="intEmpRoleID" Type="int" />
+          <Property Name="intDesignationId" Type="int" />
+          <Property Name="varCurrAddressLine1" Type="varchar(max)" />
+          <Property Name="varCurrAddressLine2" Type="varchar(max)" />
+          <Property Name="intCurrCountryID" Type="int" />
+          <Property Name="intCurrStateID" Type="int" />
+          <Property Name="intCurrCityID" Type="int" />
+          <Property Name="varCurrPostalCode" Type="varchar" MaxLength="100" />
+          <Property Name="varPhoneNo" Type="varchar" MaxLength="100" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="intLeaveBalance" Type="int" />
+          <Property Name="varGender" Type="varchar" MaxLength="100" />
+          <Property Name="charMarritalStatus" Type="char" MaxLength="1" />
+          <Property Name="varPANNo" Type="varchar" MaxLength="500" />
+          <Property Name="varWorkTelNo" Type="varchar" MaxLength="500" />
+          <Property Name="intReportingHead" Type="int" />
+          <Property Name="varOfficeEmailAdd" Type="varchar" MaxLength="500" />
+          <Property Name="varPersonalEmailAdd" Type="varchar" MaxLength="500" />
+          <Property Name="varFatherSpouceName" Type="varchar" MaxLength="500" />
+          <Property Name="varMotherName" Type="varchar" MaxLength="500" />
+          <Property Name="varEmergencyContactName" Type="varchar" MaxLength="500" />
+          <Property Name="varEmergencyContactNumber" Type="varchar" MaxLength="500" />
+          <Property Name="intEmergencyContactRelationshipID" Type="int" />
+          <Property Name="intDepartmentID" Type="int" />
+          <Property Name="varPermAddressLine1" Type="varchar(max)" />
+          <Property Name="varPermAddressLine2" Type="varchar(max)" />
+          <Property Name="intPermCountryID" Type="int" />
+          <Property Name="intPermStateID" Type="int" />
+          <Property Name="intPermCityID" Type="int" />
+          <Property Name="varPermPostalCode" Type="varchar" MaxLength="100" />
+          <Property Name="varAccessLevel" Type="varchar" MaxLength="100" />
+          <Property Name="varDOJ" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tblEmployeeGoals">
+          <Key>
+            <PropertyRef Name="intGoalID" />
+          </Key>
+          <Property Name="intGoalID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="intTitle" Type="int" />
+          <Property Name="varGoalDescription" Type="varchar(max)" />
+          <Property Name="dtStartdate" Type="datetime" />
+          <Property Name="dtEndDate" Type="datetime" />
+          <Property Name="intStatus" Type="int" />
+          <Property Name="varCompletion" Type="varchar" MaxLength="100" />
+          <Property Name="varManagerComment" Type="varchar" MaxLength="500" />
+          <Property Name="intEmployeeID" Type="int" />
+          <Property Name="dtCreatedOn" Type="datetime" />
+          <Property Name="dtUpdatedOn" Type="datetime" />
+          <Property Name="intCreatedby" Type="int" />
+          <Property Name="intUpdatedby" Type="int" />
+        </EntityType>
+        <EntityType Name="tblEmployeeQualificationDetails">
+          <Key>
+            <PropertyRef Name="intQualificationID" />
+          </Key>
+          <Property Name="intQualificationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="intEmployeeID" Type="int" />
+          <Property Name="varQualificationLevel" Type="nvarchar" MaxLength="500" />
+          <Property Name="varUniversityName" Type="nvarchar" MaxLength="500" />
+          <Property Name="varSpecialization" Type="nvarchar" MaxLength="500" />
+          <Property Name="dtStartYear" Type="datetime" />
+          <Property Name="dtEndYear" Type="datetime" />
+          <Property Name="varPercentage" Type="nvarchar" MaxLength="500" />
+          <Property Name="intCreatedBy" Type="int" />
+          <Property Name="dtCreatedOn" Type="datetime" />
+          <Property Name="intUpdatedBy" Type="int" />
+          <Property Name="dyUpdatedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tblGoalTitle">
+          <Key>
+            <PropertyRef Name="intTilteID" />
+          </Key>
+          <Property Name="intTilteID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="varTitleName" Type="varchar" MaxLength="500" />
+          <Property Name="varTitleDesc" Type="varchar(max)" />
+          <Property Name="intCreatedBy" Type="int" />
+          <Property Name="dtCreatedOn" Type="datetime" />
+          <Property Name="intUpdatedBy" Type="int" />
+          <Property Name="dtUpdatedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tblHolidayList">
+          <Key>
+            <PropertyRef Name="intHolidayListId" />
+          </Key>
+          <Property Name="intHolidayListId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="varOccasionName" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="varDescription" Type="varchar(max)" />
+          <Property Name="varDate" Type="datetime" Nullable="false" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="dtCreatedOn" Type="datetime" />
+          <Property Name="dtUpdatedOn" Type="datetime" />
+          <Property Name="intCreatedby" Type="int" />
+          <Property Name="intUpdatedby" Type="int" />
+        </EntityType>
+        <EntityType Name="tblLeaveType">
+          <Key>
+            <PropertyRef Name="intLeaveTypeID" />
+          </Key>
+          <Property Name="intLeaveTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="varLeaveTypeName" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="dtCreatedOn" Type="datetime" />
+          <Property Name="dtUpdatedOn" Type="datetime" />
+          <Property Name="intCreatedby" Type="int" />
+          <Property Name="intUpdatedby" Type="int" />
+        </EntityType>
+        <EntityType Name="tblLinkDetails">
+          <Key>
+            <PropertyRef Name="iID" />
+          </Key>
+          <Property Name="iID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sProjectStatus" Type="varchar" MaxLength="100" />
+          <Property Name="sTechnicalSkill" Type="varchar" MaxLength="100" />
+          <Property Name="sMeetGoals" Type="varchar" MaxLength="100" />
+          <Property Name="sAttention" Type="varchar" MaxLength="100" />
+          <Property Name="sPerformance" Type="varchar" MaxLength="100" />
+          <Property Name="sImproveComment" Type="varchar(max)" />
+          <Property Name="sAdditionalComment" Type="varchar(max)" />
+          <Property Name="dtCreatedOn" Type="datetime" />
+          <Property Name="bIsActive" Type="bit" />
+          <Property Name="objClientID" Type="int" />
+          <Property Name="objEmployeeDetail" Type="int" />
+          <Property Name="objProjectDetail" Type="int" />
+        </EntityType>
+        <EntityType Name="tblLogin">
+          <Key>
+            <PropertyRef Name="intLoginId" />
+          </Key>
+          <Property Name="intLoginId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="varPassword" Type="varchar" MaxLength="100" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="intEmployeeID" Type="int" />
+          <Property Name="IsChkLoginCount" Type="int" />
+          <Property Name="varLoginName" Type="varchar" MaxLength="100" />
+          <Property Name="dtCreatedOn" Type="datetime" />
+          <Property Name="dtUpdatedOn" Type="datetime" />
+          <Property Name="intCreatedBy" Type="int" />
+          <Property Name="intUpdatedBy" Type="int" />
+          <Property Name="varUserName" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="tblNews">
+          <Key>
+            <PropertyRef Name="intNewsID" />
+          </Key>
+          <Property Name="intNewsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="varNewsTopic" Type="varchar" MaxLength="500" />
+          <Property Name="varNewsDescription" Type="varchar(max)" />
+          <Property Name="varPublishTo" Type="varchar" MaxLength="500" />
+          <Property Name="intCreatedBy" Type="int" />
+          <Property Name="intUpdatedBy" Type="int" />
+          <Property Name="dtCreatedOn" Type="datetime" />
+          <Property Name="dtUpdatedOn" Type="datetime" />
+          <Property Name="intActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="tblPaySlip">
+          <Key>
+            <PropertyRef Name="intPaySlipId" />
+          </Key>
+          <Property Name="intPaySlipId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="intEmployeeID" Type="int" />
+          <Property Name="varBasic" Type="money" />
+          <Property Name="varHRA" Type="money" />
+          <Property Name="varConveyance" Type="money" />
+          <Property Name="intProfessionalTax" Type="money" />
+          <Property Name="intProvidentFund" Type="money" />
+          <Property Name="dtCreatedOn" Type="datetime" />
+          <Property Name="dtUpdatedOn" Type="datetime" />
+          <Property Name="intCreatedby" Type="int" />
+          <Property Name="intUpdatedby" Type="int" />
+        </EntityType>
+        <EntityType Name="tblPositions">
+          <Key>
+            <PropertyRef Name="intPositionId" />
+          </Key>
+          <Property Name="intPositionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="varPositionName" Type="varchar" MaxLength="500" />
+          <Property Name="varPositionDescription" Type="varchar" MaxLength="500" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="varStatus" Type="datetime" />
+          <Property Name="dtCreatedOn" Type="datetime" />
+          <Property Name="dtUpdatedOn" Type="datetime" />
+          <Property Name="intCreatedby" Type="int" />
+          <Property Name="intUpdatedby" Type="int" />
+        </EntityType>
+        <EntityType Name="tblProjectDetails">
+          <Key>
+            <PropertyRef Name="intProjectID" />
+          </Key>
+          <Property Name="intProjectID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="varProjectName" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="intInternalProjectHead" Type="int" />
+          <Property Name="varProjectDescription" Type="varchar" MaxLength="500" />
+          <Property Name="dtProjectStartDate" Type="datetime" />
+          <Property Name="dtProjectEndDate" Type="datetime" />
+          <Property Name="intProjectStatus" Type="int" />
+          <Property Name="intCompletionID" Type="int" />
+          <Property Name="intClientID" Type="int" />
+          <Property Name="varClientProjectHead" Type="varchar" MaxLength="500" />
+          <Property Name="varTeamMemDetails" Type="varchar" MaxLength="500" />
+          <Property Name="dtCreatedOn" Type="datetime" />
+          <Property Name="dtUpdatedOn" Type="datetime" />
+          <Property Name="intCreatedby" Type="int" />
+          <Property Name="intUpdatedby" Type="int" />
+        </EntityType>
+        <EntityType Name="tblRecruitment">
+          <Key>
+            <PropertyRef Name="intRecruitmentID" />
+          </Key>
+          <Property Name="intRecruitmentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="varFirstName" Type="varchar" MaxLength="500" />
+          <Property Name="varMiddleName" Type="varchar" MaxLength="500" />
+          <Property Name="varLastName" Type="varchar" MaxLength="500" />
+          <Property Name="varEmailID" Type="varchar" MaxLength="500" />
+          <Property Name="varMobileNum" Type="varchar" MaxLength="20" />
+          <Property Name="intPositionID" Type="int" />
+          <Property Name="varResume" Type="varchar(max)" />
+          <Property Name="dtApplicationDate" Type="datetime" />
+          <Property Name="varComment" Type="int" />
+          <Property Name="varStatus" Type="datetime" />
+          <Property Name="dtCreatedOn" Type="datetime" />
+          <Property Name="dtUpdatedOn" Type="datetime" />
+          <Property Name="intCreatedby" Type="int" />
+          <Property Name="intUpdatedby" Type="int" />
+        </EntityType>
+        <EntityType Name="tblRecruitmentType">
+          <Key>
+            <PropertyRef Name="intRecruitmentTypeID" />
+          </Key>
+          <Property Name="intRecruitmentTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="varRecruitmentType" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="varPositionDescription" Type="varchar" MaxLength="500" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="dtCreatedOn" Type="datetime" />
+          <Property Name="dtUpdatedOn" Type="datetime" />
+          <Property Name="intCreatedby" Type="int" />
+          <Property Name="intUpdatedby" Type="int" />
+        </EntityType>
+        <EntityType Name="tblState">
+          <Key>
+            <PropertyRef Name="intStateID" />
+          </Key>
+          <Property Name="intStateID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="varStateName" Type="varchar" MaxLength="500" />
+          <Property Name="dtCreatedOn" Type="datetime" />
+          <Property Name="dtUpdatedOn" Type="datetime" />
+          <Property Name="intCreatedby" Type="int" />
+          <Property Name="intUpdatedby" Type="int" />
+        </EntityType>
+        <EntityType Name="tblStatus">
+          <Key>
+            <PropertyRef Name="intStatusID" />
+          </Key>
+          <Property Name="intStatusID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="varStatus" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="intCreatedby" Type="int" />
+          <Property Name="intUpdatedby" Type="int" />
+          <Property Name="dtCreatedOn" Type="datetime" />
+          <Property Name="dtUpdatedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tblTimeSheet">
+          <Key>
+            <PropertyRef Name="intTimesheetId" />
+          </Key>
+          <Property Name="intTimesheetId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="intClientID" Type="int" />
+          <Property Name="intProjectID" Type="int" />
+          <Property Name="intActivityID" Type="int" />
+          <Property Name="varActivityDescription" Type="varchar" MaxLength="500" />
+          <Property Name="varTimeSlot" Type="int" />
+          <Property Name="dtTimesheetDate" Type="datetime" />
+          <Property Name="intEmployeeID" Type="int" />
+          <Property Name="dtCreatedOn" Type="datetime" />
+          <Property Name="dtUpdatedOn" Type="datetime" />
+          <Property Name="intCreatedby" Type="int" />
+          <Property Name="intUpdatedby" Type="int" />
+        </EntityType>
+        <EntityType Name="tblTrainings">
+          <Key>
+            <PropertyRef Name="intTrainingID" />
+          </Key>
+          <Property Name="intTrainingID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="varTrainigsName" Type="varchar" MaxLength="500" />
+          <Property Name="intTrainerID" Type="int" />
+          <Property Name="varTrainingStartDate" Type="datetime" />
+          <Property Name="varTrainingEndDate" Type="datetime" />
+          <Property Name="varTrainingDetails" Type="varchar(max)" />
+          <Property Name="varStatus" Type="varchar" MaxLength="100" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="dtCreatedOn" Type="datetime" />
+          <Property Name="dtUpdatedOn" Type="datetime" />
+          <Property Name="intCreatedBy" Type="int" />
+          <Property Name="intUpdatedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="tblUserLeaveManagement">
+          <Key>
+            <PropertyRef Name="intLeaveMgtID" />
+          </Key>
+          <Property Name="intLeaveMgtID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="intEmployeeID" Type="int" />
+          <Property Name="dtLeaveStartDate" Type="datetime" />
+          <Property Name="dtLeaveEndDate" Type="datetime" />
+          <Property Name="varLeaveDescription" Type="varchar" MaxLength="500" />
+          <Property Name="intLeaveTypeId" Type="int" />
+          <Property Name="varStatus" Type="varchar" MaxLength="100" />
+          <Property Name="varManagerComment" Type="varchar" MaxLength="500" />
+          <Property Name="dtCreatedOn" Type="datetime" />
+          <Property Name="dtUpdatedOn" Type="datetime" />
+          <Property Name="intCreatedby" Type="int" />
+          <Property Name="intUpdatedby" Type="int" />
+        </EntityType>
+        <EntityType Name="tblUserRelationship">
+          <Key>
+            <PropertyRef Name="intRelationshipID" />
+          </Key>
+          <Property Name="intRelationshipID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="varRelationshipName" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="dtCreatedOn" Type="datetime" />
+          <Property Name="dtUpdatedOn" Type="datetime" />
+          <Property Name="intCreatedby" Type="int" />
+          <Property Name="intUpdatedby" Type="int" />
+        </EntityType>
+        <EntityType Name="tblUserRole">
+          <Key>
+            <PropertyRef Name="intUserRoleID" />
+          </Key>
+          <Property Name="intUserRoleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="varRoleName" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="dtCreatedOn" Type="datetime" />
+          <Property Name="dtUpdatedOn" Type="datetime" />
+          <Property Name="intCreatedby" Type="int" />
+          <Property Name="intUpdatedby" Type="int" />
+        </EntityType>
+        <EntityType Name="tblVacancise">
+          <Key>
+            <PropertyRef Name="intVacanciseID" />
+          </Key>
+          <Property Name="intVacanciseID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="intPositionID" Type="int" />
+          <Property Name="varExperience" Type="varchar" MaxLength="500" />
+          <Property Name="varJobLocation" Type="varchar" MaxLength="500" />
+          <Property Name="intNoOfPositions" Type="int" />
+          <Property Name="varJobDescription" Type="varchar(max)" />
+          <Property Name="varPublisher" Type="varchar" MaxLength="500" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="dtCreatedOn" Type="datetime" />
+          <Property Name="dtUpdatedOn" Type="datetime" />
+          <Property Name="intCreatedby" Type="int" />
+          <Property Name="intUpdatedby" Type="int" />
+        </EntityType>
+        <EntityType Name="tblWorkExperience">
+          <Key>
+            <PropertyRef Name="intWorkExpID" />
+          </Key>
+          <Property Name="intWorkExpID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="intEmployeeID" Type="int" />
+          <Property Name="varCompanyName" Type="nvarchar(max)" />
+          <Property Name="varDesignation" Type="nvarchar" MaxLength="500" />
+          <Property Name="varJobProfile" Type="nvarchar" MaxLength="500" />
+          <Property Name="dtFromDate" Type="datetime" />
+          <Property Name="dtEndDate" Type="datetime" />
+          <Property Name="intCreatedBy" Type="int" />
+          <Property Name="dtCreatedOn" Type="datetime" />
+          <Property Name="intUpdatedBy" Type="int" />
+          <Property Name="dtUpdatedOn" Type="datetime" />
+        </EntityType>
+        <Association Name="FK__tblAllowa__intAl__351DDF8C">
+          <End Role="tblAllowances" Type="Self.tblAllowances" Multiplicity="0..1" />
+          <End Role="tblAllowancesManagement" Type="Self.tblAllowancesManagement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblAllowances">
+              <PropertyRef Name="intAllowancesID" />
+            </Principal>
+            <Dependent Role="tblAllowancesManagement">
+              <PropertyRef Name="intAllowancesID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblAllowa__intEm__3429BB53">
+          <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="0..1" />
+          <End Role="tblAllowancesManagement" Type="Self.tblAllowancesManagement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblEmployee">
+              <PropertyRef Name="intEmployeeID" />
+            </Principal>
+            <Dependent Role="tblAllowancesManagement">
+              <PropertyRef Name="intEmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblEmploy__intCu__53D770D6">
+          <End Role="tblCountry" Type="Self.tblCountry" Multiplicity="0..1" />
+          <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCountry">
+              <PropertyRef Name="intCountryID" />
+            </Principal>
+            <Dependent Role="tblEmployee">
+              <PropertyRef Name="intCurrCountryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblEmploy__intCu__54CB950F">
+          <End Role="tblState" Type="Self.tblState" Multiplicity="0..1" />
+          <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblState">
+              <PropertyRef Name="intStateID" />
+            </Principal>
+            <Dependent Role="tblEmployee">
+              <PropertyRef Name="intCurrStateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblEmploy__intCu__55BFB948">
+          <End Role="tblCity" Type="Self.tblCity" Multiplicity="0..1" />
+          <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCity">
+              <PropertyRef Name="intCityID" />
+            </Principal>
+            <Dependent Role="tblEmployee">
+              <PropertyRef Name="intCurrCityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblEmploy__intDe__52E34C9D">
+          <End Role="tblDesignation" Type="Self.tblDesignation" Multiplicity="0..1" />
+          <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblDesignation">
+              <PropertyRef Name="intDesignationID" />
+            </Principal>
+            <Dependent Role="tblEmployee">
+              <PropertyRef Name="intDesignationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblEmploy__intDe__589C25F3">
+          <End Role="tblDepartment" Type="Self.tblDepartment" Multiplicity="0..1" />
+          <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblDepartment">
+              <PropertyRef Name="intDepartmentID" />
+            </Principal>
+            <Dependent Role="tblEmployee">
+              <PropertyRef Name="intDepartmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblEmploy__intEm__02925FBF">
+          <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="0..1" />
+          <End Role="tblEmployeeGoals" Type="Self.tblEmployeeGoals" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblEmployee">
+              <PropertyRef Name="intEmployeeID" />
+            </Principal>
+            <Dependent Role="tblEmployeeGoals">
+              <PropertyRef Name="intEmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblEmploy__intEm__51EF2864">
+          <End Role="tblUserRole" Type="Self.tblUserRole" Multiplicity="0..1" />
+          <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUserRole">
+              <PropertyRef Name="intUserRoleID" />
+            </Principal>
+            <Dependent Role="tblEmployee">
+              <PropertyRef Name="intEmpRoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblEmploy__intEm__57A801BA">
+          <End Role="tblUserRelationship" Type="Self.tblUserRelationship" Multiplicity="0..1" />
+          <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUserRelationship">
+              <PropertyRef Name="intRelationshipID" />
+            </Principal>
+            <Dependent Role="tblEmployee">
+              <PropertyRef Name="intEmergencyContactRelationshipID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblEmploy__intEm__6501FCD8">
+          <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tblEmployeeQualificationDetails" Type="Self.tblEmployeeQualificationDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblEmployee">
+              <PropertyRef Name="intEmployeeID" />
+            </Principal>
+            <Dependent Role="tblEmployeeQualificationDetails">
+              <PropertyRef Name="intEmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblEmploy__intPe__59904A2C">
+          <End Role="tblCountry" Type="Self.tblCountry" Multiplicity="0..1" />
+          <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCountry">
+              <PropertyRef Name="intCountryID" />
+            </Principal>
+            <Dependent Role="tblEmployee">
+              <PropertyRef Name="intPermCountryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblEmploy__intPe__5A846E65">
+          <End Role="tblState" Type="Self.tblState" Multiplicity="0..1" />
+          <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblState">
+              <PropertyRef Name="intStateID" />
+            </Principal>
+            <Dependent Role="tblEmployee">
+              <PropertyRef Name="intPermStateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblEmploy__intPe__5B78929E">
+          <End Role="tblCity" Type="Self.tblCity" Multiplicity="0..1" />
+          <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCity">
+              <PropertyRef Name="intCityID" />
+            </Principal>
+            <Dependent Role="tblEmployee">
+              <PropertyRef Name="intPermCityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblEmploy__intRe__56B3DD81">
+          <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="0..1" />
+          <End Role="tblEmployee1" Type="Self.tblEmployee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblEmployee">
+              <PropertyRef Name="intEmployeeID" />
+            </Principal>
+            <Dependent Role="tblEmployee1">
+              <PropertyRef Name="intReportingHead" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblLogin__intEmp__603D47BB">
+          <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tblLogin" Type="Self.tblLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblEmployee">
+              <PropertyRef Name="intEmployeeID" />
+            </Principal>
+            <Dependent Role="tblLogin">
+              <PropertyRef Name="intEmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblPaySli__intEm__2B947552">
+          <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="0..1" />
+          <End Role="tblPaySlip" Type="Self.tblPaySlip" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblEmployee">
+              <PropertyRef Name="intEmployeeID" />
+            </Principal>
+            <Dependent Role="tblPaySlip">
+              <PropertyRef Name="intEmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblProjec__intCl__7814D14C">
+          <End Role="tblClientDetails" Type="Self.tblClientDetails" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tblProjectDetails" Type="Self.tblProjectDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblClientDetails">
+              <PropertyRef Name="intClientID" />
+            </Principal>
+            <Dependent Role="tblProjectDetails">
+              <PropertyRef Name="intClientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblProjec__intIn__762C88DA">
+          <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tblProjectDetails" Type="Self.tblProjectDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblEmployee">
+              <PropertyRef Name="intEmployeeID" />
+            </Principal>
+            <Dependent Role="tblProjectDetails">
+              <PropertyRef Name="intInternalProjectHead" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblProjec__intPr__7720AD13">
+          <End Role="tblStatus" Type="Self.tblStatus" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tblProjectDetails" Type="Self.tblProjectDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblStatus">
+              <PropertyRef Name="intStatusID" />
+            </Principal>
+            <Dependent Role="tblProjectDetails">
+              <PropertyRef Name="intProjectStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblRecrui__intPo__0B27A5C0">
+          <End Role="tblPositions" Type="Self.tblPositions" Multiplicity="0..1" />
+          <End Role="tblRecruitment" Type="Self.tblRecruitment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblPositions">
+              <PropertyRef Name="intPositionId" />
+            </Principal>
+            <Dependent Role="tblRecruitment">
+              <PropertyRef Name="intPositionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblTimeSh__intAc__54968AE5">
+          <End Role="tblActivityDetails" Type="Self.tblActivityDetails" Multiplicity="0..1" />
+          <End Role="tblTimeSheet" Type="Self.tblTimeSheet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblActivityDetails">
+              <PropertyRef Name="intActivityID" />
+            </Principal>
+            <Dependent Role="tblTimeSheet">
+              <PropertyRef Name="intActivityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblTimeSh__intCl__52AE4273">
+          <End Role="tblClientDetails" Type="Self.tblClientDetails" Multiplicity="0..1" />
+          <End Role="tblTimeSheet" Type="Self.tblTimeSheet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblClientDetails">
+              <PropertyRef Name="intClientID" />
+            </Principal>
+            <Dependent Role="tblTimeSheet">
+              <PropertyRef Name="intClientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblTimeSh__intEm__558AAF1E">
+          <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="0..1" />
+          <End Role="tblTimeSheet" Type="Self.tblTimeSheet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblEmployee">
+              <PropertyRef Name="intEmployeeID" />
+            </Principal>
+            <Dependent Role="tblTimeSheet">
+              <PropertyRef Name="intEmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblTimeSh__intPr__53A266AC">
+          <End Role="tblProjectDetails" Type="Self.tblProjectDetails" Multiplicity="0..1" />
+          <End Role="tblTimeSheet" Type="Self.tblTimeSheet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblProjectDetails">
+              <PropertyRef Name="intProjectID" />
+            </Principal>
+            <Dependent Role="tblTimeSheet">
+              <PropertyRef Name="intProjectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblTraini__intTr__6E8B6712">
+          <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tblTrainings" Type="Self.tblTrainings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblEmployee">
+              <PropertyRef Name="intEmployeeID" />
+            </Principal>
+            <Dependent Role="tblTrainings">
+              <PropertyRef Name="intTrainerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblUserLe__intEm__7CD98669">
+          <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tblUserLeaveManagement" Type="Self.tblUserLeaveManagement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblEmployee">
+              <PropertyRef Name="intEmployeeID" />
+            </Principal>
+            <Dependent Role="tblUserLeaveManagement">
+              <PropertyRef Name="intEmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblUserLe__intLe__7DCDAAA2">
+          <End Role="tblLeaveType" Type="Self.tblLeaveType" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tblUserLeaveManagement" Type="Self.tblUserLeaveManagement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblLeaveType">
+              <PropertyRef Name="intLeaveTypeID" />
+            </Principal>
+            <Dependent Role="tblUserLeaveManagement">
+              <PropertyRef Name="intLeaveTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblVacanc__intPo__1699586C">
+          <End Role="tblPositions" Type="Self.tblPositions" Multiplicity="0..1" />
+          <End Role="tblVacancise" Type="Self.tblVacancise" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblPositions">
+              <PropertyRef Name="intPositionId" />
+            </Principal>
+            <Dependent Role="tblVacancise">
+              <PropertyRef Name="intPositionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblWorkEx__intEm__69C6B1F5">
+          <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tblWorkExperience" Type="Self.tblWorkExperience" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblEmployee">
+              <PropertyRef Name="intEmployeeID" />
+            </Principal>
+            <Dependent Role="tblWorkExperience">
+              <PropertyRef Name="intEmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_intCompletionId">
+          <End Role="tblCompletion" Type="Self.tblCompletion" Multiplicity="0..1" />
+          <End Role="tblProjectDetails" Type="Self.tblProjectDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCompletion">
+              <PropertyRef Name="intCompletionId" />
+            </Principal>
+            <Dependent Role="tblProjectDetails">
+              <PropertyRef Name="intCompletionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblEmployeeGoals">
+          <End Role="tblStatus" Type="Self.tblStatus" Multiplicity="0..1" />
+          <End Role="tblEmployeeGoals" Type="Self.tblEmployeeGoals" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblStatus">
+              <PropertyRef Name="intStatusID" />
+            </Principal>
+            <Dependent Role="tblEmployeeGoals">
+              <PropertyRef Name="intStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblEmployeeGoalsTitle">
+          <End Role="tblGoalTitle" Type="Self.tblGoalTitle" Multiplicity="0..1" />
+          <End Role="tblEmployeeGoals" Type="Self.tblEmployeeGoals" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblGoalTitle">
+              <PropertyRef Name="intTilteID" />
+            </Principal>
+            <Dependent Role="tblEmployeeGoals">
+              <PropertyRef Name="intTitle" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="HRIMSModelStoreContainer">
+          <EntitySet Name="tblAccess" EntityType="Self.tblAccess" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblActivityDetails" EntityType="Self.tblActivityDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblAllowances" EntityType="Self.tblAllowances" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblAllowancesManagement" EntityType="Self.tblAllowancesManagement" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblCity" EntityType="Self.tblCity" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblClientDetails" EntityType="Self.tblClientDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblClientTeam" EntityType="Self.tblClientTeam" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblCompletion" EntityType="Self.tblCompletion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblCountry" EntityType="Self.tblCountry" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblDepartment" EntityType="Self.tblDepartment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblDesignation" EntityType="Self.tblDesignation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblEmployee" EntityType="Self.tblEmployee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblEmployeeGoals" EntityType="Self.tblEmployeeGoals" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblEmployeeQualificationDetails" EntityType="Self.tblEmployeeQualificationDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblGoalTitle" EntityType="Self.tblGoalTitle" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblHolidayList" EntityType="Self.tblHolidayList" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblLeaveType" EntityType="Self.tblLeaveType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblLinkDetails" EntityType="Self.tblLinkDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblLogin" EntityType="Self.tblLogin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblNews" EntityType="Self.tblNews" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblPaySlip" EntityType="Self.tblPaySlip" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblPositions" EntityType="Self.tblPositions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblProjectDetails" EntityType="Self.tblProjectDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblRecruitment" EntityType="Self.tblRecruitment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblRecruitmentType" EntityType="Self.tblRecruitmentType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblState" EntityType="Self.tblState" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblStatus" EntityType="Self.tblStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblTimeSheet" EntityType="Self.tblTimeSheet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblTrainings" EntityType="Self.tblTrainings" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblUserLeaveManagement" EntityType="Self.tblUserLeaveManagement" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblUserRelationship" EntityType="Self.tblUserRelationship" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblUserRole" EntityType="Self.tblUserRole" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblVacancise" EntityType="Self.tblVacancise" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblWorkExperience" EntityType="Self.tblWorkExperience" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__tblAllowa__intAl__351DDF8C" Association="Self.FK__tblAllowa__intAl__351DDF8C">
+            <End Role="tblAllowances" EntitySet="tblAllowances" />
+            <End Role="tblAllowancesManagement" EntitySet="tblAllowancesManagement" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblAllowa__intEm__3429BB53" Association="Self.FK__tblAllowa__intEm__3429BB53">
+            <End Role="tblEmployee" EntitySet="tblEmployee" />
+            <End Role="tblAllowancesManagement" EntitySet="tblAllowancesManagement" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblEmploy__intCu__53D770D6" Association="Self.FK__tblEmploy__intCu__53D770D6">
+            <End Role="tblCountry" EntitySet="tblCountry" />
+            <End Role="tblEmployee" EntitySet="tblEmployee" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblEmploy__intCu__54CB950F" Association="Self.FK__tblEmploy__intCu__54CB950F">
+            <End Role="tblState" EntitySet="tblState" />
+            <End Role="tblEmployee" EntitySet="tblEmployee" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblEmploy__intCu__55BFB948" Association="Self.FK__tblEmploy__intCu__55BFB948">
+            <End Role="tblCity" EntitySet="tblCity" />
+            <End Role="tblEmployee" EntitySet="tblEmployee" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblEmploy__intDe__52E34C9D" Association="Self.FK__tblEmploy__intDe__52E34C9D">
+            <End Role="tblDesignation" EntitySet="tblDesignation" />
+            <End Role="tblEmployee" EntitySet="tblEmployee" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblEmploy__intDe__589C25F3" Association="Self.FK__tblEmploy__intDe__589C25F3">
+            <End Role="tblDepartment" EntitySet="tblDepartment" />
+            <End Role="tblEmployee" EntitySet="tblEmployee" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblEmploy__intEm__02925FBF" Association="Self.FK__tblEmploy__intEm__02925FBF">
+            <End Role="tblEmployee" EntitySet="tblEmployee" />
+            <End Role="tblEmployeeGoals" EntitySet="tblEmployeeGoals" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblEmploy__intEm__51EF2864" Association="Self.FK__tblEmploy__intEm__51EF2864">
+            <End Role="tblUserRole" EntitySet="tblUserRole" />
+            <End Role="tblEmployee" EntitySet="tblEmployee" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblEmploy__intEm__57A801BA" Association="Self.FK__tblEmploy__intEm__57A801BA">
+            <End Role="tblUserRelationship" EntitySet="tblUserRelationship" />
+            <End Role="tblEmployee" EntitySet="tblEmployee" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblEmploy__intEm__6501FCD8" Association="Self.FK__tblEmploy__intEm__6501FCD8">
+            <End Role="tblEmployee" EntitySet="tblEmployee" />
+            <End Role="tblEmployeeQualificationDetails" EntitySet="tblEmployeeQualificationDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblEmploy__intPe__59904A2C" Association="Self.FK__tblEmploy__intPe__59904A2C">
+            <End Role="tblCountry" EntitySet="tblCountry" />
+            <End Role="tblEmployee" EntitySet="tblEmployee" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblEmploy__intPe__5A846E65" Association="Self.FK__tblEmploy__intPe__5A846E65">
+            <End Role="tblState" EntitySet="tblState" />
+            <End Role="tblEmployee" EntitySet="tblEmployee" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblEmploy__intPe__5B78929E" Association="Self.FK__tblEmploy__intPe__5B78929E">
+            <End Role="tblCity" EntitySet="tblCity" />
+            <End Role="tblEmployee" EntitySet="tblEmployee" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblEmploy__intRe__56B3DD81" Association="Self.FK__tblEmploy__intRe__56B3DD81">
+            <End Role="tblEmployee" EntitySet="tblEmployee" />
+            <End Role="tblEmployee1" EntitySet="tblEmployee" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblLogin__intEmp__603D47BB" Association="Self.FK__tblLogin__intEmp__603D47BB">
+            <End Role="tblEmployee" EntitySet="tblEmployee" />
+            <End Role="tblLogin" EntitySet="tblLogin" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblPaySli__intEm__2B947552" Association="Self.FK__tblPaySli__intEm__2B947552">
+            <End Role="tblEmployee" EntitySet="tblEmployee" />
+            <End Role="tblPaySlip" EntitySet="tblPaySlip" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblProjec__intCl__7814D14C" Association="Self.FK__tblProjec__intCl__7814D14C">
+            <End Role="tblClientDetails" EntitySet="tblClientDetails" />
+            <End Role="tblProjectDetails" EntitySet="tblProjectDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblProjec__intIn__762C88DA" Association="Self.FK__tblProjec__intIn__762C88DA">
+            <End Role="tblEmployee" EntitySet="tblEmployee" />
+            <End Role="tblProjectDetails" EntitySet="tblProjectDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblProjec__intPr__7720AD13" Association="Self.FK__tblProjec__intPr__7720AD13">
+            <End Role="tblStatus" EntitySet="tblStatus" />
+            <End Role="tblProjectDetails" EntitySet="tblProjectDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblRecrui__intPo__0B27A5C0" Association="Self.FK__tblRecrui__intPo__0B27A5C0">
+            <End Role="tblPositions" EntitySet="tblPositions" />
+            <End Role="tblRecruitment" EntitySet="tblRecruitment" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblTimeSh__intAc__54968AE5" Association="Self.FK__tblTimeSh__intAc__54968AE5">
+            <End Role="tblActivityDetails" EntitySet="tblActivityDetails" />
+            <End Role="tblTimeSheet" EntitySet="tblTimeSheet" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblTimeSh__intCl__52AE4273" Association="Self.FK__tblTimeSh__intCl__52AE4273">
+            <End Role="tblClientDetails" EntitySet="tblClientDetails" />
+            <End Role="tblTimeSheet" EntitySet="tblTimeSheet" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblTimeSh__intEm__558AAF1E" Association="Self.FK__tblTimeSh__intEm__558AAF1E">
+            <End Role="tblEmployee" EntitySet="tblEmployee" />
+            <End Role="tblTimeSheet" EntitySet="tblTimeSheet" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblTimeSh__intPr__53A266AC" Association="Self.FK__tblTimeSh__intPr__53A266AC">
+            <End Role="tblProjectDetails" EntitySet="tblProjectDetails" />
+            <End Role="tblTimeSheet" EntitySet="tblTimeSheet" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblTraini__intTr__6E8B6712" Association="Self.FK__tblTraini__intTr__6E8B6712">
+            <End Role="tblEmployee" EntitySet="tblEmployee" />
+            <End Role="tblTrainings" EntitySet="tblTrainings" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblUserLe__intEm__7CD98669" Association="Self.FK__tblUserLe__intEm__7CD98669">
+            <End Role="tblEmployee" EntitySet="tblEmployee" />
+            <End Role="tblUserLeaveManagement" EntitySet="tblUserLeaveManagement" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblUserLe__intLe__7DCDAAA2" Association="Self.FK__tblUserLe__intLe__7DCDAAA2">
+            <End Role="tblLeaveType" EntitySet="tblLeaveType" />
+            <End Role="tblUserLeaveManagement" EntitySet="tblUserLeaveManagement" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblVacanc__intPo__1699586C" Association="Self.FK__tblVacanc__intPo__1699586C">
+            <End Role="tblPositions" EntitySet="tblPositions" />
+            <End Role="tblVacancise" EntitySet="tblVacancise" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblWorkEx__intEm__69C6B1F5" Association="Self.FK__tblWorkEx__intEm__69C6B1F5">
+            <End Role="tblEmployee" EntitySet="tblEmployee" />
+            <End Role="tblWorkExperience" EntitySet="tblWorkExperience" />
+          </AssociationSet>
+          <AssociationSet Name="FK_intCompletionId" Association="Self.FK_intCompletionId">
+            <End Role="tblCompletion" EntitySet="tblCompletion" />
+            <End Role="tblProjectDetails" EntitySet="tblProjectDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblEmployeeGoals" Association="Self.FK_tblEmployeeGoals">
+            <End Role="tblStatus" EntitySet="tblStatus" />
+            <End Role="tblEmployeeGoals" EntitySet="tblEmployeeGoals" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblEmployeeGoalsTitle" Association="Self.FK_tblEmployeeGoalsTitle">
+            <End Role="tblGoalTitle" EntitySet="tblGoalTitle" />
+            <End Role="tblEmployeeGoals" EntitySet="tblEmployeeGoals" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="HRIMSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tblAccess">
+          <Key>
+            <PropertyRef Name="intAccessID" />
+          </Key>
+          <Property Name="intAccessID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="varAccessName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="dtCreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="dtUpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="intCreatedby" Type="Int32" />
+          <Property Name="intUpdatedby" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tblActivityDetail">
+          <Key>
+            <PropertyRef Name="intActivityID" />
+          </Key>
+          <Property Name="intActivityID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="varActivityName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="dtCreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="dtUpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="intCreatedby" Type="Int32" />
+          <Property Name="intUpdatedby" Type="Int32" />
+          <NavigationProperty Name="tblTimeSheets" Relationship="Self.FK__tblTimeSh__intAc__54968AE5" FromRole="tblActivityDetails" ToRole="tblTimeSheet" />
+        </EntityType>
+        <EntityType Name="tblAllowance">
+          <Key>
+            <PropertyRef Name="intAllowancesID" />
+          </Key>
+          <Property Name="intAllowancesID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="varAllowancesName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="dtCreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="dtUpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="intCreatedby" Type="Int32" />
+          <Property Name="intUpdatedby" Type="Int32" />
+          <NavigationProperty Name="tblAllowancesManagements" Relationship="Self.FK__tblAllowa__intAl__351DDF8C" FromRole="tblAllowances" ToRole="tblAllowancesManagement" />
+        </EntityType>
+        <EntityType Name="tblAllowancesManagement">
+          <Key>
+            <PropertyRef Name="intAllowancesMgtID" />
+          </Key>
+          <Property Name="intAllowancesMgtID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="intEmployeeID" Type="Int32" />
+          <Property Name="intAllowancesID" Type="Int32" />
+          <Property Name="varAllowancesAmount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="dtCreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="dtUpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="intCreatedby" Type="Int32" />
+          <Property Name="intUpdatedby" Type="Int32" />
+          <NavigationProperty Name="tblAllowance" Relationship="Self.FK__tblAllowa__intAl__351DDF8C" FromRole="tblAllowancesManagement" ToRole="tblAllowances" />
+          <NavigationProperty Name="tblEmployee" Relationship="Self.FK__tblAllowa__intEm__3429BB53" FromRole="tblAllowancesManagement" ToRole="tblEmployee" />
+        </EntityType>
+        <EntityType Name="tblCity">
+          <Key>
+            <PropertyRef Name="intCityID" />
+          </Key>
+          <Property Name="intCityID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="varCityName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="dtCreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="dtUpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="intCreatedby" Type="Int32" />
+          <Property Name="intUpdatedby" Type="Int32" />
+          <NavigationProperty Name="tblEmployees" Relationship="Self.FK__tblEmploy__intCu__55BFB948" FromRole="tblCity" ToRole="tblEmployee" />
+          <NavigationProperty Name="tblEmployees1" Relationship="Self.FK__tblEmploy__intPe__5B78929E" FromRole="tblCity" ToRole="tblEmployee" />
+        </EntityType>
+        <EntityType Name="tblClientDetail">
+          <Key>
+            <PropertyRef Name="intClientID" />
+          </Key>
+          <Property Name="intClientID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="varClientName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="varClientEmailID" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="varClientDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="dtCreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="dtUpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="intCreatedby" Type="Int32" />
+          <Property Name="intUpdatedby" Type="Int32" />
+          <Property Name="varClientPhoneNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false"/>
+          <Property Name="varClientAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="false"/>
+          <NavigationProperty Name="tblProjectDetails" Relationship="Self.FK__tblProjec__intCl__7814D14C" FromRole="tblClientDetails" ToRole="tblProjectDetails" />
+          <NavigationProperty Name="tblTimeSheets" Relationship="Self.FK__tblTimeSh__intCl__52AE4273" FromRole="tblClientDetails" ToRole="tblTimeSheet" />
+        </EntityType>
+        <EntityType Name="tblClientTeam">
+          <Key>
+            <PropertyRef Name="intClientTeamID" />
+          </Key>
+          <Property Name="intClientTeamID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="varClientTeamMemName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="intActive" Type="Boolean" />
+          <Property Name="dtCreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="dtUpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="intCreatedby" Type="Int32" />
+          <Property Name="intUpdatedby" Type="Int32" />
+          <Property Name="varClientTeamMemEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="false"/>
+          <Property Name="intClientId" Type="Int32"/>        
+        </EntityType>
+        <EntityType Name="tblCountry">
+          <Key>
+            <PropertyRef Name="intCountryID" />
+          </Key>
+          <Property Name="intCountryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="varCountryName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="dtCreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="dtUpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="intCreatedby" Type="Int32" />
+          <Property Name="intUpdatedby" Type="Int32" />
+          <NavigationProperty Name="tblEmployees" Relationship="Self.FK__tblEmploy__intCu__53D770D6" FromRole="tblCountry" ToRole="tblEmployee" />
+          <NavigationProperty Name="tblEmployees1" Relationship="Self.FK__tblEmploy__intPe__59904A2C" FromRole="tblCountry" ToRole="tblEmployee" />
+        </EntityType>
+        <EntityType Name="tblDepartment">
+          <Key>
+            <PropertyRef Name="intDepartmentID" />
+          </Key>
+          <Property Name="intDepartmentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="varDepartmentName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="dtCreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="dtUpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="intCreatedby" Type="Int32" />
+          <Property Name="intUpdatedby" Type="Int32" />
+          <NavigationProperty Name="tblEmployees" Relationship="Self.FK__tblEmploy__intDe__589C25F3" FromRole="tblDepartment" ToRole="tblEmployee" />
+        </EntityType>
+        <EntityType Name="tblDesignation">
+          <Key>
+            <PropertyRef Name="intDesignationID" />
+          </Key>
+          <Property Name="intDesignationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="varDesignationName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="dtCreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="dtUpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="intCreatedby" Type="Int32" />
+          <Property Name="intUpdatedby" Type="Int32" />
+          <NavigationProperty Name="tblEmployees" Relationship="Self.FK__tblEmploy__intDe__52E34C9D" FromRole="tblDesignation" ToRole="tblEmployee" />
+        </EntityType>
+        <EntityType Name="tblEmployee">
+          <Key>
+            <PropertyRef Name="intEmployeeID" />
+          </Key>
+          <Property Name="intEmployeeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="varFirstName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="varLastName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="varMiddleName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="intEmpRoleID" Type="Int32" />
+          <Property Name="intDesignationId" Type="Int32" />
+          <Property Name="varCurrAddressLine1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="varCurrAddressLine2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="intCurrCountryID" Type="Int32" />
+          <Property Name="intCurrStateID" Type="Int32" />
+          <Property Name="intCurrCityID" Type="Int32" />
+          <Property Name="varCurrPostalCode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="varPhoneNo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="intLeaveBalance" Type="Int32" />
+          <Property Name="varGender" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="charMarritalStatus" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="varPANNo" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="varWorkTelNo" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="intReportingHead" Type="Int32" />
+          <Property Name="varOfficeEmailAdd" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="varPersonalEmailAdd" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="varFatherSpouceName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="varMotherName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="varEmergencyContactName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="varEmergencyContactNumber" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="intEmergencyContactRelationshipID" Type="Int32" />
+          <Property Name="intDepartmentID" Type="Int32" />
+          <Property Name="varPermAddressLine1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="varPermAddressLine2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="intPermCountryID" Type="Int32" />
+          <Property Name="intPermStateID" Type="Int32" />
+          <Property Name="intPermCityID" Type="Int32" />
+          <Property Name="varPermPostalCode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="varAccessLevel" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="varDOJ" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tblAllowancesManagements" Relationship="Self.FK__tblAllowa__intEm__3429BB53" FromRole="tblEmployee" ToRole="tblAllowancesManagement" />
+          <NavigationProperty Name="tblCity" Relationship="Self.FK__tblEmploy__intCu__55BFB948" FromRole="tblEmployee" ToRole="tblCity" />
+          <NavigationProperty Name="tblCity1" Relationship="Self.FK__tblEmploy__intPe__5B78929E" FromRole="tblEmployee" ToRole="tblCity" />
+          <NavigationProperty Name="tblCountry" Relationship="Self.FK__tblEmploy__intCu__53D770D6" FromRole="tblEmployee" ToRole="tblCountry" />
+          <NavigationProperty Name="tblCountry1" Relationship="Self.FK__tblEmploy__intPe__59904A2C" FromRole="tblEmployee" ToRole="tblCountry" />
+          <NavigationProperty Name="tblDepartment" Relationship="Self.FK__tblEmploy__intDe__589C25F3" FromRole="tblEmployee" ToRole="tblDepartment" />
+          <NavigationProperty Name="tblDesignation" Relationship="Self.FK__tblEmploy__intDe__52E34C9D" FromRole="tblEmployee" ToRole="tblDesignation" />
+          <NavigationProperty Name="tblState" Relationship="Self.FK__tblEmploy__intCu__54CB950F" FromRole="tblEmployee" ToRole="tblState" />
+          <NavigationProperty Name="tblEmployeeGoals" Relationship="Self.FK__tblEmploy__intEm__02925FBF" FromRole="tblEmployee" ToRole="tblEmployeeGoals" />
+          <NavigationProperty Name="tblUserRole" Relationship="Self.FK__tblEmploy__intEm__51EF2864" FromRole="tblEmployee" ToRole="tblUserRole" />
+          <NavigationProperty Name="tblUserRelationship" Relationship="Self.FK__tblEmploy__intEm__57A801BA" FromRole="tblEmployee" ToRole="tblUserRelationship" />
+          <NavigationProperty Name="tblEmployeeQualificationDetails" Relationship="Self.FK__tblEmploy__intEm__6501FCD8" FromRole="tblEmployee" ToRole="tblEmployeeQualificationDetails" />
+          <NavigationProperty Name="tblState1" Relationship="Self.FK__tblEmploy__intPe__5A846E65" FromRole="tblEmployee" ToRole="tblState" />
+          <NavigationProperty Name="tblEmployee1" Relationship="Self.FK__tblEmploy__intRe__56B3DD81" FromRole="tblEmployee" ToRole="tblEmployee1" />
+          <NavigationProperty Name="tblEmployee2" Relationship="Self.FK__tblEmploy__intRe__56B3DD81" FromRole="tblEmployee1" ToRole="tblEmployee" />
+          <NavigationProperty Name="tblLogins" Relationship="Self.FK__tblLogin__intEmp__603D47BB" FromRole="tblEmployee" ToRole="tblLogin" />
+          <NavigationProperty Name="tblPaySlips" Relationship="Self.FK__tblPaySli__intEm__2B947552" FromRole="tblEmployee" ToRole="tblPaySlip" />
+          <NavigationProperty Name="tblProjectDetails" Relationship="Self.FK__tblProjec__intIn__762C88DA" FromRole="tblEmployee" ToRole="tblProjectDetails" />
+          <NavigationProperty Name="tblTimeSheets" Relationship="Self.FK__tblTimeSh__intEm__558AAF1E" FromRole="tblEmployee" ToRole="tblTimeSheet" />
+          <NavigationProperty Name="tblTrainings" Relationship="Self.FK__tblTraini__intTr__6E8B6712" FromRole="tblEmployee" ToRole="tblTrainings" />
+          <NavigationProperty Name="tblUserLeaveManagements" Relationship="Self.FK__tblUserLe__intEm__7CD98669" FromRole="tblEmployee" ToRole="tblUserLeaveManagement" />
+          <NavigationProperty Name="tblWorkExperiences" Relationship="Self.FK__tblWorkEx__intEm__69C6B1F5" FromRole="tblEmployee" ToRole="tblWorkExperience" />
+        </EntityType>
+        <EntityType Name="tblEmployeeGoal">
+          <Key>
+            <PropertyRef Name="intGoalID" />
+          </Key>
+          <Property Name="intGoalID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="varGoalDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="dtStartdate" Type="DateTime" Precision="3" />
+          <Property Name="dtEndDate" Type="DateTime" Precision="3" />
+          <Property Name="varCompletion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="varManagerComment" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="intEmployeeID" Type="Int32" />
+          <Property Name="dtCreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="dtUpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="intCreatedby" Type="Int32" />
+          <Property Name="intUpdatedby" Type="Int32" />
+          <NavigationProperty Name="tblEmployee" Relationship="Self.FK__tblEmploy__intEm__02925FBF" FromRole="tblEmployeeGoals" ToRole="tblEmployee" />
+          <Property Name="intTitle" Type="Int32" />
+          <NavigationProperty Name="tblGoalTitle" Relationship="HRIMSModel.FK_tblEmployeeGoalsTitle" FromRole="tblEmployeeGoal" ToRole="tblGoalTitle" />
+          <Property Name="intStatus" Type="Int32" />
+          <NavigationProperty Name="tblStatu" Relationship="HRIMSModel.FK_tblEmployeeGoals" FromRole="tblEmployeeGoal" ToRole="tblStatus" />
+        </EntityType>
+        <EntityType Name="tblEmployeeQualificationDetail">
+          <Key>
+            <PropertyRef Name="intQualificationID" />
+          </Key>
+          <Property Name="intQualificationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="intEmployeeID" Type="Int32" />
+          <Property Name="varQualificationLevel" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="varUniversityName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="varSpecialization" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="dtStartYear" Type="DateTime" Precision="3" />
+          <Property Name="dtEndYear" Type="DateTime" Precision="3" />
+          <Property Name="varPercentage" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="intCreatedBy" Type="Int32" />
+          <Property Name="dtCreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="intUpdatedBy" Type="Int32" />
+          <Property Name="dyUpdatedOn" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tblEmployee" Relationship="Self.FK__tblEmploy__intEm__6501FCD8" FromRole="tblEmployeeQualificationDetails" ToRole="tblEmployee" />
+        </EntityType>
+        <EntityType Name="tblHolidayList">
+          <Key>
+            <PropertyRef Name="intHolidayListId" />
+          </Key>
+          <Property Name="intHolidayListId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="varOccasionName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="varDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="varDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="dtCreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="dtUpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="intCreatedby" Type="Int32" />
+          <Property Name="intUpdatedby" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tblLeaveType">
+          <Key>
+            <PropertyRef Name="intLeaveTypeID" />
+          </Key>
+          <Property Name="intLeaveTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="varLeaveTypeName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="dtCreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="dtUpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="intCreatedby" Type="Int32" />
+          <Property Name="intUpdatedby" Type="Int32" />
+          <NavigationProperty Name="tblUserLeaveManagements" Relationship="Self.FK__tblUserLe__intLe__7DCDAAA2" FromRole="tblLeaveType" ToRole="tblUserLeaveManagement" />
+        </EntityType>
+        <EntityType Name="tblLinkDetail">
+          <Key>
+            <PropertyRef Name="iID" />
+          </Key>
+          <Property Name="iID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sProjectStatus" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="sTechnicalSkill" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="sMeetGoals" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="sAttention" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="sPerformance" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="sImproveComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="sAdditionalComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="dtCreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="bIsActive" Type="Boolean" />
+          <Property Name="objClientID" Type="Int32" />
+          <Property Name="objEmployeeDetail" Type="Int32" />
+          <Property Name="objProjectDetail" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tblLogin">
+          <Key>
+            <PropertyRef Name="intLoginId" />
+          </Key>
+          <Property Name="intLoginId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="varUserName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="varPassword" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="intEmployeeID" Type="Int32" />
+          <Property Name="IsChkLoginCount" Type="Int32" />
+          <Property Name="varLoginName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="dtCreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="dtUpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="intCreatedBy" Type="Int32" />
+          <Property Name="intUpdatedBy" Type="Int32" />
+          <NavigationProperty Name="tblEmployee" Relationship="Self.FK__tblLogin__intEmp__603D47BB" FromRole="tblLogin" ToRole="tblEmployee" />
+        </EntityType>
+        <EntityType Name="tblNew">
+          <Key>
+            <PropertyRef Name="intNewsID" />
+          </Key>
+          <Property Name="intNewsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="varNewsTopic" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="varNewsDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="varPublishTo" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="intCreatedBy" Type="Int32" />
+          <Property Name="intUpdatedBy" Type="Int32" />
+          <Property Name="dtCreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="dtUpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="intActive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="tblPaySlip">
+          <Key>
+            <PropertyRef Name="intPaySlipId" />
+          </Key>
+          <Property Name="intPaySlipId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="intEmployeeID" Type="Int32" />
+          <Property Name="varBasic" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="varHRA" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="varConveyance" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="intProfessionalTax" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="intProvidentFund" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="dtCreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="dtUpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="intCreatedby" Type="Int32" />
+          <Property Name="intUpdatedby" Type="Int32" />
+          <NavigationProperty Name="tblEmployee" Relationship="Self.FK__tblPaySli__intEm__2B947552" FromRole="tblPaySlip" ToRole="tblEmployee" />
+        </EntityType>
+        <EntityType Name="tblPosition">
+          <Key>
+            <PropertyRef Name="intPositionId" />
+          </Key>
+          <Property Name="intPositionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="varPositionName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="varPositionDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="varStatus" Type="DateTime" Precision="3" />
+          <Property Name="dtCreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="dtUpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="intCreatedby" Type="Int32" />
+          <Property Name="intUpdatedby" Type="Int32" />
+          <NavigationProperty Name="tblRecruitments" Relationship="Self.FK__tblRecrui__intPo__0B27A5C0" FromRole="tblPositions" ToRole="tblRecruitment" />
+          <NavigationProperty Name="tblVacancises" Relationship="Self.FK__tblVacanc__intPo__1699586C" FromRole="tblPositions" ToRole="tblVacancise" />
+        </EntityType>
+        <EntityType Name="tblProjectDetail">
+          <Key>
+            <PropertyRef Name="intProjectID" />
+          </Key>
+          <Property Name="intProjectID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="varProjectName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="intInternalProjectHead" Type="Int32" />
+          <Property Name="varProjectDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="dtProjectStartDate" Type="DateTime" Precision="3" />
+          <Property Name="dtProjectEndDate" Type="DateTime" Precision="3" />
+          <Property Name="intProjectStatus" Type="Int32" />
+          <Property Name="intClientID" Type="Int32" />
+          <Property Name="varClientProjectHead" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="varTeamMemDetails" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="dtCreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="dtUpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="intCreatedby" Type="Int32" />
+          <Property Name="intUpdatedby" Type="Int32" />
+          <NavigationProperty Name="tblClientDetail" Relationship="Self.FK__tblProjec__intCl__7814D14C" FromRole="tblProjectDetails" ToRole="tblClientDetails" />
+          <NavigationProperty Name="tblEmployee" Relationship="Self.FK__tblProjec__intIn__762C88DA" FromRole="tblProjectDetails" ToRole="tblEmployee" />
+          <NavigationProperty Name="tblStatus" Relationship="Self.FK__tblProjec__intPr__7720AD13" FromRole="tblProjectDetails" ToRole="tblStatus" />
+          <NavigationProperty Name="tblTimeSheets" Relationship="Self.FK__tblTimeSh__intPr__53A266AC" FromRole="tblProjectDetails" ToRole="tblTimeSheet" />
+          <Property Name="intCompletionID" Type="Int32" />
+          <NavigationProperty Name="tblCompletion" Relationship="HRIMSModel.FK_intCompletionId" FromRole="tblProjectDetail" ToRole="tblCompletion" />
+        </EntityType>
+        <EntityType Name="tblRecruitment">
+          <Key>
+            <PropertyRef Name="intRecruitmentID" />
+          </Key>
+          <Property Name="intRecruitmentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="varFirstName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="varMiddleName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="varLastName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="varEmailID" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="varMobileNum" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="intPositionID" Type="Int32" />
+          <Property Name="varResume" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="dtApplicationDate" Type="DateTime" Precision="3" />
+          <Property Name="varComment" Type="Int32" />
+          <Property Name="varStatus" Type="DateTime" Precision="3" />
+          <Property Name="dtCreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="dtUpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="intCreatedby" Type="Int32" />
+          <Property Name="intUpdatedby" Type="Int32" />
+          <NavigationProperty Name="tblPosition" Relationship="Self.FK__tblRecrui__intPo__0B27A5C0" FromRole="tblRecruitment" ToRole="tblPositions" />
+        </EntityType>
+        <EntityType Name="tblRecruitmentType">
+          <Key>
+            <PropertyRef Name="intRecruitmentTypeID" />
+          </Key>
+          <Property Name="intRecruitmentTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="varRecruitmentType" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="varPositionDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="dtCreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="dtUpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="intCreatedby" Type="Int32" />
+          <Property Name="intUpdatedby" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tblState">
+          <Key>
+            <PropertyRef Name="intStateID" />
+          </Key>
+          <Property Name="intStateID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="varStateName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="dtCreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="dtUpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="intCreatedby" Type="Int32" />
+          <Property Name="intUpdatedby" Type="Int32" />
+          <NavigationProperty Name="tblEmployees" Relationship="Self.FK__tblEmploy__intCu__54CB950F" FromRole="tblState" ToRole="tblEmployee" />
+          <NavigationProperty Name="tblEmployees1" Relationship="Self.FK__tblEmploy__intPe__5A846E65" FromRole="tblState" ToRole="tblEmployee" />
+        </EntityType>
+        <EntityType Name="tblStatus">
+          <Key>
+            <PropertyRef Name="intStatusID" />
+          </Key>
+          <Property Name="intStatusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="varStatus" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="intCreatedby" Type="Int32" />
+          <Property Name="intUpdatedby" Type="Int32" />
+          <Property Name="dtCreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="dtUpdatedOn" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tblProjectDetails" Relationship="Self.FK__tblProjec__intPr__7720AD13" FromRole="tblStatus" ToRole="tblProjectDetails" />
+          <NavigationProperty Name="tblEmployeeGoals" Relationship="HRIMSModel.FK_tblEmployeeGoals" FromRole="tblStatus" ToRole="tblEmployeeGoal" />
+        </EntityType>
+        <EntityType Name="tblTimeSheet">
+          <Key>
+            <PropertyRef Name="intTimesheetId" />
+          </Key>
+          <Property Name="intTimesheetId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="intClientID" Type="Int32" />
+          <Property Name="intProjectID" Type="Int32" />
+          <Property Name="intActivityID" Type="Int32" />
+          <Property Name="varActivityDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="varTimeSlot" Type="Int32" />
+          <Property Name="dtTimesheetDate" Type="DateTime" Precision="3" />
+          <Property Name="intEmployeeID" Type="Int32" />
+          <Property Name="dtCreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="dtUpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="intCreatedby" Type="Int32" />
+          <Property Name="intUpdatedby" Type="Int32" />
+          <NavigationProperty Name="tblActivityDetail" Relationship="Self.FK__tblTimeSh__intAc__54968AE5" FromRole="tblTimeSheet" ToRole="tblActivityDetails" />
+          <NavigationProperty Name="tblClientDetail" Relationship="Self.FK__tblTimeSh__intCl__52AE4273" FromRole="tblTimeSheet" ToRole="tblClientDetails" />
+          <NavigationProperty Name="tblEmployee" Relationship="Self.FK__tblTimeSh__intEm__558AAF1E" FromRole="tblTimeSheet" ToRole="tblEmployee" />
+          <NavigationProperty Name="tblProjectDetail" Relationship="Self.FK__tblTimeSh__intPr__53A266AC" FromRole="tblTimeSheet" ToRole="tblProjectDetails" />
+        </EntityType>
+        <EntityType Name="tblTraining">
+          <Key>
+            <PropertyRef Name="intTrainingID" />
+          </Key>
+          <Property Name="intTrainingID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="varTrainigsName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="intTrainerID" Type="Int32" />
+          <Property Name="varTrainingStartDate" Type="DateTime" Precision="3" />
+          <Property Name="varTrainingEndDate" Type="DateTime" Precision="3" />
+          <Property Name="varTrainingDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="varStatus" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="dtCreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="dtUpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="intCreatedBy" Type="Int32" />
+          <Property Name="intUpdatedBy" Type="Int32" />
+          <NavigationProperty Name="tblEmployee" Relationship="Self.FK__tblTraini__intTr__6E8B6712" FromRole="tblTrainings" ToRole="tblEmployee" />
+        </EntityType>
+        <EntityType Name="tblUserLeaveManagement">
+          <Key>
+            <PropertyRef Name="intLeaveMgtID" />
+          </Key>
+          <Property Name="intLeaveMgtID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="intEmployeeID" Type="Int32" />
+          <Property Name="dtLeaveStartDate" Type="DateTime" Precision="3" />
+          <Property Name="dtLeaveEndDate" Type="DateTime" Precision="3" />
+          <Property Name="varLeaveDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="intLeaveTypeId" Type="Int32" />
+          <Property Name="varStatus" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="varManagerComment" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="dtCreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="dtUpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="intCreatedby" Type="Int32" />
+          <Property Name="intUpdatedby" Type="Int32" />
+          <NavigationProperty Name="tblEmployee" Relationship="Self.FK__tblUserLe__intEm__7CD98669" FromRole="tblUserLeaveManagement" ToRole="tblEmployee" />
+          <NavigationProperty Name="tblLeaveType" Relationship="Self.FK__tblUserLe__intLe__7DCDAAA2" FromRole="tblUserLeaveManagement" ToRole="tblLeaveType" />
+        </EntityType>
+        <EntityType Name="tblUserRelationship">
+          <Key>
+            <PropertyRef Name="intRelationshipID" />
+          </Key>
+          <Property Name="intRelationshipID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="varRelationshipName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="dtCreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="dtUpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="intCreatedby" Type="Int32" />
+          <Property Name="intUpdatedby" Type="Int32" />
+          <NavigationProperty Name="tblEmployees" Relationship="Self.FK__tblEmploy__intEm__57A801BA" FromRole="tblUserRelationship" ToRole="tblEmployee" />
+        </EntityType>
+        <EntityType Name="tblUserRole">
+          <Key>
+            <PropertyRef Name="intUserRoleID" />
+          </Key>
+          <Property Name="intUserRoleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="varRoleName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="dtCreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="dtUpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="intCreatedby" Type="Int32" />
+          <Property Name="intUpdatedby" Type="Int32" />
+          <NavigationProperty Name="tblEmployees" Relationship="Self.FK__tblEmploy__intEm__51EF2864" FromRole="tblUserRole" ToRole="tblEmployee" />
+        </EntityType>
+        <EntityType Name="tblVacancise">
+          <Key>
+            <PropertyRef Name="intVacanciseID" />
+          </Key>
+          <Property Name="intVacanciseID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="intPositionID" Type="Int32" />
+          <Property Name="varExperience" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="varJobLocation" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="intNoOfPositions" Type="Int32" />
+          <Property Name="varJobDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="varPublisher" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="dtCreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="dtUpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="intCreatedby" Type="Int32" />
+          <Property Name="intUpdatedby" Type="Int32" />
+          <NavigationProperty Name="tblPosition" Relationship="Self.FK__tblVacanc__intPo__1699586C" FromRole="tblVacancise" ToRole="tblPositions" />
+        </EntityType>
+        <EntityType Name="tblWorkExperience">
+          <Key>
+            <PropertyRef Name="intWorkExpID" />
+          </Key>
+          <Property Name="intWorkExpID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="intEmployeeID" Type="Int32" />
+          <Property Name="varCompanyName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="varDesignation" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="varJobProfile" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="dtFromDate" Type="DateTime" Precision="3" />
+          <Property Name="dtEndDate" Type="DateTime" Precision="3" />
+          <Property Name="intCreatedBy" Type="Int32" />
+          <Property Name="dtCreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="intUpdatedBy" Type="Int32" />
+          <Property Name="dtUpdatedOn" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tblEmployee" Relationship="Self.FK__tblWorkEx__intEm__69C6B1F5" FromRole="tblWorkExperience" ToRole="tblEmployee" />
+        </EntityType>
+        <Association Name="FK__tblTimeSh__intAc__54968AE5">
+          <End Role="tblActivityDetails" Type="Self.tblActivityDetail" Multiplicity="0..1" />
+          <End Role="tblTimeSheet" Type="Self.tblTimeSheet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblActivityDetails">
+              <PropertyRef Name="intActivityID" />
+            </Principal>
+            <Dependent Role="tblTimeSheet">
+              <PropertyRef Name="intActivityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblAllowa__intAl__351DDF8C">
+          <End Role="tblAllowances" Type="Self.tblAllowance" Multiplicity="0..1" />
+          <End Role="tblAllowancesManagement" Type="Self.tblAllowancesManagement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblAllowances">
+              <PropertyRef Name="intAllowancesID" />
+            </Principal>
+            <Dependent Role="tblAllowancesManagement">
+              <PropertyRef Name="intAllowancesID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblAllowa__intEm__3429BB53">
+          <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="0..1" />
+          <End Role="tblAllowancesManagement" Type="Self.tblAllowancesManagement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblEmployee">
+              <PropertyRef Name="intEmployeeID" />
+            </Principal>
+            <Dependent Role="tblAllowancesManagement">
+              <PropertyRef Name="intEmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblEmploy__intCu__55BFB948">
+          <End Role="tblCity" Type="Self.tblCity" Multiplicity="0..1" />
+          <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCity">
+              <PropertyRef Name="intCityID" />
+            </Principal>
+            <Dependent Role="tblEmployee">
+              <PropertyRef Name="intCurrCityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblEmploy__intPe__5B78929E">
+          <End Role="tblCity" Type="Self.tblCity" Multiplicity="0..1" />
+          <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCity">
+              <PropertyRef Name="intCityID" />
+            </Principal>
+            <Dependent Role="tblEmployee">
+              <PropertyRef Name="intPermCityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblProjec__intCl__7814D14C">
+          <End Role="tblClientDetails" Type="Self.tblClientDetail" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tblProjectDetails" Type="Self.tblProjectDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblClientDetails">
+              <PropertyRef Name="intClientID" />
+            </Principal>
+            <Dependent Role="tblProjectDetails">
+              <PropertyRef Name="intClientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblTimeSh__intCl__52AE4273">
+          <End Role="tblClientDetails" Type="Self.tblClientDetail" Multiplicity="0..1" />
+          <End Role="tblTimeSheet" Type="Self.tblTimeSheet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblClientDetails">
+              <PropertyRef Name="intClientID" />
+            </Principal>
+            <Dependent Role="tblTimeSheet">
+              <PropertyRef Name="intClientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblEmploy__intCu__53D770D6">
+          <End Role="tblCountry" Type="Self.tblCountry" Multiplicity="0..1" />
+          <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCountry">
+              <PropertyRef Name="intCountryID" />
+            </Principal>
+            <Dependent Role="tblEmployee">
+              <PropertyRef Name="intCurrCountryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblEmploy__intPe__59904A2C">
+          <End Role="tblCountry" Type="Self.tblCountry" Multiplicity="0..1" />
+          <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCountry">
+              <PropertyRef Name="intCountryID" />
+            </Principal>
+            <Dependent Role="tblEmployee">
+              <PropertyRef Name="intPermCountryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblEmploy__intDe__589C25F3">
+          <End Role="tblDepartment" Type="Self.tblDepartment" Multiplicity="0..1" />
+          <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblDepartment">
+              <PropertyRef Name="intDepartmentID" />
+            </Principal>
+            <Dependent Role="tblEmployee">
+              <PropertyRef Name="intDepartmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblEmploy__intDe__52E34C9D">
+          <End Role="tblDesignation" Type="Self.tblDesignation" Multiplicity="0..1" />
+          <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblDesignation">
+              <PropertyRef Name="intDesignationID" />
+            </Principal>
+            <Dependent Role="tblEmployee">
+              <PropertyRef Name="intDesignationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblEmploy__intCu__54CB950F">
+          <End Role="tblState" Type="Self.tblState" Multiplicity="0..1" />
+          <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblState">
+              <PropertyRef Name="intStateID" />
+            </Principal>
+            <Dependent Role="tblEmployee">
+              <PropertyRef Name="intCurrStateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblEmploy__intEm__02925FBF">
+          <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="0..1" />
+          <End Role="tblEmployeeGoals" Type="Self.tblEmployeeGoal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblEmployee">
+              <PropertyRef Name="intEmployeeID" />
+            </Principal>
+            <Dependent Role="tblEmployeeGoals">
+              <PropertyRef Name="intEmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblEmploy__intEm__51EF2864">
+          <End Role="tblUserRole" Type="Self.tblUserRole" Multiplicity="0..1" />
+          <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUserRole">
+              <PropertyRef Name="intUserRoleID" />
+            </Principal>
+            <Dependent Role="tblEmployee">
+              <PropertyRef Name="intEmpRoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblEmploy__intEm__57A801BA">
+          <End Role="tblUserRelationship" Type="Self.tblUserRelationship" Multiplicity="0..1" />
+          <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUserRelationship">
+              <PropertyRef Name="intRelationshipID" />
+            </Principal>
+            <Dependent Role="tblEmployee">
+              <PropertyRef Name="intEmergencyContactRelationshipID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblEmploy__intEm__6501FCD8">
+          <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tblEmployeeQualificationDetails" Type="Self.tblEmployeeQualificationDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblEmployee">
+              <PropertyRef Name="intEmployeeID" />
+            </Principal>
+            <Dependent Role="tblEmployeeQualificationDetails">
+              <PropertyRef Name="intEmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblEmploy__intPe__5A846E65">
+          <End Role="tblState" Type="Self.tblState" Multiplicity="0..1" />
+          <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblState">
+              <PropertyRef Name="intStateID" />
+            </Principal>
+            <Dependent Role="tblEmployee">
+              <PropertyRef Name="intPermStateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblEmploy__intRe__56B3DD81">
+          <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="0..1" />
+          <End Role="tblEmployee1" Type="Self.tblEmployee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblEmployee">
+              <PropertyRef Name="intEmployeeID" />
+            </Principal>
+            <Dependent Role="tblEmployee1">
+              <PropertyRef Name="intReportingHead" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblLogin__intEmp__603D47BB">
+          <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tblLogin" Type="Self.tblLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblEmployee">
+              <PropertyRef Name="intEmployeeID" />
+            </Principal>
+            <Dependent Role="tblLogin">
+              <PropertyRef Name="intEmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblPaySli__intEm__2B947552">
+          <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="0..1" />
+          <End Role="tblPaySlip" Type="Self.tblPaySlip" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblEmployee">
+              <PropertyRef Name="intEmployeeID" />
+            </Principal>
+            <Dependent Role="tblPaySlip">
+              <PropertyRef Name="intEmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblProjec__intIn__762C88DA">
+          <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tblProjectDetails" Type="Self.tblProjectDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblEmployee">
+              <PropertyRef Name="intEmployeeID" />
+            </Principal>
+            <Dependent Role="tblProjectDetails">
+              <PropertyRef Name="intInternalProjectHead" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblTimeSh__intEm__558AAF1E">
+          <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="0..1" />
+          <End Role="tblTimeSheet" Type="Self.tblTimeSheet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblEmployee">
+              <PropertyRef Name="intEmployeeID" />
+            </Principal>
+            <Dependent Role="tblTimeSheet">
+              <PropertyRef Name="intEmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblTraini__intTr__6E8B6712">
+          <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tblTrainings" Type="Self.tblTraining" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblEmployee">
+              <PropertyRef Name="intEmployeeID" />
+            </Principal>
+            <Dependent Role="tblTrainings">
+              <PropertyRef Name="intTrainerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblUserLe__intEm__7CD98669">
+          <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tblUserLeaveManagement" Type="Self.tblUserLeaveManagement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblEmployee">
+              <PropertyRef Name="intEmployeeID" />
+            </Principal>
+            <Dependent Role="tblUserLeaveManagement">
+              <PropertyRef Name="intEmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblWorkEx__intEm__69C6B1F5">
+          <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tblWorkExperience" Type="Self.tblWorkExperience" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblEmployee">
+              <PropertyRef Name="intEmployeeID" />
+            </Principal>
+            <Dependent Role="tblWorkExperience">
+              <PropertyRef Name="intEmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblUserLe__intLe__7DCDAAA2">
+          <End Role="tblLeaveType" Type="Self.tblLeaveType" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tblUserLeaveManagement" Type="Self.tblUserLeaveManagement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblLeaveType">
+              <PropertyRef Name="intLeaveTypeID" />
+            </Principal>
+            <Dependent Role="tblUserLeaveManagement">
+              <PropertyRef Name="intLeaveTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblRecrui__intPo__0B27A5C0">
+          <End Role="tblPositions" Type="Self.tblPosition" Multiplicity="0..1" />
+          <End Role="tblRecruitment" Type="Self.tblRecruitment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblPositions">
+              <PropertyRef Name="intPositionId" />
+            </Principal>
+            <Dependent Role="tblRecruitment">
+              <PropertyRef Name="intPositionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblVacanc__intPo__1699586C">
+          <End Role="tblPositions" Type="Self.tblPosition" Multiplicity="0..1" />
+          <End Role="tblVacancise" Type="Self.tblVacancise" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblPositions">
+              <PropertyRef Name="intPositionId" />
+            </Principal>
+            <Dependent Role="tblVacancise">
+              <PropertyRef Name="intPositionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblProjec__intPr__7720AD13">
+          <End Role="tblStatus" Type="Self.tblStatus" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tblProjectDetails" Type="Self.tblProjectDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblStatus">
+              <PropertyRef Name="intStatusID" />
+            </Principal>
+            <Dependent Role="tblProjectDetails">
+              <PropertyRef Name="intProjectStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblTimeSh__intPr__53A266AC">
+          <End Role="tblProjectDetails" Type="Self.tblProjectDetail" Multiplicity="0..1" />
+          <End Role="tblTimeSheet" Type="Self.tblTimeSheet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblProjectDetails">
+              <PropertyRef Name="intProjectID" />
+            </Principal>
+            <Dependent Role="tblTimeSheet">
+              <PropertyRef Name="intProjectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="HRIMSdbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblAccesses" EntityType="Self.tblAccess" />
+          <EntitySet Name="tblActivityDetails" EntityType="Self.tblActivityDetail" />
+          <EntitySet Name="tblAllowances" EntityType="Self.tblAllowance" />
+          <EntitySet Name="tblAllowancesManagements" EntityType="Self.tblAllowancesManagement" />
+          <EntitySet Name="tblCities" EntityType="Self.tblCity" />
+          <EntitySet Name="tblClientDetails" EntityType="Self.tblClientDetail" />
+          <EntitySet Name="tblClientTeams" EntityType="Self.tblClientTeam" />
+          <EntitySet Name="tblCountries" EntityType="Self.tblCountry" />
+          <EntitySet Name="tblDepartments" EntityType="Self.tblDepartment" />
+          <EntitySet Name="tblDesignations" EntityType="Self.tblDesignation" />
+          <EntitySet Name="tblEmployees" EntityType="Self.tblEmployee" />
+          <EntitySet Name="tblEmployeeGoals" EntityType="Self.tblEmployeeGoal" />
+          <EntitySet Name="tblEmployeeQualificationDetails" EntityType="Self.tblEmployeeQualificationDetail" />
+          <EntitySet Name="tblHolidayLists" EntityType="Self.tblHolidayList" />
+          <EntitySet Name="tblLeaveTypes" EntityType="Self.tblLeaveType" />
+          <EntitySet Name="tblLinkDetails" EntityType="Self.tblLinkDetail" />
+          <EntitySet Name="tblLogins" EntityType="Self.tblLogin" />
+          <EntitySet Name="tblNews" EntityType="Self.tblNew" />
+          <EntitySet Name="tblPaySlips" EntityType="Self.tblPaySlip" />
+          <EntitySet Name="tblPositions" EntityType="Self.tblPosition" />
+          <EntitySet Name="tblProjectDetails" EntityType="Self.tblProjectDetail" />
+          <EntitySet Name="tblRecruitments" EntityType="Self.tblRecruitment" />
+          <EntitySet Name="tblRecruitmentTypes" EntityType="Self.tblRecruitmentType" />
+          <EntitySet Name="tblStates" EntityType="Self.tblState" />
+          <EntitySet Name="tblStatus" EntityType="Self.tblStatus" />
+          <EntitySet Name="tblTimeSheets" EntityType="Self.tblTimeSheet" />
+          <EntitySet Name="tblTrainings" EntityType="Self.tblTraining" />
+          <EntitySet Name="tblUserLeaveManagements" EntityType="Self.tblUserLeaveManagement" />
+          <EntitySet Name="tblUserRelationships" EntityType="Self.tblUserRelationship" />
+          <EntitySet Name="tblUserRoles" EntityType="Self.tblUserRole" />
+          <EntitySet Name="tblVacancises" EntityType="Self.tblVacancise" />
+          <EntitySet Name="tblWorkExperiences" EntityType="Self.tblWorkExperience" />
+          <AssociationSet Name="FK__tblTimeSh__intAc__54968AE5" Association="Self.FK__tblTimeSh__intAc__54968AE5">
+            <End Role="tblActivityDetails" EntitySet="tblActivityDetails" />
+            <End Role="tblTimeSheet" EntitySet="tblTimeSheets" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblAllowa__intAl__351DDF8C" Association="Self.FK__tblAllowa__intAl__351DDF8C">
+            <End Role="tblAllowances" EntitySet="tblAllowances" />
+            <End Role="tblAllowancesManagement" EntitySet="tblAllowancesManagements" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblAllowa__intEm__3429BB53" Association="Self.FK__tblAllowa__intEm__3429BB53">
+            <End Role="tblEmployee" EntitySet="tblEmployees" />
+            <End Role="tblAllowancesManagement" EntitySet="tblAllowancesManagements" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblEmploy__intCu__55BFB948" Association="Self.FK__tblEmploy__intCu__55BFB948">
+            <End Role="tblCity" EntitySet="tblCities" />
+            <End Role="tblEmployee" EntitySet="tblEmployees" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblEmploy__intPe__5B78929E" Association="Self.FK__tblEmploy__intPe__5B78929E">
+            <End Role="tblCity" EntitySet="tblCities" />
+            <End Role="tblEmployee" EntitySet="tblEmployees" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblProjec__intCl__7814D14C" Association="Self.FK__tblProjec__intCl__7814D14C">
+            <End Role="tblClientDetails" EntitySet="tblClientDetails" />
+            <End Role="tblProjectDetails" EntitySet="tblProjectDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblTimeSh__intCl__52AE4273" Association="Self.FK__tblTimeSh__intCl__52AE4273">
+            <End Role="tblClientDetails" EntitySet="tblClientDetails" />
+            <End Role="tblTimeSheet" EntitySet="tblTimeSheets" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblEmploy__intCu__53D770D6" Association="Self.FK__tblEmploy__intCu__53D770D6">
+            <End Role="tblCountry" EntitySet="tblCountries" />
+            <End Role="tblEmployee" EntitySet="tblEmployees" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblEmploy__intPe__59904A2C" Association="Self.FK__tblEmploy__intPe__59904A2C">
+            <End Role="tblCountry" EntitySet="tblCountries" />
+            <End Role="tblEmployee" EntitySet="tblEmployees" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblEmploy__intDe__589C25F3" Association="Self.FK__tblEmploy__intDe__589C25F3">
+            <End Role="tblDepartment" EntitySet="tblDepartments" />
+            <End Role="tblEmployee" EntitySet="tblEmployees" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblEmploy__intDe__52E34C9D" Association="Self.FK__tblEmploy__intDe__52E34C9D">
+            <End Role="tblDesignation" EntitySet="tblDesignations" />
+            <End Role="tblEmployee" EntitySet="tblEmployees" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblEmploy__intCu__54CB950F" Association="Self.FK__tblEmploy__intCu__54CB950F">
+            <End Role="tblState" EntitySet="tblStates" />
+            <End Role="tblEmployee" EntitySet="tblEmployees" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblEmploy__intEm__02925FBF" Association="Self.FK__tblEmploy__intEm__02925FBF">
+            <End Role="tblEmployee" EntitySet="tblEmployees" />
+            <End Role="tblEmployeeGoals" EntitySet="tblEmployeeGoals" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblEmploy__intEm__51EF2864" Association="Self.FK__tblEmploy__intEm__51EF2864">
+            <End Role="tblUserRole" EntitySet="tblUserRoles" />
+            <End Role="tblEmployee" EntitySet="tblEmployees" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblEmploy__intEm__57A801BA" Association="Self.FK__tblEmploy__intEm__57A801BA">
+            <End Role="tblUserRelationship" EntitySet="tblUserRelationships" />
+            <End Role="tblEmployee" EntitySet="tblEmployees" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblEmploy__intEm__6501FCD8" Association="Self.FK__tblEmploy__intEm__6501FCD8">
+            <End Role="tblEmployee" EntitySet="tblEmployees" />
+            <End Role="tblEmployeeQualificationDetails" EntitySet="tblEmployeeQualificationDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblEmploy__intPe__5A846E65" Association="Self.FK__tblEmploy__intPe__5A846E65">
+            <End Role="tblState" EntitySet="tblStates" />
+            <End Role="tblEmployee" EntitySet="tblEmployees" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblEmploy__intRe__56B3DD81" Association="Self.FK__tblEmploy__intRe__56B3DD81">
+            <End Role="tblEmployee" EntitySet="tblEmployees" />
+            <End Role="tblEmployee1" EntitySet="tblEmployees" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblLogin__intEmp__603D47BB" Association="Self.FK__tblLogin__intEmp__603D47BB">
+            <End Role="tblEmployee" EntitySet="tblEmployees" />
+            <End Role="tblLogin" EntitySet="tblLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblPaySli__intEm__2B947552" Association="Self.FK__tblPaySli__intEm__2B947552">
+            <End Role="tblEmployee" EntitySet="tblEmployees" />
+            <End Role="tblPaySlip" EntitySet="tblPaySlips" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblProjec__intIn__762C88DA" Association="Self.FK__tblProjec__intIn__762C88DA">
+            <End Role="tblEmployee" EntitySet="tblEmployees" />
+            <End Role="tblProjectDetails" EntitySet="tblProjectDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblTimeSh__intEm__558AAF1E" Association="Self.FK__tblTimeSh__intEm__558AAF1E">
+            <End Role="tblEmployee" EntitySet="tblEmployees" />
+            <End Role="tblTimeSheet" EntitySet="tblTimeSheets" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblTraini__intTr__6E8B6712" Association="Self.FK__tblTraini__intTr__6E8B6712">
+            <End Role="tblEmployee" EntitySet="tblEmployees" />
+            <End Role="tblTrainings" EntitySet="tblTrainings" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblUserLe__intEm__7CD98669" Association="Self.FK__tblUserLe__intEm__7CD98669">
+            <End Role="tblEmployee" EntitySet="tblEmployees" />
+            <End Role="tblUserLeaveManagement" EntitySet="tblUserLeaveManagements" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblWorkEx__intEm__69C6B1F5" Association="Self.FK__tblWorkEx__intEm__69C6B1F5">
+            <End Role="tblEmployee" EntitySet="tblEmployees" />
+            <End Role="tblWorkExperience" EntitySet="tblWorkExperiences" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblUserLe__intLe__7DCDAAA2" Association="Self.FK__tblUserLe__intLe__7DCDAAA2">
+            <End Role="tblLeaveType" EntitySet="tblLeaveTypes" />
+            <End Role="tblUserLeaveManagement" EntitySet="tblUserLeaveManagements" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblRecrui__intPo__0B27A5C0" Association="Self.FK__tblRecrui__intPo__0B27A5C0">
+            <End Role="tblPositions" EntitySet="tblPositions" />
+            <End Role="tblRecruitment" EntitySet="tblRecruitments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblVacanc__intPo__1699586C" Association="Self.FK__tblVacanc__intPo__1699586C">
+            <End Role="tblPositions" EntitySet="tblPositions" />
+            <End Role="tblVacancise" EntitySet="tblVacancises" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblProjec__intPr__7720AD13" Association="Self.FK__tblProjec__intPr__7720AD13">
+            <End Role="tblStatus" EntitySet="tblStatus" />
+            <End Role="tblProjectDetails" EntitySet="tblProjectDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblTimeSh__intPr__53A266AC" Association="Self.FK__tblTimeSh__intPr__53A266AC">
+            <End Role="tblProjectDetails" EntitySet="tblProjectDetails" />
+            <End Role="tblTimeSheet" EntitySet="tblTimeSheets" />
+          </AssociationSet>
+          <EntitySet Name="tblCompletions" EntityType="HRIMSModel.tblCompletion" />
+          <AssociationSet Name="FK_intCompletionId" Association="HRIMSModel.FK_intCompletionId">
+            <End Role="tblCompletion" EntitySet="tblCompletions" />
+            <End Role="tblProjectDetail" EntitySet="tblProjectDetails" />
+          </AssociationSet>
+          <EntitySet Name="tblGoalTitles" EntityType="HRIMSModel.tblGoalTitle" />
+          <AssociationSet Name="FK_tblEmployeeGoalsTitle" Association="HRIMSModel.FK_tblEmployeeGoalsTitle">
+            <End Role="tblGoalTitle" EntitySet="tblGoalTitles" />
+            <End Role="tblEmployeeGoal" EntitySet="tblEmployeeGoals" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblEmployeeGoals" Association="HRIMSModel.FK_tblEmployeeGoals">
+            <End Role="tblStatus" EntitySet="tblStatus" />
+            <End Role="tblEmployeeGoal" EntitySet="tblEmployeeGoals" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="tblCompletion">
+          <Key>
+            <PropertyRef Name="intCompletionId" />
+          </Key>
+          <Property Name="intCompletionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="varComplition" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="dtCreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="intCreatedby" Type="Int32" />
+          <Property Name="dtUpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="intUpdatedBy" Type="Int32" />
+          <NavigationProperty Name="tblProjectDetails" Relationship="HRIMSModel.FK_intCompletionId" FromRole="tblCompletion" ToRole="tblProjectDetail" />
+        </EntityType>
+        <Association Name="FK_intCompletionId">
+          <End Type="HRIMSModel.tblCompletion" Role="tblCompletion" Multiplicity="0..1" />
+          <End Type="HRIMSModel.tblProjectDetail" Role="tblProjectDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCompletion">
+              <PropertyRef Name="intCompletionId" />
+            </Principal>
+            <Dependent Role="tblProjectDetail">
+              <PropertyRef Name="intCompletionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="tblGoalTitle">
+          <Key>
+            <PropertyRef Name="intTilteID" />
+          </Key>
+          <Property Name="intTilteID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="varTitleName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="varTitleDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="intCreatedBy" Type="Int32" />
+          <Property Name="dtCreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="intUpdatedBy" Type="Int32" />
+          <Property Name="dtUpdatedOn" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tblEmployeeGoals" Relationship="HRIMSModel.FK_tblEmployeeGoalsTitle" FromRole="tblGoalTitle" ToRole="tblEmployeeGoal" />
+        </EntityType>
+        <Association Name="FK_tblEmployeeGoalsTitle">
+          <End Type="HRIMSModel.tblGoalTitle" Role="tblGoalTitle" Multiplicity="0..1" />
+          <End Type="HRIMSModel.tblEmployeeGoal" Role="tblEmployeeGoal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblGoalTitle">
+              <PropertyRef Name="intTilteID" />
+            </Principal>
+            <Dependent Role="tblEmployeeGoal">
+              <PropertyRef Name="intTitle" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblEmployeeGoals">
+          <End Type="HRIMSModel.tblStatus" Role="tblStatus" Multiplicity="0..1" />
+          <End Type="HRIMSModel.tblEmployeeGoal" Role="tblEmployeeGoal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblStatus">
+              <PropertyRef Name="intStatusID" />
+            </Principal>
+            <Dependent Role="tblEmployeeGoal">
+              <PropertyRef Name="intStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="HRIMSModelStoreContainer" CdmEntityContainer="HRIMSdbEntities">
+          <EntitySetMapping Name="tblAccesses">
+            <EntityTypeMapping TypeName="HRIMSModel.tblAccess">
+              <MappingFragment StoreEntitySet="tblAccess">
+                <ScalarProperty Name="intAccessID" ColumnName="intAccessID" />
+                <ScalarProperty Name="varAccessName" ColumnName="varAccessName" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="dtCreatedOn" ColumnName="dtCreatedOn" />
+                <ScalarProperty Name="dtUpdatedOn" ColumnName="dtUpdatedOn" />
+                <ScalarProperty Name="intCreatedby" ColumnName="intCreatedby" />
+                <ScalarProperty Name="intUpdatedby" ColumnName="intUpdatedby" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblActivityDetails">
+            <EntityTypeMapping TypeName="HRIMSModel.tblActivityDetail">
+              <MappingFragment StoreEntitySet="tblActivityDetails">
+                <ScalarProperty Name="intActivityID" ColumnName="intActivityID" />
+                <ScalarProperty Name="varActivityName" ColumnName="varActivityName" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="dtCreatedOn" ColumnName="dtCreatedOn" />
+                <ScalarProperty Name="dtUpdatedOn" ColumnName="dtUpdatedOn" />
+                <ScalarProperty Name="intCreatedby" ColumnName="intCreatedby" />
+                <ScalarProperty Name="intUpdatedby" ColumnName="intUpdatedby" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblAllowances">
+            <EntityTypeMapping TypeName="HRIMSModel.tblAllowance">
+              <MappingFragment StoreEntitySet="tblAllowances">
+                <ScalarProperty Name="intAllowancesID" ColumnName="intAllowancesID" />
+                <ScalarProperty Name="varAllowancesName" ColumnName="varAllowancesName" />
+                <ScalarProperty Name="dtCreatedOn" ColumnName="dtCreatedOn" />
+                <ScalarProperty Name="dtUpdatedOn" ColumnName="dtUpdatedOn" />
+                <ScalarProperty Name="intCreatedby" ColumnName="intCreatedby" />
+                <ScalarProperty Name="intUpdatedby" ColumnName="intUpdatedby" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblAllowancesManagements">
+            <EntityTypeMapping TypeName="HRIMSModel.tblAllowancesManagement">
+              <MappingFragment StoreEntitySet="tblAllowancesManagement">
+                <ScalarProperty Name="intAllowancesMgtID" ColumnName="intAllowancesMgtID" />
+                <ScalarProperty Name="intEmployeeID" ColumnName="intEmployeeID" />
+                <ScalarProperty Name="intAllowancesID" ColumnName="intAllowancesID" />
+                <ScalarProperty Name="varAllowancesAmount" ColumnName="varAllowancesAmount" />
+                <ScalarProperty Name="dtCreatedOn" ColumnName="dtCreatedOn" />
+                <ScalarProperty Name="dtUpdatedOn" ColumnName="dtUpdatedOn" />
+                <ScalarProperty Name="intCreatedby" ColumnName="intCreatedby" />
+                <ScalarProperty Name="intUpdatedby" ColumnName="intUpdatedby" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblCities">
+            <EntityTypeMapping TypeName="HRIMSModel.tblCity">
+              <MappingFragment StoreEntitySet="tblCity">
+                <ScalarProperty Name="intCityID" ColumnName="intCityID" />
+                <ScalarProperty Name="varCityName" ColumnName="varCityName" />
+                <ScalarProperty Name="dtCreatedOn" ColumnName="dtCreatedOn" />
+                <ScalarProperty Name="dtUpdatedOn" ColumnName="dtUpdatedOn" />
+                <ScalarProperty Name="intCreatedby" ColumnName="intCreatedby" />
+                <ScalarProperty Name="intUpdatedby" ColumnName="intUpdatedby" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblClientDetails">
+            <EntityTypeMapping TypeName="HRIMSModel.tblClientDetail">
+              <MappingFragment StoreEntitySet="tblClientDetails">
+                <ScalarProperty Name="intClientID" ColumnName="intClientID" />
+                <ScalarProperty Name="varClientName" ColumnName="varClientName" />
+                <ScalarProperty Name="varClientEmailID" ColumnName="varClientEmailID" />
+                <ScalarProperty Name="varClientDescription" ColumnName="varClientDescription" />
+                <ScalarProperty Name="dtCreatedOn" ColumnName="dtCreatedOn" />
+                <ScalarProperty Name="dtUpdatedOn" ColumnName="dtUpdatedOn" />
+                <ScalarProperty Name="intCreatedby" ColumnName="intCreatedby" />
+                <ScalarProperty Name="intUpdatedby" ColumnName="intUpdatedby" />
+                <ScalarProperty Name="varClientPhoneNo" ColumnName="varClientPhoneNo"/>
+                <ScalarProperty Name="varClientAddress" ColumnName="varClientAddress"/>
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblClientTeams">
+            <EntityTypeMapping TypeName="HRIMSModel.tblClientTeam">
+              <MappingFragment StoreEntitySet="tblClientTeam">
+                <ScalarProperty Name="intClientTeamID" ColumnName="intClientTeamID" />
+                <ScalarProperty Name="varClientTeamMemName" ColumnName="varClientTeamMemName" />
+                <ScalarProperty Name="intActive" ColumnName="intActive" />
+                <ScalarProperty Name="dtCreatedOn" ColumnName="dtCreatedOn" />
+                <ScalarProperty Name="dtUpdatedOn" ColumnName="dtUpdatedOn" />
+                <ScalarProperty Name="intCreatedby" ColumnName="intCreatedby" />
+                <ScalarProperty Name="intUpdatedby" ColumnName="intUpdatedby" />
+                <ScalarProperty Name="varClientTeamMemEmail" ColumnName="varClientTeamMemEmail"/>
+                <ScalarProperty Name="intClientId" ColumnName="intClientId"/>
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblCountries">
+            <EntityTypeMapping TypeName="HRIMSModel.tblCountry">
+              <MappingFragment StoreEntitySet="tblCountry">
+                <ScalarProperty Name="intCountryID" ColumnName="intCountryID" />
+                <ScalarProperty Name="varCountryName" ColumnName="varCountryName" />
+                <ScalarProperty Name="dtCreatedOn" ColumnName="dtCreatedOn" />
+                <ScalarProperty Name="dtUpdatedOn" ColumnName="dtUpdatedOn" />
+                <ScalarProperty Name="intCreatedby" ColumnName="intCreatedby" />
+                <ScalarProperty Name="intUpdatedby" ColumnName="intUpdatedby" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblDepartments">
+            <EntityTypeMapping TypeName="HRIMSModel.tblDepartment">
+              <MappingFragment StoreEntitySet="tblDepartment">
+                <ScalarProperty Name="intDepartmentID" ColumnName="intDepartmentID" />
+                <ScalarProperty Name="varDepartmentName" ColumnName="varDepartmentName" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="dtCreatedOn" ColumnName="dtCreatedOn" />
+                <ScalarProperty Name="dtUpdatedOn" ColumnName="dtUpdatedOn" />
+                <ScalarProperty Name="intCreatedby" ColumnName="intCreatedby" />
+                <ScalarProperty Name="intUpdatedby" ColumnName="intUpdatedby" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblDesignations">
+            <EntityTypeMapping TypeName="HRIMSModel.tblDesignation">
+              <MappingFragment StoreEntitySet="tblDesignation">
+                <ScalarProperty Name="intDesignationID" ColumnName="intDesignationID" />
+                <ScalarProperty Name="varDesignationName" ColumnName="varDesignationName" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="dtCreatedOn" ColumnName="dtCreatedOn" />
+                <ScalarProperty Name="dtUpdatedOn" ColumnName="dtUpdatedOn" />
+                <ScalarProperty Name="intCreatedby" ColumnName="intCreatedby" />
+                <ScalarProperty Name="intUpdatedby" ColumnName="intUpdatedby" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblEmployees">
+            <EntityTypeMapping TypeName="HRIMSModel.tblEmployee">
+              <MappingFragment StoreEntitySet="tblEmployee">
+                <ScalarProperty Name="intEmployeeID" ColumnName="intEmployeeID" />
+                <ScalarProperty Name="varFirstName" ColumnName="varFirstName" />
+                <ScalarProperty Name="varLastName" ColumnName="varLastName" />
+                <ScalarProperty Name="varMiddleName" ColumnName="varMiddleName" />
+                <ScalarProperty Name="intEmpRoleID" ColumnName="intEmpRoleID" />
+                <ScalarProperty Name="intDesignationId" ColumnName="intDesignationId" />
+                <ScalarProperty Name="varCurrAddressLine1" ColumnName="varCurrAddressLine1" />
+                <ScalarProperty Name="varCurrAddressLine2" ColumnName="varCurrAddressLine2" />
+                <ScalarProperty Name="intCurrCountryID" ColumnName="intCurrCountryID" />
+                <ScalarProperty Name="intCurrStateID" ColumnName="intCurrStateID" />
+                <ScalarProperty Name="intCurrCityID" ColumnName="intCurrCityID" />
+                <ScalarProperty Name="varCurrPostalCode" ColumnName="varCurrPostalCode" />
+                <ScalarProperty Name="varPhoneNo" ColumnName="varPhoneNo" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="intLeaveBalance" ColumnName="intLeaveBalance" />
+                <ScalarProperty Name="varGender" ColumnName="varGender" />
+                <ScalarProperty Name="charMarritalStatus" ColumnName="charMarritalStatus" />
+                <ScalarProperty Name="varPANNo" ColumnName="varPANNo" />
+                <ScalarProperty Name="varWorkTelNo" ColumnName="varWorkTelNo" />
+                <ScalarProperty Name="intReportingHead" ColumnName="intReportingHead" />
+                <ScalarProperty Name="varOfficeEmailAdd" ColumnName="varOfficeEmailAdd" />
+                <ScalarProperty Name="varPersonalEmailAdd" ColumnName="varPersonalEmailAdd" />
+                <ScalarProperty Name="varFatherSpouceName" ColumnName="varFatherSpouceName" />
+                <ScalarProperty Name="varMotherName" ColumnName="varMotherName" />
+                <ScalarProperty Name="varEmergencyContactName" ColumnName="varEmergencyContactName" />
+                <ScalarProperty Name="varEmergencyContactNumber" ColumnName="varEmergencyContactNumber" />
+                <ScalarProperty Name="intEmergencyContactRelationshipID" ColumnName="intEmergencyContactRelationshipID" />
+                <ScalarProperty Name="intDepartmentID" ColumnName="intDepartmentID" />
+                <ScalarProperty Name="varPermAddressLine1" ColumnName="varPermAddressLine1" />
+                <ScalarProperty Name="varPermAddressLine2" ColumnName="varPermAddressLine2" />
+                <ScalarProperty Name="intPermCountryID" ColumnName="intPermCountryID" />
+                <ScalarProperty Name="intPermStateID" ColumnName="intPermStateID" />
+                <ScalarProperty Name="intPermCityID" ColumnName="intPermCityID" />
+                <ScalarProperty Name="varPermPostalCode" ColumnName="varPermPostalCode" />
+                <ScalarProperty Name="varAccessLevel" ColumnName="varAccessLevel" />
+                <ScalarProperty Name="varDOJ" ColumnName="varDOJ" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblEmployeeGoals">
+            <EntityTypeMapping TypeName="HRIMSModel.tblEmployeeGoal">
+              <MappingFragment StoreEntitySet="tblEmployeeGoals">
+                <ScalarProperty Name="intStatus" ColumnName="intStatus" />
+                <ScalarProperty Name="intTitle" ColumnName="intTitle" />
+                <ScalarProperty Name="intGoalID" ColumnName="intGoalID" />
+                <ScalarProperty Name="varGoalDescription" ColumnName="varGoalDescription" />
+                <ScalarProperty Name="dtStartdate" ColumnName="dtStartdate" />
+                <ScalarProperty Name="dtEndDate" ColumnName="dtEndDate" />
+                <ScalarProperty Name="varCompletion" ColumnName="varCompletion" />
+                <ScalarProperty Name="varManagerComment" ColumnName="varManagerComment" />
+                <ScalarProperty Name="intEmployeeID" ColumnName="intEmployeeID" />
+                <ScalarProperty Name="dtCreatedOn" ColumnName="dtCreatedOn" />
+                <ScalarProperty Name="dtUpdatedOn" ColumnName="dtUpdatedOn" />
+                <ScalarProperty Name="intCreatedby" ColumnName="intCreatedby" />
+                <ScalarProperty Name="intUpdatedby" ColumnName="intUpdatedby" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblEmployeeQualificationDetails">
+            <EntityTypeMapping TypeName="HRIMSModel.tblEmployeeQualificationDetail">
+              <MappingFragment StoreEntitySet="tblEmployeeQualificationDetails">
+                <ScalarProperty Name="intQualificationID" ColumnName="intQualificationID" />
+                <ScalarProperty Name="intEmployeeID" ColumnName="intEmployeeID" />
+                <ScalarProperty Name="varQualificationLevel" ColumnName="varQualificationLevel" />
+                <ScalarProperty Name="varUniversityName" ColumnName="varUniversityName" />
+                <ScalarProperty Name="varSpecialization" ColumnName="varSpecialization" />
+                <ScalarProperty Name="dtStartYear" ColumnName="dtStartYear" />
+                <ScalarProperty Name="dtEndYear" ColumnName="dtEndYear" />
+                <ScalarProperty Name="varPercentage" ColumnName="varPercentage" />
+                <ScalarProperty Name="intCreatedBy" ColumnName="intCreatedBy" />
+                <ScalarProperty Name="dtCreatedOn" ColumnName="dtCreatedOn" />
+                <ScalarProperty Name="intUpdatedBy" ColumnName="intUpdatedBy" />
+                <ScalarProperty Name="dyUpdatedOn" ColumnName="dyUpdatedOn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblHolidayLists">
+            <EntityTypeMapping TypeName="HRIMSModel.tblHolidayList">
+              <MappingFragment StoreEntitySet="tblHolidayList">
+                <ScalarProperty Name="intHolidayListId" ColumnName="intHolidayListId" />
+                <ScalarProperty Name="varOccasionName" ColumnName="varOccasionName" />
+                <ScalarProperty Name="varDescription" ColumnName="varDescription" />
+                <ScalarProperty Name="varDate" ColumnName="varDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="dtCreatedOn" ColumnName="dtCreatedOn" />
+                <ScalarProperty Name="dtUpdatedOn" ColumnName="dtUpdatedOn" />
+                <ScalarProperty Name="intCreatedby" ColumnName="intCreatedby" />
+                <ScalarProperty Name="intUpdatedby" ColumnName="intUpdatedby" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblLeaveTypes">
+            <EntityTypeMapping TypeName="HRIMSModel.tblLeaveType">
+              <MappingFragment StoreEntitySet="tblLeaveType">
+                <ScalarProperty Name="intLeaveTypeID" ColumnName="intLeaveTypeID" />
+                <ScalarProperty Name="varLeaveTypeName" ColumnName="varLeaveTypeName" />
+                <ScalarProperty Name="dtCreatedOn" ColumnName="dtCreatedOn" />
+                <ScalarProperty Name="dtUpdatedOn" ColumnName="dtUpdatedOn" />
+                <ScalarProperty Name="intCreatedby" ColumnName="intCreatedby" />
+                <ScalarProperty Name="intUpdatedby" ColumnName="intUpdatedby" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblLinkDetails">
+            <EntityTypeMapping TypeName="HRIMSModel.tblLinkDetail">
+              <MappingFragment StoreEntitySet="tblLinkDetails">
+                <ScalarProperty Name="iID" ColumnName="iID" />
+                <ScalarProperty Name="sProjectStatus" ColumnName="sProjectStatus" />
+                <ScalarProperty Name="sTechnicalSkill" ColumnName="sTechnicalSkill" />
+                <ScalarProperty Name="sMeetGoals" ColumnName="sMeetGoals" />
+                <ScalarProperty Name="sAttention" ColumnName="sAttention" />
+                <ScalarProperty Name="sPerformance" ColumnName="sPerformance" />
+                <ScalarProperty Name="sImproveComment" ColumnName="sImproveComment" />
+                <ScalarProperty Name="sAdditionalComment" ColumnName="sAdditionalComment" />
+                <ScalarProperty Name="dtCreatedOn" ColumnName="dtCreatedOn" />
+                <ScalarProperty Name="bIsActive" ColumnName="bIsActive" />
+                <ScalarProperty Name="objClientID" ColumnName="objClientID" />
+                <ScalarProperty Name="objEmployeeDetail" ColumnName="objEmployeeDetail" />
+                <ScalarProperty Name="objProjectDetail" ColumnName="objProjectDetail" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblLogins">
+            <EntityTypeMapping TypeName="HRIMSModel.tblLogin">
+              <MappingFragment StoreEntitySet="tblLogin">
+                <ScalarProperty Name="intLoginId" ColumnName="intLoginId" />
+                <ScalarProperty Name="varUserName" ColumnName="varUserName" />
+                <ScalarProperty Name="varPassword" ColumnName="varPassword" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="intEmployeeID" ColumnName="intEmployeeID" />
+                <ScalarProperty Name="IsChkLoginCount" ColumnName="IsChkLoginCount" />
+                <ScalarProperty Name="varLoginName" ColumnName="varLoginName" />
+                <ScalarProperty Name="dtCreatedOn" ColumnName="dtCreatedOn" />
+                <ScalarProperty Name="dtUpdatedOn" ColumnName="dtUpdatedOn" />
+                <ScalarProperty Name="intCreatedBy" ColumnName="intCreatedBy" />
+                <ScalarProperty Name="intUpdatedBy" ColumnName="intUpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblNews">
+            <EntityTypeMapping TypeName="HRIMSModel.tblNew">
+              <MappingFragment StoreEntitySet="tblNews">
+                <ScalarProperty Name="intNewsID" ColumnName="intNewsID" />
+                <ScalarProperty Name="varNewsTopic" ColumnName="varNewsTopic" />
+                <ScalarProperty Name="varNewsDescription" ColumnName="varNewsDescription" />
+                <ScalarProperty Name="varPublishTo" ColumnName="varPublishTo" />
+                <ScalarProperty Name="intCreatedBy" ColumnName="intCreatedBy" />
+                <ScalarProperty Name="intUpdatedBy" ColumnName="intUpdatedBy" />
+                <ScalarProperty Name="dtCreatedOn" ColumnName="dtCreatedOn" />
+                <ScalarProperty Name="dtUpdatedOn" ColumnName="dtUpdatedOn" />
+                <ScalarProperty Name="intActive" ColumnName="intActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblPaySlips">
+            <EntityTypeMapping TypeName="HRIMSModel.tblPaySlip">
+              <MappingFragment StoreEntitySet="tblPaySlip">
+                <ScalarProperty Name="intPaySlipId" ColumnName="intPaySlipId" />
+                <ScalarProperty Name="intEmployeeID" ColumnName="intEmployeeID" />
+                <ScalarProperty Name="varBasic" ColumnName="varBasic" />
+                <ScalarProperty Name="varHRA" ColumnName="varHRA" />
+                <ScalarProperty Name="varConveyance" ColumnName="varConveyance" />
+                <ScalarProperty Name="intProfessionalTax" ColumnName="intProfessionalTax" />
+                <ScalarProperty Name="intProvidentFund" ColumnName="intProvidentFund" />
+                <ScalarProperty Name="dtCreatedOn" ColumnName="dtCreatedOn" />
+                <ScalarProperty Name="dtUpdatedOn" ColumnName="dtUpdatedOn" />
+                <ScalarProperty Name="intCreatedby" ColumnName="intCreatedby" />
+                <ScalarProperty Name="intUpdatedby" ColumnName="intUpdatedby" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblPositions">
+            <EntityTypeMapping TypeName="HRIMSModel.tblPosition">
+              <MappingFragment StoreEntitySet="tblPositions">
+                <ScalarProperty Name="intPositionId" ColumnName="intPositionId" />
+                <ScalarProperty Name="varPositionName" ColumnName="varPositionName" />
+                <ScalarProperty Name="varPositionDescription" ColumnName="varPositionDescription" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="varStatus" ColumnName="varStatus" />
+                <ScalarProperty Name="dtCreatedOn" ColumnName="dtCreatedOn" />
+                <ScalarProperty Name="dtUpdatedOn" ColumnName="dtUpdatedOn" />
+                <ScalarProperty Name="intCreatedby" ColumnName="intCreatedby" />
+                <ScalarProperty Name="intUpdatedby" ColumnName="intUpdatedby" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblProjectDetails">
+            <EntityTypeMapping TypeName="HRIMSModel.tblProjectDetail">
+              <MappingFragment StoreEntitySet="tblProjectDetails">
+                <ScalarProperty Name="intCompletionID" ColumnName="intCompletionID" />
+                <ScalarProperty Name="intProjectID" ColumnName="intProjectID" />
+                <ScalarProperty Name="varProjectName" ColumnName="varProjectName" />
+                <ScalarProperty Name="intInternalProjectHead" ColumnName="intInternalProjectHead" />
+                <ScalarProperty Name="varProjectDescription" ColumnName="varProjectDescription" />
+                <ScalarProperty Name="dtProjectStartDate" ColumnName="dtProjectStartDate" />
+                <ScalarProperty Name="dtProjectEndDate" ColumnName="dtProjectEndDate" />
+                <ScalarProperty Name="intProjectStatus" ColumnName="intProjectStatus" />
+                <ScalarProperty Name="intClientID" ColumnName="intClientID" />
+                <ScalarProperty Name="varClientProjectHead" ColumnName="varClientProjectHead" />
+                <ScalarProperty Name="varTeamMemDetails" ColumnName="varTeamMemDetails" />
+                <ScalarProperty Name="dtCreatedOn" ColumnName="dtCreatedOn" />
+                <ScalarProperty Name="dtUpdatedOn" ColumnName="dtUpdatedOn" />
+                <ScalarProperty Name="intCreatedby" ColumnName="intCreatedby" />
+                <ScalarProperty Name="intUpdatedby" ColumnName="intUpdatedby" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblRecruitments">
+            <EntityTypeMapping TypeName="HRIMSModel.tblRecruitment">
+              <MappingFragment StoreEntitySet="tblRecruitment">
+                <ScalarProperty Name="intRecruitmentID" ColumnName="intRecruitmentID" />
+                <ScalarProperty Name="varFirstName" ColumnName="varFirstName" />
+                <ScalarProperty Name="varMiddleName" ColumnName="varMiddleName" />
+                <ScalarProperty Name="varLastName" ColumnName="varLastName" />
+                <ScalarProperty Name="varEmailID" ColumnName="varEmailID" />
+                <ScalarProperty Name="varMobileNum" ColumnName="varMobileNum" />
+                <ScalarProperty Name="intPositionID" ColumnName="intPositionID" />
+                <ScalarProperty Name="varResume" ColumnName="varResume" />
+                <ScalarProperty Name="dtApplicationDate" ColumnName="dtApplicationDate" />
+                <ScalarProperty Name="varComment" ColumnName="varComment" />
+                <ScalarProperty Name="varStatus" ColumnName="varStatus" />
+                <ScalarProperty Name="dtCreatedOn" ColumnName="dtCreatedOn" />
+                <ScalarProperty Name="dtUpdatedOn" ColumnName="dtUpdatedOn" />
+                <ScalarProperty Name="intCreatedby" ColumnName="intCreatedby" />
+                <ScalarProperty Name="intUpdatedby" ColumnName="intUpdatedby" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblRecruitmentTypes">
+            <EntityTypeMapping TypeName="HRIMSModel.tblRecruitmentType">
+              <MappingFragment StoreEntitySet="tblRecruitmentType">
+                <ScalarProperty Name="intRecruitmentTypeID" ColumnName="intRecruitmentTypeID" />
+                <ScalarProperty Name="varRecruitmentType" ColumnName="varRecruitmentType" />
+                <ScalarProperty Name="varPositionDescription" ColumnName="varPositionDescription" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="dtCreatedOn" ColumnName="dtCreatedOn" />
+                <ScalarProperty Name="dtUpdatedOn" ColumnName="dtUpdatedOn" />
+                <ScalarProperty Name="intCreatedby" ColumnName="intCreatedby" />
+                <ScalarProperty Name="intUpdatedby" ColumnName="intUpdatedby" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblStates">
+            <EntityTypeMapping TypeName="HRIMSModel.tblState">
+              <MappingFragment StoreEntitySet="tblState">
+                <ScalarProperty Name="intStateID" ColumnName="intStateID" />
+                <ScalarProperty Name="varStateName" ColumnName="varStateName" />
+                <ScalarProperty Name="dtCreatedOn" ColumnName="dtCreatedOn" />
+                <ScalarProperty Name="dtUpdatedOn" ColumnName="dtUpdatedOn" />
+                <ScalarProperty Name="intCreatedby" ColumnName="intCreatedby" />
+                <ScalarProperty Name="intUpdatedby" ColumnName="intUpdatedby" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblStatus">
+            <EntityTypeMapping TypeName="HRIMSModel.tblStatus">
+              <MappingFragment StoreEntitySet="tblStatus">
+                <ScalarProperty Name="intStatusID" ColumnName="intStatusID" />
+                <ScalarProperty Name="varStatus" ColumnName="varStatus" />
+                <ScalarProperty Name="intCreatedby" ColumnName="intCreatedby" />
+                <ScalarProperty Name="intUpdatedby" ColumnName="intUpdatedby" />
+                <ScalarProperty Name="dtCreatedOn" ColumnName="dtCreatedOn" />
+                <ScalarProperty Name="dtUpdatedOn" ColumnName="dtUpdatedOn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblTimeSheets">
+            <EntityTypeMapping TypeName="HRIMSModel.tblTimeSheet">
+              <MappingFragment StoreEntitySet="tblTimeSheet">
+                <ScalarProperty Name="intTimesheetId" ColumnName="intTimesheetId" />
+                <ScalarProperty Name="intClientID" ColumnName="intClientID" />
+                <ScalarProperty Name="intProjectID" ColumnName="intProjectID" />
+                <ScalarProperty Name="intActivityID" ColumnName="intActivityID" />
+                <ScalarProperty Name="varActivityDescription" ColumnName="varActivityDescription" />
+                <ScalarProperty Name="varTimeSlot" ColumnName="varTimeSlot" />
+                <ScalarProperty Name="dtTimesheetDate" ColumnName="dtTimesheetDate" />
+                <ScalarProperty Name="intEmployeeID" ColumnName="intEmployeeID" />
+                <ScalarProperty Name="dtCreatedOn" ColumnName="dtCreatedOn" />
+                <ScalarProperty Name="dtUpdatedOn" ColumnName="dtUpdatedOn" />
+                <ScalarProperty Name="intCreatedby" ColumnName="intCreatedby" />
+                <ScalarProperty Name="intUpdatedby" ColumnName="intUpdatedby" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblTrainings">
+            <EntityTypeMapping TypeName="HRIMSModel.tblTraining">
+              <MappingFragment StoreEntitySet="tblTrainings">
+                <ScalarProperty Name="intTrainingID" ColumnName="intTrainingID" />
+                <ScalarProperty Name="varTrainigsName" ColumnName="varTrainigsName" />
+                <ScalarProperty Name="intTrainerID" ColumnName="intTrainerID" />
+                <ScalarProperty Name="varTrainingStartDate" ColumnName="varTrainingStartDate" />
+                <ScalarProperty Name="varTrainingEndDate" ColumnName="varTrainingEndDate" />
+                <ScalarProperty Name="varTrainingDetails" ColumnName="varTrainingDetails" />
+                <ScalarProperty Name="varStatus" ColumnName="varStatus" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="dtCreatedOn" ColumnName="dtCreatedOn" />
+                <ScalarProperty Name="dtUpdatedOn" ColumnName="dtUpdatedOn" />
+                <ScalarProperty Name="intCreatedBy" ColumnName="intCreatedBy" />
+                <ScalarProperty Name="intUpdatedBy" ColumnName="intUpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblUserLeaveManagements">
+            <EntityTypeMapping TypeName="HRIMSModel.tblUserLeaveManagement">
+              <MappingFragment StoreEntitySet="tblUserLeaveManagement">
+                <ScalarProperty Name="intLeaveMgtID" ColumnName="intLeaveMgtID" />
+                <ScalarProperty Name="intEmployeeID" ColumnName="intEmployeeID" />
+                <ScalarProperty Name="dtLeaveStartDate" ColumnName="dtLeaveStartDate" />
+                <ScalarProperty Name="dtLeaveEndDate" ColumnName="dtLeaveEndDate" />
+                <ScalarProperty Name="varLeaveDescription" ColumnName="varLeaveDescription" />
+                <ScalarProperty Name="intLeaveTypeId" ColumnName="intLeaveTypeId" />
+                <ScalarProperty Name="varStatus" ColumnName="varStatus" />
+                <ScalarProperty Name="varManagerComment" ColumnName="varManagerComment" />
+                <ScalarProperty Name="dtCreatedOn" ColumnName="dtCreatedOn" />
+                <ScalarProperty Name="dtUpdatedOn" ColumnName="dtUpdatedOn" />
+                <ScalarProperty Name="intCreatedby" ColumnName="intCreatedby" />
+                <ScalarProperty Name="intUpdatedby" ColumnName="intUpdatedby" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblUserRelationships">
+            <EntityTypeMapping TypeName="HRIMSModel.tblUserRelationship">
+              <MappingFragment StoreEntitySet="tblUserRelationship">
+                <ScalarProperty Name="intRelationshipID" ColumnName="intRelationshipID" />
+                <ScalarProperty Name="varRelationshipName" ColumnName="varRelationshipName" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="dtCreatedOn" ColumnName="dtCreatedOn" />
+                <ScalarProperty Name="dtUpdatedOn" ColumnName="dtUpdatedOn" />
+                <ScalarProperty Name="intCreatedby" ColumnName="intCreatedby" />
+                <ScalarProperty Name="intUpdatedby" ColumnName="intUpdatedby" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblUserRoles">
+            <EntityTypeMapping TypeName="HRIMSModel.tblUserRole">
+              <MappingFragment StoreEntitySet="tblUserRole">
+                <ScalarProperty Name="intUserRoleID" ColumnName="intUserRoleID" />
+                <ScalarProperty Name="varRoleName" ColumnName="varRoleName" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="dtCreatedOn" ColumnName="dtCreatedOn" />
+                <ScalarProperty Name="dtUpdatedOn" ColumnName="dtUpdatedOn" />
+                <ScalarProperty Name="intCreatedby" ColumnName="intCreatedby" />
+                <ScalarProperty Name="intUpdatedby" ColumnName="intUpdatedby" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblVacancises">
+            <EntityTypeMapping TypeName="HRIMSModel.tblVacancise">
+              <MappingFragment StoreEntitySet="tblVacancise">
+                <ScalarProperty Name="intVacanciseID" ColumnName="intVacanciseID" />
+                <ScalarProperty Name="intPositionID" ColumnName="intPositionID" />
+                <ScalarProperty Name="varExperience" ColumnName="varExperience" />
+                <ScalarProperty Name="varJobLocation" ColumnName="varJobLocation" />
+                <ScalarProperty Name="intNoOfPositions" ColumnName="intNoOfPositions" />
+                <ScalarProperty Name="varJobDescription" ColumnName="varJobDescription" />
+                <ScalarProperty Name="varPublisher" ColumnName="varPublisher" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="dtCreatedOn" ColumnName="dtCreatedOn" />
+                <ScalarProperty Name="dtUpdatedOn" ColumnName="dtUpdatedOn" />
+                <ScalarProperty Name="intCreatedby" ColumnName="intCreatedby" />
+                <ScalarProperty Name="intUpdatedby" ColumnName="intUpdatedby" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblWorkExperiences">
+            <EntityTypeMapping TypeName="HRIMSModel.tblWorkExperience">
+              <MappingFragment StoreEntitySet="tblWorkExperience">
+                <ScalarProperty Name="intWorkExpID" ColumnName="intWorkExpID" />
+                <ScalarProperty Name="intEmployeeID" ColumnName="intEmployeeID" />
+                <ScalarProperty Name="varCompanyName" ColumnName="varCompanyName" />
+                <ScalarProperty Name="varDesignation" ColumnName="varDesignation" />
+                <ScalarProperty Name="varJobProfile" ColumnName="varJobProfile" />
+                <ScalarProperty Name="dtFromDate" ColumnName="dtFromDate" />
+                <ScalarProperty Name="dtEndDate" ColumnName="dtEndDate" />
+                <ScalarProperty Name="intCreatedBy" ColumnName="intCreatedBy" />
+                <ScalarProperty Name="dtCreatedOn" ColumnName="dtCreatedOn" />
+                <ScalarProperty Name="intUpdatedBy" ColumnName="intUpdatedBy" />
+                <ScalarProperty Name="dtUpdatedOn" ColumnName="dtUpdatedOn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblCompletions">
+            <EntityTypeMapping TypeName="HRIMSModel.tblCompletion">
+              <MappingFragment StoreEntitySet="tblCompletion">
+                <ScalarProperty Name="intUpdatedBy" ColumnName="intUpdatedBy" />
+                <ScalarProperty Name="dtUpdatedOn" ColumnName="dtUpdatedOn" />
+                <ScalarProperty Name="intCreatedby" ColumnName="intCreatedby" />
+                <ScalarProperty Name="dtCreatedOn" ColumnName="dtCreatedOn" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="varComplition" ColumnName="varComplition" />
+                <ScalarProperty Name="intCompletionId" ColumnName="intCompletionId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblGoalTitles">
+            <EntityTypeMapping TypeName="HRIMSModel.tblGoalTitle">
+              <MappingFragment StoreEntitySet="tblGoalTitle">
+                <ScalarProperty Name="dtUpdatedOn" ColumnName="dtUpdatedOn" />
+                <ScalarProperty Name="intUpdatedBy" ColumnName="intUpdatedBy" />
+                <ScalarProperty Name="dtCreatedOn" ColumnName="dtCreatedOn" />
+                <ScalarProperty Name="intCreatedBy" ColumnName="intCreatedBy" />
+                <ScalarProperty Name="varTitleDesc" ColumnName="varTitleDesc" />
+                <ScalarProperty Name="varTitleName" ColumnName="varTitleName" />
+                <ScalarProperty Name="intTilteID" ColumnName="intTilteID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

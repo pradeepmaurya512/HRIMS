@@ -1,0 +1,325 @@
+﻿@model AquatroHRIMS.ViewModel.ProjectViewModel
+@{
+    ViewBag.Title = "AddProject";
+}
+<h2>Add Project</h2>
+<script src="~/Scripts/validationProject.js"></script>
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#txtExtProjectHead").on("input", function () {
+            $("#spnExtPrjHeadEmail").hide();
+            var index1 = $("#ddlClientID").val();
+            if (index1 == 0) {
+                $("#spnExtPrjHead1").show();
+                $("#spnExtPrjHead2").hide();
+                $("#spnExtPrjHead").hide();
+                $("#txtExtProjectHead").val("");
+            }
+            else {                                              
+                $.ajax({
+                    url: '/Project/getClientTeamList',
+                    type: 'POST',
+                    dataType: 'json',
+                    data: { "criteria": $("#txtExtProjectHead").val(), "clientId": $("#ddlClientID").val() },
+                    success: function (data) {
+                        if (data != "") {
+                            $("#lstExtLeadList").empty();
+                            for (var i = 0; i < data.length; i++) {
+                                $("#lstExtLeadList").append("<option value='" + data[i].varClientTeamMemName + "'></options>");
+                            }
+                        }
+                        else {
+                            $("#lstExtLeadList").empty();                            
+                        }
+                    },
+                    error: function (jqXHR, exception) {
+                        alert('error :' + jqXHR.responseText);
+                    }
+                });
+            }
+        });
+        $("#ddlClientID").change(function () {            
+            $("#spnClientId").hide();
+            $("#spnExtPrjHead1").hide();
+        });        
+        $("#ddlInternalPrjHead").change(function () {
+            $("#spnInterPrjHead").hide();
+        });
+        $("#ddlProjectStatus").change(function () {
+            $("#spnPrjStatus").hide();
+        });
+        $("#ddlCompletion").change(function () {           
+            $("#spnPrjCompletion").hide();
+        });
+        $("#txtExtProjectHead").change("input", function () {     
+            $.ajax({
+                url: '/Project/getClientEmailAddress',
+                type: 'POST',
+                datatype: 'json',
+                data: { "criteria": $("#txtExtProjectHead").val(), "clientId": $("#ddlClientID").val() },
+                success: function (data) {                    
+                    if (data != ""){
+                        $("#txtExtProjectHeadEmailID").val(data[0].varClientTeamMemEmail);
+                        $("#spnExtPrjHead2").hide();
+                        $("#spnExtPrjHead1").hide();
+                        $("#spnExtPrjHead").hide();
+                        $("#spnExtPrjHeadEmail").hide();
+                        $("#spnExtPrjHeadEmail1").hide();
+                    }
+                    else {                       
+                        $("#txtExtProjectHeadEmailID").val("");
+                        $("#txtExtProjectHead").val("");
+                        $("#txtExtProjectHeadEmailID").val("");
+                        $("#spnExtPrjHead2").show();
+                        $("#spnExtPrjHead1").hide();
+                        $("#spnExtPrjHead").hide();
+                    }
+                },
+                error: function (jqXHR, exception) {
+                    alert('error :' + jqXHR.responseText);
+                }
+            });
+        });
+        $("#txtExtProjectHeadEmailID").change("input", function () {            
+                $("#spnExtPrjHeadEmail").hide();                        
+            $.ajax({
+                url: '/Project/checkValidEmailID',
+                type: 'POST',
+                datatype: 'json',
+                data: { "criteria": $("#txtExtProjectHeadEmailID").val(), "clientId": $("#ddlClientID").val() },
+                success: function (data) {                    
+                    if (data != "") {                        
+                        if(data[0].varClientTeamMemName != $("#txtExtProjectHead").val())
+                        {                            
+                            $("#spnExtPrjHeadEmail").show();
+                            $("#txtExtProjectHeadEmailID").val("");
+                            $("#txtExtProjectHead").val("");
+                        }
+                        else {
+                            $("#spnExtPrjHeadEmail").hide();
+                        }
+                    }
+                    else {
+                        $("#spnExtPrjHeadEmail").show();
+                        $("#txtExtProjectHeadEmailID").val("");
+                        $("#txtExtProjectHead").val("");
+                    }
+                },
+                error: function (jqXHR, exception) {
+                    alert('error :' + jqXHR.responseText);
+                }
+            });
+        });
+        $("#txtProjectEndDate").change("input", function () {
+            if ($("#txtProjectEndDate").val() != "") {
+                $("#spnEndDate").hide();
+            }
+            if ($("#txtProjectStartDate").val() != "" && $("#txtProjectEndDate").val() != "") {
+                var startDate = new Date($("#txtProjectStartDate").val().toString('yyyy-MM-dd'));
+                var endDate = new Date($("#txtProjectEndDate").val().toString('yyyy-MM-dd'));
+
+                if (startDate >= endDate) {
+                    $("#spnDateValid1").show();
+                    return false;
+                }
+                else {
+                    $("#spnDateValid1").hide();
+                }
+            }           
+        });
+        $("#txtProjectStartDate").change("input", function () {
+            if ($("#txtProjectStartDate").val() != "") {
+                $("#spnStartDate").hide();
+            }
+
+            if ($("#txtProjectStartDate").val() != "" && $("#txtProjectEndDate").val() != "") {
+                var startDate = new Date($("#txtProjectStartDate").val().toString('yyyy-MM-dd'));
+                var endDate = new Date($("#txtProjectEndDate").val().toString('yyyy-MM-dd'));                                
+                if (startDate >= endDate) {
+                    $("#spnDateValid1").show();
+                    return false;
+                }
+                else {
+                    $("#spnDateValid1").hide();
+                }
+            }            
+        });
+        $("#txtProjectName").on("input", function () {
+
+            var regex = /^[a-zA-Z ]*$/;
+            $("#spnPrjName").hide();
+            $("#spnPrjName1").hide();
+
+            if ($("#txtProjectName").val() == "") {
+                $("#spnPrjName").show();
+                $("#spnPrjName1").hide();                
+            }
+            if ($("#txtProjectName").val() != "") {
+                if (!(regex.test($("#txtProjectName").val()))) {
+                    $("#spnPrjName1").show()
+                    $("#spnPrjName").hide();                   
+                }
+            }
+        });
+        $("#lstTeamMemDetails").change(function () {
+            $("#spnTeamMemDetails").hide();
+        });
+    });
+</script>
+@using (Html.BeginForm("AddProject", "Project", FormMethod.Post)) 
+{
+    @Html.AntiForgeryToken()    
+        <div class="form-horizontal" style="border:solid 1px black;">
+            <div style="height:15px"></div>                          
+            @Html.ValidationSummary(true)
+            <div class="form-group">
+                <div class="col-md-12">
+                    @Html.LabelFor(model => model.objProjectDetails.varProjectName, new { @class = "col-md-2" })
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(model => model.objProjectDetails.varProjectName, new { @class = "form-control", @placeholder = " Project Name ", id = "txtProjectName", minlength = "2", maxlength = "25" })
+                        @*@Html.ValidationMessageFor(model => model.objProjectDetails.varProjectName)*@
+                        <span id="spnPrjName" style="display:none;color:#b94a48">Project Name is Compulsory!!</span>
+                        <span id="spnPrjName1" style="display:none;color:#b94a48">Use alphabets only!!!!</span>
+                    </div>
+                    </div>
+                </div>
+            <div class="form-group">
+                <div class="col-md-12">
+                    @Html.LabelFor(model => model.objProjectDetails.intInternalProjectHead, new { @class = "col-md-2" })
+                    <div class="col-md-8">
+                        @Html.DropDownListFor(m => m.objProjectDetails.intInternalProjectHead, @Model.EmployeeModel, new { @class = "form-control", id = "ddlInternalPrjHead" })
+                        <span id="spnInterPrjHead" style="display: none;color:#b94a48">Internal Project Head is Compulsory!!</span>
+                        @*@Html.ValidationMessageFor(model => model.objProjectDetails.intInternalProjectHead)*@
+                    </div>
+                 </div>
+              </div>
+            <div class="form-group">
+                <div class="col-md-12">
+                    @Html.LabelFor(model => model.objProjectDetails.intClientID, new { @class = "col-md-2", id = "intClientID" })
+                    <div class="col-md-8">
+                        @Html.DropDownListFor(model => model.objProjectDetails.intClientID, @Model.ClientModel, new { @class = "form-control", id = "ddlClientID" })
+                        <span id="spnClientId" style="display: none;color:#b94a48">Client Name is Compulsory!!</span>
+                        @*@Html.ValidationMessageFor(model => model.objProjectDetails.intClientID)*@
+                    </div>
+                </div>
+            </div>            
+            <div class="form-group">
+                <div class="col-md-12">
+                    @Html.LabelFor(model => model.objProjectDetails.varClientProjectHead, new { @class = "col-md-2", id = "ddlClientProjectHead" })
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(model => model.strExtClientHead, new { @class = "form-control", @placeholder = " External Project Head ", id = "txtExtProjectHead", list = "lstExtLeadList" })
+                        @*@Html.ValidationMessageFor(model => model.objProjectDetails.varClientProjectHead)*@
+                        <span id="spnExtPrjHead" style="display: none;color:#b94a48">External Project Head is Compulsory!!</span>
+                        <span id="spnExtPrjHead1" style="display: none;color:#b94a48">Please select Client Name first!!</span>
+                        <span id="spnExtPrjHead2" style="display: none;color:#b94a48">Please select correct External Project Head!!</span>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-12">
+                    @Html.LabelFor(model => model.strExtClientEmailID, new { @class = "col-md-2", id = "ddlClientProjectHeadEmailID" })
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(model => model.strExtClientEmailID, new { @class = "form-control", @placeholder = " External Project Head Email ID", id = "txtExtProjectHeadEmailID", type = "email" })
+                        @*@Html.ValidationMessageFor(model => model.strExtClientEmailID)*@
+                        <span id="spnExtPrjHeadEmail" style="display: none;color:#b94a48">Entered External Project Head Email address and Name do not match!!</span>
+                        <span id="spnExtPrjHeadEmail1" style="display: none;color:#b94a48">External Project Head Email address is Compulsory!!</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-12">
+                    @Html.LabelFor(model => model.objProjectDetails.varTeamMemDetails, new { @class = "col-md-2", id = "lstTeamMemDetails1" })
+                    <div class="col-md-8">
+                        @Html.ListBoxFor(model => model.EmployeeID, @Model.InternalTeam as MultiSelectList, new { @class = "form-control", id = "lstTeamMemDetails", name = "lstTeamMemDetails" })
+                        <span id="spnTeamMemDetails" style="display: none;color:#b94a48">Project Team is Compulsory!!</span>
+                        @*@Html.ValidationMessageFor(model => model.objProjectDetails.varTeamMemDetails)*@
+                    </div>
+                </div>
+            </div>     
+           
+            <div class="form-group">
+                <div class="col-md-12">
+                    @Html.LabelFor(model => model.objProjectDetails.dtProjectStartDate, new { @class = "col-md-2" })
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(model => model.objProjectDetails.dtProjectStartDate, new { @class = "form-control", type = "date", id = "txtProjectStartDate", @placeholder = "" })
+                        @*@Html.ValidationMessageFor(model => model.objProjectDetails.dtProjectStartDate)*@
+                        <span id="spnStartDate" style="display: none;color:#b94a48">Start Date is Compulsory!!</span>
+                    </div>
+                    </div>
+                </div>
+
+            <div class="form-group">
+                <div class="col-md-12">
+                    @Html.LabelFor(model => model.objProjectDetails.dtProjectEndDate, new { @class = "col-md-2" })
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(model => model.objProjectDetails.dtProjectEndDate, new { @class = "form-control", type = "date", id = "txtProjectEndDate" })
+                        @*@Html.ValidationMessageFor(model => model.objProjectDetails.dtProjectEndDate)*@
+                        <span id="spnEndDate" style="display: none;color:#b94a48">End Date is Compulsory!!</span>
+                        <span id="spnDateValid1" style="display: none; color:#b94a48">Start Date should not be less than or equal to End Date!!</span>
+                    </div>
+                    </div>
+                </div>
+
+            <div class="form-group">
+                <div class="col-md-12">
+                    @Html.LabelFor(model => model.objProjectDetails.intProjectStatus, new { @class = "col-md-2" })
+                    <div class="col-md-8">
+                        @Html.DropDownListFor(model => model.objProjectDetails.intProjectStatus, @Model.ProjectStatusList, new { @class = "form-control", id = "ddlProjectStatus" })
+                        <span id="spnPrjStatus" style="display: none;color:#b94a48">Project Status is Compulsory!!</span>
+                        @*@Html.ValidationMessageFor(model => model.objProjectDetails.intProjectStatus)*@
+                    </div>
+                    </div>
+                </div>
+
+            @*<div class="form-group">
+                <div class="col-md-12">
+                    @Html.LabelFor(model => model.objProjectDetails.varCompletion, new { @class = "col-md-2", id = "txtCompletion" })
+                    <div class="col-md-3">
+                        @Html.TextBoxFor(model => model.objProjectDetails.varCompletion, new { @class = "col-md-2" })
+                        @Html.ValidationMessageFor(model => model.objProjectDetails.varCompletion)
+                    </div>
+                    </div>
+                </div>*@
+
+            <div class="form-group">
+                <div class="col-md-12">
+                @Html.LabelFor(model => model.objProjectDetails.intCompletionID, new { @class = "col-md-2", id = "ddlCompletionLabel" })
+                    <div class="col-md-8">
+                        @Html.DropDownListFor(model => model.objProjectDetails.intCompletionID, @Model.CompletionModel, new { @class = "form-control", id = "ddlCompletion" })
+                        @*@Html.ValidationMessageFor(model => model.objProjectDetails.intCompletionID)*@
+                        <span id="spnPrjCompletion" style="display: none;color:#b94a48">Completion (Approx.%) is Compulsory!!</span>
+                    </div>
+                </div>
+          </div>
+
+            <div class="form-group">
+                <div class="col-md-12">
+                    @Html.LabelFor(model => model.objProjectDetails.varProjectDescription, new { @class = "col-md-2" })
+                    <div class="col-md-8">
+                        @Html.TextAreaFor(model => model.objProjectDetails.varProjectDescription, new { @class = "form-control", @placeholder = " Project Description ", id = "txtProjectDescription" })
+                        @Html.ValidationMessageFor(model => model.objProjectDetails.varProjectDescription)
+                    </div>
+                </div>
+            </div>
+                              
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" id="btnCreate" class="btn btn-primary" onclick="return fnValidate();"  />
+                    <input type="reset" value="Reset" class="btn btn-primary" onclick="fnReset();" />
+                </div>
+            </div>
+        </div>      
+    <datalist id="lstExtLeadList">        
+    </datalist>
+}
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/Scripts/validationProject.js")
+}

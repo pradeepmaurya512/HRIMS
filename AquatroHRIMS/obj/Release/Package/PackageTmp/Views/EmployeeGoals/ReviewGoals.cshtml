@@ -1,0 +1,146 @@
+﻿@model AquatroHRIMS.ViewModel.EmployeeGoalsViewModel
+@{
+    ViewBag.Title = "ReviewGoals";
+}
+<h2>Review Employee Goals</h2>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.min.js"></script>
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="~/Scripts/ValidationEmployeeGoals.js"></script>
+<link href="@Url.Content("~/Content/AddGoals.css")" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+    $(document).ready(function () {        
+        $("#ddlEmployee").change(function () {
+            var index1 = $("#ddlEmployee").get(0).selectedIndex;
+            if (index1 == 0) {
+                $("#spnEmployee").show();
+                return false;
+            }
+            else
+                $("#spnEmployee").hide();
+        });
+
+        $("#ddlTitle").change(function () {
+            var index2 = $("#ddlTitle").get(0).selectedIndex;
+            if (index2 == 0) {               
+                $("#spnTitle").show();
+                return false;
+            }
+            else 
+                $("#spnTitle").hide();            
+        });
+
+        $("#btnCreate").click(function () {
+            var flag = false;
+            var empID = $("#ddlEmployee").val();
+            var titleID = $("#ddlTitle").val();
+
+            if (empID != 0 && titleID != 0) {
+                this.form.action = '/EmployeeGoals/updateGoal';
+                this.form.submit();
+            }
+            else {
+                if (empID == 0) {
+                    $("#spnEmployee").show();
+                    flag = true;
+                }
+                if (titleID == 0) {
+                    $("#spnTitle").show();
+                    flag = true;
+                }
+
+                if (flag)
+                    return false;
+                else
+                    return true;                
+            }            
+        });
+    });
+</script>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal" style="border:solid 1px black;">  
+        <div style="height:15px"></div>     
+        @Html.ValidationSummary(true)
+        @*@Html.HiddenFor(model => model.intGoalID)*@
+        
+        <div class="form-group">
+            <div class="col-md-12">
+                @Html.LabelFor(model => model.objEmpGoals.intEmployeeID, new { @class = "col-md-2", id="lblEmpName" })
+                <div class="col-md-3">
+                    @Html.DropDownListFor(model => model.objEmpGoals.intEmployeeID, @Model.EmployeeModel, new { @class = "form-control", id = "ddlEmployee", onchange = "this.form.action = '/EmployeeGoals/ReviewGoals'; this.form.submit();" })
+                    <span id="spnEmployee" style="display:none;color:#b94a48">Employee is Compulsory!!</span>
+                </div>
+                </div>
+            </div>
+
+        <div class="form-group">
+            <div class="col-md-12">
+                @Html.LabelFor(model => model.objEmpGoals.intTitle, new { @class = "col-md-2", id = "ddlTitleLabel" })
+                <div class="col-md-3">
+                    @Html.DropDownListFor(model => model.objEmpGoals.intTitle, @Model.GoalTitleModel, new { @class = "form-control", id = "ddlTitle", onchange = "this.form.action = '/EmployeeGoals/ReviewGoals'; this.form.submit();" })
+                    @*@Html.ValidationMessageFor(model => model.objEmpGoals.intTitle)*@
+                    <span id="spnTitle" style="display:none;color:#b94a48">Goal Title is Compulsory!!</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-12">
+                @Html.LabelFor(model => model.objEmpGoals.intStatus, new { @class = "col-md-2", id = "ddlStatusLabel" })
+                <div class="col-md-3">
+                    @Html.DropDownListFor(model => model.intStatus, @Model.StatusModel, new { @class = "form-control", id = "ddlStatus", disabled = "disabled" })
+                    @*@Html.ValidationMessageFor(model => model.objEmpGoals.intStatus)*@
+                    <span id="spnStatus" style="display:none;color:#b94a48">Goal Status is Compulsory!!</span>
+                </div>
+            </div>
+        </div>
+        
+          
+        <div class="form-group">
+            <div class="col-md-12">
+                @Html.LabelFor(model => model.objEmpGoals.varCompletion, new { @class = "col-md-2" })
+                <div class="col-md-3">
+                    @Html.TextBoxFor(model => model.varCompletion, new { @class = "form-control", id = "txtComplation", disabled="disabled" })                   
+                </div>
+            </div>
+        </div>            
+
+        <div class="form-group">
+            <div class="col-md-12">
+                @Html.LabelFor(model => model.varGoalDescription, new { @class = "col-md-2" })
+                <div class="col-md-3">
+                    @Html.TextAreaFor(model => model.varGoalDescription, new { @class = "form-control", id = "txtGoalDesc", disabled = "disabled" })
+                    @Html.ValidationMessageFor(model => model.varGoalDescription)
+                </div>
+                </div>
+            </div>                       
+
+        <div class="form-group">
+            <div class="col-md-12">
+                @Html.LabelFor(model => model.objEmpGoals.varManagerComment, new { @class = "col-md-2" })
+                <div class="col-md-3">
+                    @Html.TextAreaFor(model => model.varManagerComment, new { @class = "form-control", id = "txtMgrComment" })
+                    @Html.ValidationMessageFor(model => model.varManagerComment)
+                </div>
+                </div>
+            </div>   
+          
+        <div>
+            @Html.HiddenFor(model => model.ID, new {id="hdnID" })
+        </div>  
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Update " id="btnCreate" class="btn btn-primary"  />
+                <input type="reset" value="Reset" class="btn btn-primary" onclick="return fnReset();" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

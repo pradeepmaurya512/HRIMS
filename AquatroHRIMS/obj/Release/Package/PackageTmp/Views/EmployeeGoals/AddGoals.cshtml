@@ -1,0 +1,193 @@
+﻿@model AquatroHRIMS.ViewModel.EmployeeGoalsViewModel
+<h2>Set My Goal</h2>     
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.min.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="~/Scripts/ValidationEmployeeGoals.js"></script>
+<link href="@Url.Content("~/Content/AddGoals.css")" rel="stylesheet" type="text/css" />
+ 
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#ddlTitle").change(function () {
+            var intTitle = $("#ddlTitle").get(0).selectedIndex;
+            if (intTitle == 0) 
+                $("#spnTitle").show();
+            else
+                $("#spnTitle").hide();
+        });
+        $("#ddlStatus").change(function () {
+            var intStatus = $("#ddlStatus").get(0).selectedIndex;
+            if (intStatus == 0)
+                $("#spnStatus").show();
+            else
+                $("#spnStatus").hide();
+        });
+        $("#btnCreatePop").click(function () {
+            var validation = fnValidationPopUP();                  
+            if (validation) {                
+                $.ajax({
+                    url: '/EmployeeGoals/saveGoalTitle',
+                    type: 'POST',
+                    dataType: 'json',
+                    data: { "goalTitle": $("#txtGoalTitle").val(), "goalDesc": $("#txtGoalDesc").val() },
+                    success: function (data) {
+                    },
+                    error: function (jqXHR, exception) {
+                    }
+                });
+                return true;
+            }
+            return false;
+        });
+        $("#txtGoalTitle").on("input", function () {
+            var regex = /^[a-zA-Z ]*$/;
+            $("#spnGoalTitle").hide();
+            if ($("#txtGoalTitle").val() != "") {
+                if (!(regex.test($("#txtGoalTitle").val()))) {
+                    $("#spnGoalTitle").hide();
+                    $("#spnGoalTitle1").show();
+                }   
+            }
+            else {
+                $("#spnGoalTitle").show();
+                $("#spnGoalTitle1").hide();
+            }
+        });
+        //=================== POP UP ============================================//
+
+        var appendthis = ("<div class='modal-overlay js-modal-close'></div>");
+        $('a[data-modal-id]').click(function (e) {
+            e.preventDefault();
+            $("body").append(appendthis);
+            $(".modal-overlay").fadeTo(500, 0.7);
+            //$(".js-modalbox").fadeIn(500);
+            var modalBox = $(this).attr('data-modal-id');
+            $('#' + modalBox).fadeIn($(this).data());
+        });
+        $(".js-modal-close, .modal-overlay").click(function () {
+            $(".modal-box, .modal-overlay").fadeOut(500, function () {
+                $(".modal-overlay").remove();
+            });
+        });
+        $(window).resize(function () {
+            $(".modal-box").css({
+                top: ($(window).height() - $(".modal-box").outerHeight()) / 2,
+                left: ($(window).width() - $(".modal-box").outerWidth()) / 2
+            });
+        });
+        $(window).resize();
+
+        //==================== End Pop up =========================================//
+    });
+</script>
+
+
+@using (Html.BeginForm("AddGoals", "EmployeeGoals",FormMethod.Post)) 
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal" style="border:solid 1px black;">
+        <div style="height:15px"></div>
+          
+        @Html.ValidationSummary(true)       
+        <div class="form-group">
+            <div class="col-md-12">
+                @Html.LabelFor(model => model.objEmpGoals.intTitle, new { @class = "col-md-2", id = "ddlTitleLabel" })
+                <div class="col-md-3">
+                    @Html.DropDownListFor(model => model.objEmpGoals.intTitle, @Model.GoalTitleModel, new { @class = "form-control", id = "ddlTitle" })
+                    @*@Html.ValidationMessageFor(model => model.objEmpGoals.intTitle)*@
+                    <span id="spnTitle" style="display:none;color:#b94a48">Goal Title is Compulsory!!</span>
+                </div>
+                <div class="col-md-3">
+                    @*<a href='#' id="addNew">Add New</a>*@
+                    <a class="js-open-modal" href="#" data-modal-id="popup"> Add New Goal </a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-12">
+                @Html.LabelFor(model => model.objEmpGoals.intStatus, new { @class = "col-md-2", id = "ddlStatusLabel" })
+                <div class="col-md-3">
+                    @Html.DropDownListFor(model => model.objEmpGoals.intStatus, @Model.StatusModel, new { @class = "form-control", id = "ddlStatus" })
+                    @*@Html.ValidationMessageFor(model => model.objEmpGoals.intStatus)*@
+                    <span id="spnStatus" style="display:none;color:#b94a48">Goal Status is Compulsory!!</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-12">
+                @Html.LabelFor(model => model.objEmpGoals.varGoalDescription, new { @class = "col-md-2" })
+                <div class="col-md-3">
+                    @Html.TextAreaFor(model => model.objEmpGoals.varGoalDescription, new { @class = "form-control", @placeholder = "Goal Description", id = "txtGoalDescription" })
+                    @Html.ValidationMessageFor(model => model.objEmpGoals.varGoalDescription)
+                </div>
+            </div>
+        </div>                  
+        <div class="form-group">
+            <div class="col-md-12">
+                @Html.LabelFor(model => model.objEmpGoals.varCompletion, new { @class = "col-md-2" })
+                <div class="col-md-3">
+                    <div class="progress-box" ng-app>
+                        <div class="percentage-cur" ng-init="selectedRange=0">
+                            <span id="spnProgressVal" class="num">{{ selectedRange }}%</span>
+                        </div>
+                        <div class="progress-bar progress-bar-slider">
+                            <input class="progress-slider" type="range" min="0" max="100" ng-model="selectedRange">
+                            <div id="divCal" class="inner" ng-style="{ width: selectedRange + '%' || '0%' }"></div>
+                            @Html.HiddenFor(model => model.completion, new { id = "hdnCompletion"});
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>             
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create " id="btnCreate" class="btn btn-primary" onclick="return fnValidation();" />
+                <input type="reset" value="Reset" class="btn btn-primary" onclick="fnReset();" />
+            </div>
+        </div>
+    </div>
+    <div id="popup" class="modal-box">
+        <header>
+            <a href="#" class="js-modal-close close">×</a>
+            <h3><a href="#">Add New Goal</a></h3>
+        </header>
+        <div class="modal-body">
+
+            <div class="form-group">
+                <div class="col-md-24">
+                    <label class="col-md-3">Goal Title</label>
+                    <div class="col-md-7">
+                        <input type="text" id="txtGoalTitle" class="form-control" />
+                        <span id="spnGoalTitle" style="display:none;color:#b94a48">Goal Title is Complusory!!</span>
+                        <span id="spnGoalTitle1" style="display:none;color:#b94a48">Use alphabets only!!</span>
+                    </div>
+                </div>
+            </div>
+            <div style="height:35px"></div>
+            <div class="form-group">
+                <div class="col-md-24">
+                    <label class="col-md-3">Goal Description</label>
+                    <div class="col-md-7">
+                        <textarea id="txtGoalDesc" class="form-control"></textarea>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <footer>
+            <input type="submit" value="Create " id="btnCreatePop" class="btn btn-primary" />
+            <input type="reset" id="btnReset" class="btn btn-primary" onclick="return fnResetValues();" />
+        </footer>
+    </div>
+}
+         <div>
+             @Html.ActionLink("Back to List", "Index")
+         </div>
+         @section Scripts {
+             @Scripts.Render("~/bundles/jqueryval")
+         }

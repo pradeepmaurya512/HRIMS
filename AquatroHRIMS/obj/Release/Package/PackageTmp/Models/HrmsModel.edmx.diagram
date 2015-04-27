@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8f7e6104a007468d9d0c78719a89c71d" Name="Diagram1" ZoomLevel="72">
+        <EntityTypeShape EntityType="HRIMSModel.tblAccess" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRIMSModel.tblActivityDetail" Width="1.5" PointX="8.25" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRIMSModel.tblAllowance" Width="1.5" PointX="6" PointY="27.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRIMSModel.tblAllowancesManagement" Width="1.5" PointX="8.25" PointY="18.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRIMSModel.tblCity" Width="1.5" PointX="0.75" PointY="18.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRIMSModel.tblClientDetail" Width="1.5" PointX="6" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRIMSModel.tblClientTeam" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRIMSModel.tblCountry" Width="1.5" PointX="0.75" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRIMSModel.tblDepartment" Width="1.5" PointX="0.75" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRIMSModel.tblDesignation" Width="1.5" PointX="0.75" PointY="21.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRIMSModel.tblEmployee" Width="1.5" PointX="3" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRIMSModel.tblEmployeeGoal" Width="1.5" PointX="5.25" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRIMSModel.tblEmployeeQualificationDetail" Width="1.5" PointX="5.25" PointY="15.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRIMSModel.tblHolidayList" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRIMSModel.tblLeaveType" Width="1.5" PointX="6" PointY="36.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRIMSModel.tblLinkDetail" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRIMSModel.tblLogin" Width="1.5" PointX="5.25" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRIMSModel.tblNew" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRIMSModel.tblPaySlip" Width="1.5" PointX="5.25" PointY="23.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRIMSModel.tblPosition" Width="1.5" PointX="10.75" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRIMSModel.tblProjectDetail" Width="1.5" PointX="8.25" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRIMSModel.tblRecruitment" Width="1.5" PointX="13" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRIMSModel.tblRecruitmentType" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRIMSModel.tblState" Width="1.5" PointX="0.75" PointY="24.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRIMSModel.tblStatus" Width="1.5" PointX="6" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRIMSModel.tblTimeSheet" Width="1.5" PointX="10.5" PointY="16.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRIMSModel.tblTraining" Width="1.5" PointX="5.25" PointY="31.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRIMSModel.tblUserLeaveManagement" Width="1.5" PointX="8.25" PointY="21.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRIMSModel.tblUserRelationship" Width="1.5" PointX="0.75" PointY="27.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRIMSModel.tblUserRole" Width="1.5" PointX="0.75" PointY="30.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRIMSModel.tblVacancise" Width="1.5" PointX="13" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRIMSModel.tblWorkExperience" Width="1.5" PointX="5.25" PointY="39.625" IsExpanded="true" />
+        <AssociationConnector Association="HRIMSModel.FK__tblTimeSh__intAc__54968AE5" ManuallyRouted="false" />
+        <AssociationConnector Association="HRIMSModel.FK__tblAllowa__intAl__351DDF8C" ManuallyRouted="false" />
+        <AssociationConnector Association="HRIMSModel.FK__tblAllowa__intEm__3429BB53" ManuallyRouted="false" />
+        <AssociationConnector Association="HRIMSModel.FK__tblEmploy__intCu__55BFB948" ManuallyRouted="false" />
+        <AssociationConnector Association="HRIMSModel.FK__tblEmploy__intPe__5B78929E" ManuallyRouted="false" />
+        <AssociationConnector Association="HRIMSModel.FK__tblProjec__intCl__7814D14C" ManuallyRouted="false" />
+        <AssociationConnector Association="HRIMSModel.FK__tblTimeSh__intCl__52AE4273" ManuallyRouted="false" />
+        <AssociationConnector Association="HRIMSModel.FK__tblEmploy__intCu__53D770D6" ManuallyRouted="false" />
+        <AssociationConnector Association="HRIMSModel.FK__tblEmploy__intPe__59904A2C" ManuallyRouted="false" />
+        <AssociationConnector Association="HRIMSModel.FK__tblEmploy__intDe__589C25F3" ManuallyRouted="false" />
+        <AssociationConnector Association="HRIMSModel.FK__tblEmploy__intDe__52E34C9D" ManuallyRouted="false" />
+        <AssociationConnector Association="HRIMSModel.FK__tblEmploy__intCu__54CB950F" ManuallyRouted="false" />
+        <AssociationConnector Association="HRIMSModel.FK__tblEmploy__intEm__02925FBF" ManuallyRouted="false" />
+        <AssociationConnector Association="HRIMSModel.FK__tblEmploy__intEm__51EF2864" ManuallyRouted="false" />
+        <AssociationConnector Association="HRIMSModel.FK__tblEmploy__intEm__57A801BA" ManuallyRouted="false" />
+        <AssociationConnector Association="HRIMSModel.FK__tblEmploy__intEm__6501FCD8" ManuallyRouted="false" />
+        <AssociationConnector Association="HRIMSModel.FK__tblEmploy__intPe__5A846E65" ManuallyRouted="false" />
+        <AssociationConnector Association="HRIMSModel.FK__tblEmploy__intRe__56B3DD81" ManuallyRouted="false" />
+        <AssociationConnector Association="HRIMSModel.FK__tblLogin__intEmp__603D47BB" ManuallyRouted="false" />
+        <AssociationConnector Association="HRIMSModel.FK__tblPaySli__intEm__2B947552" ManuallyRouted="false" />
+        <AssociationConnector Association="HRIMSModel.FK__tblProjec__intIn__762C88DA" ManuallyRouted="false" />
+        <AssociationConnector Association="HRIMSModel.FK__tblTimeSh__intEm__558AAF1E" ManuallyRouted="false" />
+        <AssociationConnector Association="HRIMSModel.FK__tblTraini__intTr__6E8B6712" ManuallyRouted="false" />
+        <AssociationConnector Association="HRIMSModel.FK__tblUserLe__intEm__7CD98669" ManuallyRouted="false" />
+        <AssociationConnector Association="HRIMSModel.FK__tblWorkEx__intEm__69C6B1F5" ManuallyRouted="false" />
+        <AssociationConnector Association="HRIMSModel.FK__tblUserLe__intLe__7DCDAAA2" ManuallyRouted="false" />
+        <AssociationConnector Association="HRIMSModel.FK__tblRecrui__intPo__0B27A5C0" ManuallyRouted="false" />
+        <AssociationConnector Association="HRIMSModel.FK__tblVacanc__intPo__1699586C" ManuallyRouted="false" />
+        <AssociationConnector Association="HRIMSModel.FK__tblProjec__intPr__7720AD13" ManuallyRouted="false" />
+        <AssociationConnector Association="HRIMSModel.FK__tblTimeSh__intPr__53A266AC" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="HRIMSModel.tblCompletion" Width="1.5" PointX="10.375" PointY="10.75" />
+        <AssociationConnector Association="HRIMSModel.FK_intCompletionId" />
+        <EntityTypeShape EntityType="HRIMSModel.tblGoalTitle" Width="1.5" PointX="12.375" PointY="10.75" />
+        <AssociationConnector Association="HRIMSModel.FK_tblEmployeeGoalsTitle" />
+        <AssociationConnector Association="HRIMSModel.FK_tblEmployeeGoals" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

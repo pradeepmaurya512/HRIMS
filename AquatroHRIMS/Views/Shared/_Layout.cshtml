@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/style.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container"><img src="~/Content/Images/A4logo.png" /></div>
+    <div class="navbar navbar-inverse">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>                
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="#">Home<b class="caret"></b></a></li>                  
+                    <li>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Maintenance<b class="caret"></b></a>
+                        <ul class="dropdown-menu multi-level">
+                            <li class="dropdown-submenu">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Employee</a>
+                                <ul class="dropdown-menu">
+                                    <li>@Html.ActionLink("Add Employee", "CreateEmployee", "Login")</li>                                                                       
+                                    <li>@Html.ActionLink("Employee List", "EmployeeList", "Login")</li>
+                                </ul>
+                            </li>
+                            
+                            <li class="dropdown-submenu">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Client</a>
+                                <ul class="dropdown-menu">
+                                    <li>@Html.ActionLink("Add Client", "Client", "Client")</li>
+                                    <li>@Html.ActionLink("Client List", "_ClientList", "Home")</li>
+                                </ul>
+                            </li>
+                       
+                            <li class="dropdown-submenu">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Project</a>
+                                <ul class="dropdown-menu">
+                                    <li>@Html.ActionLink("Add Project", "AddProject", "Project")</li>
+                                    <li>@Html.ActionLink("Project List", "AddProject", "Project")</li>
+                                </ul>
+                            </li>
+                        </ul>                    
+                    </li>
+                    <li>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Leave<b class="caret"></b></a>
+                        <ul class="dropdown-menu multi-level">
+                       
+                            <li>@Html.ActionLink("Create Calendar", "AddClient", "Home")</li>
+                            <li>@Html.ActionLink("Pending Leave Request", "AddClient", "Home")</li>        
+                            <li>@Html.ActionLink("Total Leave", "AddClient", "Home")</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Payslip<b class="caret"></b></a>
+                        <ul class="dropdown-menu multi-level">
+
+                            <li>@Html.ActionLink("Create Calendar", "AddClient", "Home")</li>
+                            <li>@Html.ActionLink("Generate Salary Slip", "AddClient", "Home")</li>  
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Performance<b class="caret"></b></a>
+                        <ul class="dropdown-menu multi-level">                            
+                            <li>@Html.ActionLink("Add Employee Goals", "AddGoals", "EmployeeGoals")</li>
+                            <li>@Html.ActionLink("Review Employee Goals", "ReviewGoals", "EmployeeGoals")</li>
+                            <li>@Html.ActionLink("New Vacancies", "AddClient", "Home")</li>                          
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Recruitment<b class="caret"></b></a>
+                        <ul class="dropdown-menu multi-level">
+                            <li>@Html.ActionLink("Job Applications", "AddClient", "Home")</li>
+                            <li>@Html.ActionLink("Client Feedback", "AddClient", "Home")</li>
+                            <li>@Html.ActionLink("Employees Timesheet", "AddClient", "Home")</li>
+                        </ul>
+                    </li>
+                    <li style="margin-left:420px">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account<b class="caret"></b></a>
+                        <ul class="dropdown-menu multi-level">
+
+                            <li>@Html.ActionLink("Sign Out", "AddClient", "Home")</li>
+                            <li>@Html.ActionLink("Change Password", "AddClient", "Home")</li>
+
+                        </ul>
+                    </li>
+
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        @*<footer style="background-color:#0094ff">
+            <p>&copy; @DateTime.Now.Year - A Quatro HRIMS</p>
+        </footer>*@
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+    <script src="~/Scripts/navbar.js"></script>
+</body>
+</html>
