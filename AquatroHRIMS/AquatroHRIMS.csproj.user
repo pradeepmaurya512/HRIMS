@@ -8,7 +8,7 @@
     <WebStackScaffolding_IsAsyncSelected>False</WebStackScaffolding_IsAsyncSelected>
     <WebStackScaffolding_DbContextTypeFullName>AquatroHRIMS.Models.HRIMSdbEntities</WebStackScaffolding_DbContextTypeFullName>
     <NameOfLastUsedPublishProfile>HRIMS</NameOfLastUsedPublishProfile>
-    <ProjectView>ProjectFiles</ProjectView>
+    <ProjectView>ShowAllFiles</ProjectView>
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>

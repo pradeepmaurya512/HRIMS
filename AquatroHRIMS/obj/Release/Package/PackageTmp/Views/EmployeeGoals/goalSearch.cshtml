@@ -1,0 +1,105 @@
+﻿@model AquatroHRIMS.ViewModel.EmployeeGoalsViewModel
+
+<h2>Goal Search</h2>
+<link href="~/Content/themesjqGrid/base/jquery-ui.css" rel="stylesheet" />
+<link href="~/Content/jquery.jqGrid/ui.jqgrid.css" rel="stylesheet" />
+<script src="~/Scripts/jqGrid/jquery-1.9.1.min.js"></script>
+<script src="~/Scripts/jqGrid/jquery-ui-1.10.4.min.js"></script>
+<script src="~/Scripts/jqGrid/i18n/grid.locale-en.js"></script>
+<script src="~/Scripts/jqGrid/jquery.jqGrid.min.js"></script>
+<script src="~/Scripts/jqGrid/TodoList.js"></script>
+<script type="text/javascript">
+    $("#grid").jqGrid({
+        url: "/EmployeeGoals/loadGoals",
+        datatype: 'json',
+        mtype: 'Get',
+        colNames: ['Title', 'Start Date', 'Goal Description', 'Completion', 'Manager Comment'],
+        colModel: [
+            { key: true, hidden: true, name: 'Id', index: 'Id', editable: true },
+            { key: false, name: 'Title', index: 'TaskName', editable: true },
+            { key: false, name: 'GoalDescription', index: 'TaskDescription', editable: true },
+            { key: false, name: 'StartDate', index: 'TargetDate', editable: true, formatter: 'date', formatoptions: { newformat: 'd/m/Y' } },
+            { key: false, name: 'Completion', index: 'Severity', editable: true, edittype: 'select', editoptions: { value: { 'L': 'Low', 'M': 'Medium', 'H': 'High' } } },
+            { key: false, name: 'ManagerComment', index: 'TaskStatus', editable: true, edittype: 'select', editoptions: { value: { 'A': 'Active', 'I': 'InActive' } } }],
+        pager: jQuery('#pager'),
+        rowNum: 10,
+        rowList: [10, 20, 30, 40],
+        height: '100%',
+        viewrecords: true,
+        caption: 'Todo List',
+        emptyrecords: 'No records to display',
+        jsonReader: {
+            root: "rows",
+            page: "page",
+            total: "total",
+            records: "records",
+            repeatitems: false,
+            Id: "0"
+        },
+        autowidth: true,
+        multiselect: false
+    });
+</script>
+
+@using (Html.BeginForm("goalSearch","EmployeeGoals",FormMethod.Post)) 
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal" style="background: #f7f6f6" >
+        <hr />
+        @Html.ValidationSummary(true)
+        <div class="form-group">
+            <div class="col-md-12">
+                @Html.LabelFor(model => model.objEmpGoals.intTitle, new { @class = "col-md-2", id = "lblTitle" })
+                <div class="col-md-3">
+                    @Html.DropDownListFor(model => model.objEmpGoals.intTitle, @Model.GoalTitleModel, new { id = "ddlGoalTitle", @class = "form-control" })
+                    @*@Html.ValidationMessageFor(model => model.intTitle)*@
+                </div>
+                @Html.LabelFor(model => model.objEmpGoals.intStatus, new { @class = "col-md-2", id = "lblStatus" })
+                <div class="col-md-3">
+                    @Html.DropDownListFor(model => model.objEmpGoals.intStatus, @Model.StatusModel, new { id = "ddlStatus", @class = "form-control" })
+                    @*@Html.ValidationMessageFor(model => model.intStatus)*@
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-12">
+                @Html.Label("Form Date", new { @class = "col-md-2", id = "lblFromDate" })
+                <div class="col-md-3">
+                    @*@Html.DropDownListFor(model => model.objEmpGoals.intTitle, @Model.GoalTitleModel, new { id = "ddlGoalTitle", @class = "form-control" })*@
+                    @Html.TextBoxFor(model => model.objEmpGoals.dtStartdate, new { @class = "form-control", type = "date" })
+                    @*@Html.ValidationMessageFor(model => model.intTitle)*@
+                </div>
+                @Html.Label("To Date", new { @class = "col-md-2", id = "lblToDate" })
+                <div class="col-md-3">
+                    @Html.TextBoxFor(model => model.objEmpGoals.dtStartdate, new { @class = "form-control", type = "date" })
+                    @*@Html.DropDownListFor(model => model.objEmpGoals.intStatus, @Model.StatusModel, new { id = "ddlStatus", @class = "form-control" })*@
+                    @*@Html.ValidationMessageFor(model => model.intStatus)*@
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div class="form-group">
+            <div class="col-md-offset-5  col-md-12">
+                <input type="submit" value="Search" class="btn btn-primary" id="btnSearchAdd" />
+                <input type="reset" value="Reset" class="btn btn-primary" id="btnSearchReset" />
+            </div>
+        </div>
+
+    </div>
+    <div class="form-horizontal" style="background: #f7f6f6">
+        <div class="form-group">
+            <div class="col-md-offset-5  col-md-12">
+                <input type="submit" value="Add Goal" class="btn btn-primary" id="btnAdd" />
+                <input type="reset" value="Delete" class="btn btn-primary" id="btnDelete" />
+            </div>
+        </div>
+        <div>
+            <table id="grid"></table>
+            <div></div>
+        </div>      
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

@@ -16,6 +16,7 @@ namespace AquatroHRIMS.Controllers
     {
         HRIMSdbEntities db = new HRIMSdbEntities();        
         public ActionResult CreateEmployee()
+
         {
             int empID = 0;
             //===================================== Department Binding entity ============================================= //

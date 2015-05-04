@@ -39,6 +39,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="GridMvc">
+      <HintPath>..\packages\GridMvc.dll.1.0.4\lib\net45\GridMvc.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp">
+      <HintPath>..\packages\iTextSharp.5.5.5\lib\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -156,13 +162,25 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Code\cBaseHelper.cs" />
+    <Compile Include="App_Code\cErrorLog.cs" />
+    <Compile Include="App_Code\EncryptDecrypt.cs" />
+    <Compile Include="App_Code\SendMail.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="ClientFeedback.aspx.cs">
+      <DependentUpon>ClientFeedback.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ClientFeedback.aspx.designer.cs">
+      <DependentUpon>ClientFeedback.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ClientController.cs" />
     <Compile Include="Controllers\EmployeeGoalsController.cs" />
+    <Compile Include="Controllers\GoalSearchController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ProjectController.cs" />
@@ -296,7 +314,12 @@
     <Compile Include="ViewModel\ProjectViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\MailFormat.html" />
+    <Content Include="App_Data\MailToClient.html" />
+    <Content Include="App_Data\PDFFormat.html" />
+    <Content Include="ClientFeedback.aspx" />
     <Content Include="Content\AddGoals.css" />
+    <Content Include="Content\Images\logo.jpg" />
     <Content Include="HTML\abc.html" />
     <Content Include="HTML\EmpCredential.html" />
     <Content Include="Content\bootstrap.css" />
@@ -330,6 +353,7 @@
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.11.1.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -341,7 +365,9 @@
     <Content Include="Scripts\ValidationEmployeeGoals.js" />
     <Content Include="Scripts\validationProject.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -372,9 +398,9 @@
     <Content Include="Views\Project\AddProject.cshtml" />
     <Content Include="Views\EmployeeGoals\AddGoals.cshtml" />
     <Content Include="Views\EmployeeGoals\ReviewGoals.cshtml" />
+    <Content Include="Views\EmployeeGoals\goalSearch.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Views\abc\" />
   </ItemGroup>
   <ItemGroup>

@@ -189,5 +189,53 @@ namespace AquatroHRIMS.Controllers
             db.Database.ExecuteSqlCommand("update tblemployeeGoals set varManagerComment='" + strMgrComment + "' where intEmployeeID=" + empId + " and intTitle=" + titleID);
             return RedirectToAction("ReviewGoals");
         }
+
+        public ActionResult goalSearch()
+        {
+            //================================== Employee Goal Title Binding =======================================//
+
+            List<tblGoalTitle> tgt = (from data in db.tblGoalTitles
+                                      orderby data.varTitleName ascending
+                                      select data).ToList();
+
+            tblGoalTitle gt = new tblGoalTitle();
+            gt.intTilteID = 0;
+            gt.varTitleName = "-- Select --";
+            tgt.Insert(0, gt);
+
+            SelectList objGoalList = new SelectList(tgt, "intTilteID", "varTitleName", 0);
+
+            objEmpViewModel.GoalTitleModel = objGoalList;
+
+            //=================================== End Employee Goal title binding =================================//
+
+            //=================================== Status Binding ==================================================//
+
+            List<tblStatus> tc = (from data in db.tblStatus
+                                  orderby data.varStatus ascending
+                                  select data).ToList();
+
+            tblStatus tc1 = new tblStatus();
+            tc1.intStatusID = 0;
+            tc1.varStatus = "-- Select --";
+            tc.Insert(0, tc1);
+
+            SelectList objStatusList = new SelectList(tc, "intStatusID", "varStatus", 0);
+
+            objEmpViewModel.StatusModel = objStatusList;
+
+            //=================================== End Status Binding ==============================================//
+
+            return View(objEmpViewModel);
+        }
+       // [HttpPost]
+        //public JsonResult loadGoals()
+        //{
+        //    //var query = (from c in db.tblEmployeeGoals
+        //    //             //where (c.varClientTeamMemEmail == criteria && c.intClientId == clientId)
+        //    //             select new { c.varClientTeamMemName }).Distinct();
+        //    //return Json(query.ToList(), JsonRequestBehavior.AllowGet);
+        //}
+
 	}
 }

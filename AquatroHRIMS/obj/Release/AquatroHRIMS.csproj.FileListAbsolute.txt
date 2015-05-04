@@ -53,3 +53,6 @@ D:\HRMS\AquatroHRIMS\AquatroHRIMS\bin\Microsoft.Owin.Security.MicrosoftAccount.x
 D:\HRMS\AquatroHRIMS\AquatroHRIMS\obj\Release\AquatroHRIMS.dll
 D:\HRMS\AquatroHRIMS\AquatroHRIMS\obj\Release\AquatroHRIMS.pdb
 D:\HRMS\AquatroHRIMS\AquatroHRIMS\obj\Release\AquatroHRIMS.csprojResolveAssemblyReference.cache
+D:\HRMS\AquatroHRIMS\AquatroHRIMS\bin\GridMvc.dll
+D:\HRMS\AquatroHRIMS\AquatroHRIMS\bin\itextsharp.dll
+D:\HRMS\AquatroHRIMS\AquatroHRIMS\bin\itextsharp.xml

@@ -31,7 +31,7 @@ namespace AquatroHRIMS.App_Code
                 smtpmail.EnableSsl = false; /* New added for testing */
                 smtpmail.UseDefaultCredentials = false;
                 smtpmail.Credentials = Credential;
-                smtpmail.Port = 80;/* New added for testing */
+                smtpmail.Port = 25;/* New added for testing */
                 smtpmail.Host = i_sSMTPHost;
                 try
                 {

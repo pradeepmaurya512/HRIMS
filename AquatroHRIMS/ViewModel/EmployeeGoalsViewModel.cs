@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.ComponentModel.DataAnnotations;
 using AquatroHRIMS.Models;
+using GridMvc;
 
 
 namespace AquatroHRIMS.ViewModel
