@@ -39,6 +39,18 @@
         autowidth: true,
         multiselect: false
     });
+
+
+    $(document).ready(function () {
+        $("#dtstartdate").datepicker({
+            changeMonth: true,
+            changeYear: true
+        });
+        $("#dtenddate").datepicker({
+            changeMonth: true,
+            changeYear: true
+        });
+    });
 </script>
 
 @using (Html.BeginForm("goalSearch","EmployeeGoals",FormMethod.Post)) 
@@ -66,12 +78,12 @@
                 @Html.Label("Form Date", new { @class = "col-md-2", id = "lblFromDate" })
                 <div class="col-md-3">
                     @*@Html.DropDownListFor(model => model.objEmpGoals.intTitle, @Model.GoalTitleModel, new { id = "ddlGoalTitle", @class = "form-control" })*@
-                    @Html.TextBoxFor(model => model.objEmpGoals.dtStartdate, new { @class = "form-control", type = "date" })
+                    @Html.TextBoxFor(model => model.objEmpGoals.dtStartdate, new { @class = "form-control", id = "dtstartdate", @Placeholder = "mm/dd/yyyy", @readonly = true })
                     @*@Html.ValidationMessageFor(model => model.intTitle)*@
                 </div>
                 @Html.Label("To Date", new { @class = "col-md-2", id = "lblToDate" })
                 <div class="col-md-3">
-                    @Html.TextBoxFor(model => model.objEmpGoals.dtStartdate, new { @class = "form-control", type = "date" })
+                    @Html.TextBoxFor(model => model.objEmpGoals.dtStartdate, new { @class = "form-control", id = "dtenddate", @Placeholder = "mm/dd/yyyy", @readonly = true })
                     @*@Html.DropDownListFor(model => model.objEmpGoals.intStatus, @Model.StatusModel, new { id = "ddlStatus", @class = "form-control" })*@
                     @*@Html.ValidationMessageFor(model => model.intStatus)*@
                 </div>

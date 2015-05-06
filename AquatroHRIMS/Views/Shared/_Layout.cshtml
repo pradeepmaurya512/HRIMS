@@ -7,6 +7,10 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     <link href="~/Content/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
 </head>
 <body>
     <div class="container"><img src="~/Content/Images/A4logo.png" /></div>
@@ -106,7 +110,7 @@
             <p>&copy; @DateTime.Now.Year - A Quatro HRIMS</p>
         </footer>*@
     </div>
-    @Scripts.Render("~/bundles/jquery")
+    @*@Scripts.Render("~/bundles/jquery")*@
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
     @section Scripts {

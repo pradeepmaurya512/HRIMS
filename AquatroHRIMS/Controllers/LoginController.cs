@@ -10,6 +10,7 @@ using AquatroHRIMS.App_Code;
 using System.Data.Entity.Validation;
 using System.Diagnostics;
 using System.IO;
+using System.Text;
 namespace AquatroHRIMS.Controllers
 {
     public class LoginController : Controller
@@ -77,8 +78,10 @@ namespace AquatroHRIMS.Controllers
             objLogin.AccessList = objAccessList;
             //=====================End Access Binding =======================================================================//
 
+
             return View(objLogin); 
         }
+
         [HttpPost]
         public ActionResult CreateEmployee(LoginViewModel objtlogin, int[] AccessId)
         {
@@ -117,13 +120,19 @@ namespace AquatroHRIMS.Controllers
 
                 throw;  // You can also choose to handle the exception here...
             }
+
+          
+
             return RedirectToAction("CreateEmployee");
         }
+
+
         [HttpGet]
         public ActionResult AccountLogin()
         {
             return View();
         }
+
         [HttpPost]
         public ActionResult AccountLogin(tblLogin objlogin)
         {
@@ -139,6 +148,7 @@ namespace AquatroHRIMS.Controllers
             }
             return View(objlogin);
         }
+
         private bool IsValid(string username, string password)
         {
             
@@ -156,14 +166,17 @@ namespace AquatroHRIMS.Controllers
             }
             return IsValid;
         }
+
         public ActionResult ChangePassword()
         {
             return View();
         }
+
         public ActionResult Email()
         {
             return View();
         }
+
         public void sendMail(string email, string password)
         {
             try

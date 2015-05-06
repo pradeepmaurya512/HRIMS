@@ -4,7 +4,7 @@
 }
 <h2>Add Project</h2>
 <script src="~/Scripts/validationProject.js"></script>
-<script src="~/Scripts/jquery-1.10.2.js"></script>
+
 <script type="text/javascript">
     $(document).ready(function(){
         $("#txtExtProjectHead").on("input", function () {
@@ -165,6 +165,23 @@
         $("#lstTeamMemDetails").change(function () {
             $("#spnTeamMemDetails").hide();
         });
+
+      
+
+      
+    });
+
+
+    $(document).ready(function () {
+
+        $("#txtProjectEndDate").datepicker({
+            changeMonth: true,
+            changeYear: true
+        });
+        $("#txtProjectStartDate").datepicker({
+            changeMonth: true,
+            changeYear: true
+        });
     });
 </script>
 @using (Html.BeginForm("AddProject", "Project", FormMethod.Post)) 
@@ -234,7 +251,7 @@
                 <div class="col-md-12">
                     @Html.LabelFor(model => model.objProjectDetails.varTeamMemDetails, new { @class = "col-md-2", id = "lstTeamMemDetails1" })
                     <div class="col-md-8">
-                        @Html.ListBoxFor(model => model.EmployeeID, @Model.InternalTeam as MultiSelectList, new { @class = "form-control", id = "lstTeamMemDetails", name = "lstTeamMemDetails" })
+                        @Html.ListBoxFor(model => model.EmployeeID, @Model.InternalTeam as MultiSelectList, new { @class = "form-control datepicker", id = "lstTeamMemDetails", name = "lstTeamMemDetails" })
                         <span id="spnTeamMemDetails" style="display: none;color:#b94a48">Project Team is Compulsory!!</span>
                         @*@Html.ValidationMessageFor(model => model.objProjectDetails.varTeamMemDetails)*@
                     </div>
@@ -245,7 +262,7 @@
                 <div class="col-md-12">
                     @Html.LabelFor(model => model.objProjectDetails.dtProjectStartDate, new { @class = "col-md-2" })
                     <div class="col-md-8">
-                        @Html.TextBoxFor(model => model.objProjectDetails.dtProjectStartDate, new { @class = "form-control", type = "date", id = "txtProjectStartDate", @placeholder = "" })
+                        @Html.TextBoxFor(model => model.objProjectDetails.dtProjectStartDate, new { @class = "form-control", id = "txtProjectStartDate", @placeholder = "mm/dd/yyyy", @readonly = true })
                         @*@Html.ValidationMessageFor(model => model.objProjectDetails.dtProjectStartDate)*@
                         <span id="spnStartDate" style="display: none;color:#b94a48">Start Date is Compulsory!!</span>
                     </div>
@@ -256,7 +273,7 @@
                 <div class="col-md-12">
                     @Html.LabelFor(model => model.objProjectDetails.dtProjectEndDate, new { @class = "col-md-2" })
                     <div class="col-md-8">
-                        @Html.TextBoxFor(model => model.objProjectDetails.dtProjectEndDate, new { @class = "form-control", type = "date", id = "txtProjectEndDate" })
+                        @Html.TextBoxFor(model => model.objProjectDetails.dtProjectEndDate, new { @class = "form-control", id = "txtProjectEndDate" ,placeholder="mm/dd/yyyy", @readonly = true })
                         @*@Html.ValidationMessageFor(model => model.objProjectDetails.dtProjectEndDate)*@
                         <span id="spnEndDate" style="display: none;color:#b94a48">End Date is Compulsory!!</span>
                         <span id="spnDateValid1" style="display: none; color:#b94a48">Start Date should not be less than or equal to End Date!!</span>

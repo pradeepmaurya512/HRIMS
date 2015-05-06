@@ -29,4 +29,17 @@ namespace AquatroHRIMS.ViewModel
         public int[] AccessId { get; set; }
         public MultiSelectList AccessList { get; set; }
     }
+
+
+    //public class CountryModel
+    //{
+    //    public List<Country> CountryList { get; set; }
+    //}
+    //public class Country
+    //{
+    //    public int countryId { get; set; }
+    //    public bool CheckedStatus { get; set; }
+    //    public string CountryName { get; set; }
+    //}
+
 }

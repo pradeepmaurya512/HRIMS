@@ -4,7 +4,8 @@
 }
 <h3><b>Add Employee</b></h3>
 <script src="~/Scripts/ValidationCreateEmployee.js"></script>
-<script src="~/Scripts/jquery-1.10.2.js"></script>
+
+
 <script type="text/javascript">
     $(document).ready(function () {       
         $("#ddlDepartment").change(function () {
@@ -21,8 +22,16 @@
             var reptHeadIndex1 = $(this).val();
             if (reptHeadIndex1 != 0)
                 $("#spnReptHead").hide();
-        });       
+        });
+
+        $("#DateOfJoing").datepicker({
+            changeMonth: true,
+            changeYear: true
+        });
     });
+
+
+   
 </script>
 @using (Html.BeginForm("CreateEmployee","Login", FormMethod.Post)) 
 {
@@ -75,7 +84,7 @@
             <div class="col-md-12">
                 @Html.LabelFor(model => model.objtblLogin.tblEmployee.intDesignationId, new { @class = " col-md-2" })
                 <div class="col-md-3">
-                    @Html.DropDownListFor(m => m.objtblLogin.tblEmployee.intDesignationId, @Model.DesignationModel, new { @class = "form-control", id = "ddlDesignation" })                   
+                    @Html.DropDownListFor(m => m.objtblLogin.tblEmployee.intDesignationId, @Model.DesignationModel, new { @class = "form-control",id = "ddlDesignation" })                   
                     <span id="spnDesig" style="display: none; color: #b94a48;">Designation is Compulsory!!</span>
                 </div>
             </div>
@@ -85,7 +94,9 @@
             <div class="col-md-12">
                 @Html.LabelFor(model => model.objtblLogin.tblEmployee.varDOJ, new { @class = " col-md-2" })
                 <div class="col-md-3">
-                    @Html.TextBoxFor(m => m.objtblLogin.tblEmployee.varDOJ, new { @class = "form-control", type = "date" })
+                    @Html.TextBoxFor(m => m.objtblLogin.tblEmployee.varDOJ, new { @class = "form-control datepicker ", id = "DateOfJoing", @Placeholder = "mm/dd/yyyy", @readonly = true })
+                    <span class="fa fa-calendar">
+                    </span>
                     @Html.ValidationMessageFor(model => model.objtblLogin.tblEmployee.varDOJ)
                 </div>
             </div>
@@ -141,6 +152,8 @@
                 </div>
             </div>
         </div>
+
+
 
         <div class="form-group">
             <div class="col-md-12">
