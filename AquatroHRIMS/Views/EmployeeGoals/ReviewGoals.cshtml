@@ -69,19 +69,15 @@
                     @Html.DropDownListFor(model => model.objEmpGoals.intEmployeeID, @Model.EmployeeModel, new { @class = "form-control", id = "ddlEmployee", onchange = "this.form.action = '/EmployeeGoals/ReviewGoals'; this.form.submit();" })
                     <span id="spnEmployee" style="display:none;color:#b94a48">Employee is Compulsory!!</span>
                 </div>
-                </div>
-            </div>
-
-        <div class="form-group">
-            <div class="col-md-12">
                 @Html.LabelFor(model => model.objEmpGoals.intTitle, new { @class = "col-md-2", id = "ddlTitleLabel" })
                 <div class="col-md-3">
                     @Html.DropDownListFor(model => model.objEmpGoals.intTitle, @Model.GoalTitleModel, new { @class = "form-control", id = "ddlTitle", onchange = "this.form.action = '/EmployeeGoals/ReviewGoals'; this.form.submit();" })
                     @*@Html.ValidationMessageFor(model => model.objEmpGoals.intTitle)*@
                     <span id="spnTitle" style="display:none;color:#b94a48">Goal Title is Compulsory!!</span>
                 </div>
+
+                </div>
             </div>
-        </div>
 
         <div class="form-group">
             <div class="col-md-12">
@@ -91,18 +87,16 @@
                     @*@Html.ValidationMessageFor(model => model.objEmpGoals.intStatus)*@
                     <span id="spnStatus" style="display:none;color:#b94a48">Goal Status is Compulsory!!</span>
                 </div>
+
+                @Html.LabelFor(model => model.objEmpGoals.varCompletion, new { @class = "col-md-2" })
+                <div class="col-md-3">
+                    @Html.TextBoxFor(model => model.varCompletion, new { @class = "form-control", id = "txtComplation", disabled = "disabled" })
+                </div>
             </div>
         </div>
         
           
-        <div class="form-group">
-            <div class="col-md-12">
-                @Html.LabelFor(model => model.objEmpGoals.varCompletion, new { @class = "col-md-2" })
-                <div class="col-md-3">
-                    @Html.TextBoxFor(model => model.varCompletion, new { @class = "form-control", id = "txtComplation", disabled="disabled" })                   
-                </div>
-            </div>
-        </div>            
+           
 
         <div class="form-group">
             <div class="col-md-12">
@@ -111,25 +105,22 @@
                     @Html.TextAreaFor(model => model.varGoalDescription, new { @class = "form-control", id = "txtGoalDesc", disabled = "disabled" })
                     @Html.ValidationMessageFor(model => model.varGoalDescription)
                 </div>
-                </div>
-            </div>                       
-
-        <div class="form-group">
-            <div class="col-md-12">
                 @Html.LabelFor(model => model.objEmpGoals.varManagerComment, new { @class = "col-md-2" })
                 <div class="col-md-3">
                     @Html.TextAreaFor(model => model.varManagerComment, new { @class = "form-control", id = "txtMgrComment" })
                     @Html.ValidationMessageFor(model => model.varManagerComment)
                 </div>
+
                 </div>
-            </div>   
+            </div>                       
+
           
         <div>
             @Html.HiddenFor(model => model.ID, new {id="hdnID" })
         </div>  
 
         <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
+            <div class="col-md-offset-5 col-md-10">
                 <input type="submit" value="Update " id="btnCreate" class="btn btn-primary"  />
                 <input type="reset" value="Reset" class="btn btn-primary" onclick="return fnReset();" />
             </div>

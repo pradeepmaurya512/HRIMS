@@ -45,14 +45,14 @@
             <div class="col-md-12">
                 @Html.LabelFor(model => model.objtblLogin.tblEmployee.varFirstName, new { @class = " col-md-2" })
                 <div class="col-md-3">
-                    @Html.TextBoxFor(m => m.objtblLogin.tblEmployee.varFirstName, new { @class = "form-control", @placeholder = "First Name", id = "txtFirstName", minlength="2" })
+                    @Html.TextBoxFor(m => m.objtblLogin.tblEmployee.varFirstName, new { @class = "form-control", @placeholder = "First Name", id = "txtFirstName", minlength = "2" })
                     @Html.ValidationMessageFor(model => model.objtblLogin.tblEmployee.varFirstName)
                 </div>
                 <div class="col-md-3">
                     @Html.TextBoxFor(model => model.objtblLogin.tblEmployee.varMiddleName, new { @class = "form-control", @Placeholder = "Middle Name", id = "txtMiddleName", minlength = "2" })
-                    @Html.ValidationMessageFor(model => model.objtblLogin.tblEmployee.varMiddleName)                   
+                    @Html.ValidationMessageFor(model => model.objtblLogin.tblEmployee.varMiddleName)
                 </div>
-                
+
                 <div class="col-md-3">
                     @Html.TextBoxFor(model => model.objtblLogin.tblEmployee.varLastName, new { @class = "form-control", @Placeholder = "Last Name", id = "txtLastName", minlength = "2" })
                     @Html.ValidationMessageFor(model => model.objtblLogin.tblEmployee.varLastName)
@@ -62,55 +62,55 @@
 
         <div class="form-group">
             <div class="col-md-12">
-                @Html.LabelFor(model => model.objtblLogin.tblEmployee.varOfficeEmailAdd, new { @class = " col-md-2" })
+
+                <div class="col-md-2">
+                @Html.LabelFor(model => model.objtblLogin.tblEmployee.varOfficeEmailAdd)</div>
                 <div class="col-md-3">
-                    @Html.TextBoxFor(m => m.objtblLogin.tblEmployee.varOfficeEmailAdd, new { @class = "form-control", @Placeholder = "abc@a4technology.com", id = "txtLoginName", type="email" })                   
+                    @Html.TextBoxFor(m => m.objtblLogin.tblEmployee.varOfficeEmailAdd, new { @class = "form-control", @Placeholder = "abc@a4technology.com", id = "txtLoginName", type = "email" })
                     @Html.ValidationMessageFor(model => model.objtblLogin.tblEmployee.varOfficeEmailAdd)
-                </div>                
-            </div>
-        </div>
-        
-        <div class="form-group">
-            <div class="col-md-12">
-                @Html.LabelFor(model => model.objtblLogin.tblEmployee.intDepartmentID, new { @class = " col-md-2" })
-                <div class="col-md-3">
-                    @Html.DropDownListFor(m => m.objtblLogin.tblEmployee.intDepartmentID, @Model.DepartmentModel, new { @class = "form-control", id = "ddlDepartment" })                   
-                    <span id="spnDept" style="display: none; color: #b94a48;">Department is Compulsory!!</span>
                 </div>
-            </div>
+                <div class="col-md-3">
+                    <span style="float: left"> @Html.LabelFor(model => model.objtblLogin.tblEmployee.intDepartmentID)</span> 
+                </div>
+                    <div class="col-md-3">
+                        @Html.DropDownListFor(m => m.objtblLogin.tblEmployee.intDepartmentID, @Model.DepartmentModel, new { @class = "form-control", id = "ddlDepartment" })
+                        <span id="spnDept" style="display: none; color: #b94a48;">Department is Compulsory!!</span>
+                    </div>
+                </div>
         </div>
-        
+
+  
+
         <div class="form-group">
             <div class="col-md-12">
                 @Html.LabelFor(model => model.objtblLogin.tblEmployee.intDesignationId, new { @class = " col-md-2" })
                 <div class="col-md-3">
-                    @Html.DropDownListFor(m => m.objtblLogin.tblEmployee.intDesignationId, @Model.DesignationModel, new { @class = "form-control",id = "ddlDesignation" })                   
+                    @Html.DropDownListFor(m => m.objtblLogin.tblEmployee.intDesignationId, @Model.DesignationModel, new { @class = "form-control", id = "ddlDesignation" })
                     <span id="spnDesig" style="display: none; color: #b94a48;">Designation is Compulsory!!</span>
                 </div>
+                <div class="col-md-3">
+                    <span style="float: left">
+                        @Html.LabelFor(model => model.objtblLogin.tblEmployee.varDOJ)
+                        </span>
+                    </div>
+                        <div class="col-md-3">
+                            @Html.TextBoxFor(m => m.objtblLogin.tblEmployee.varDOJ, new { @class = "form-control datepicker ", id = "DateOfJoing", @Placeholder = "mm/dd/yyyy", @readonly = true })
+                          
+                            @Html.ValidationMessageFor(model => model.objtblLogin.tblEmployee.varDOJ)
+                        </div>
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            <div class="col-md-12">
-                @Html.LabelFor(model => model.objtblLogin.tblEmployee.varDOJ, new { @class = " col-md-2" })
-                <div class="col-md-3">
-                    @Html.TextBoxFor(m => m.objtblLogin.tblEmployee.varDOJ, new { @class = "form-control datepicker ", id = "DateOfJoing", @Placeholder = "mm/dd/yyyy", @readonly = true })
-                    <span class="fa fa-calendar">
-                    </span>
-                    @Html.ValidationMessageFor(model => model.objtblLogin.tblEmployee.varDOJ)
+        @*<div class="form-group">
+                <div class="col-md-12">
+                    @Html.LabelFor(model => model.objtblLogin.varLoginName, new { @class = " col-md-2" })
+                    <div class="col-md-3">
+                        @Html.TextBoxFor(m => m.objtblLogin.varLoginName, new { @class = "form-control", @Placeholder = "abc@a4technology.com", id = "txtLoginName" })
+                        @Html.ValidationMessageFor(model => model.objtblLogin.varLoginName)
+                    </div>
                 </div>
-            </div>
-        </div>
-        
-    @*<div class="form-group">
-            <div class="col-md-12">
-                @Html.LabelFor(model => model.objtblLogin.varLoginName, new { @class = " col-md-2" })
-                <div class="col-md-3">
-                    @Html.TextBoxFor(m => m.objtblLogin.varLoginName, new { @class = "form-control", @Placeholder = "abc@a4technology.com", id = "txtLoginName" })
-                    @Html.ValidationMessageFor(model => model.objtblLogin.varLoginName)
-                </div>
-            </div>
-        </div>*@
+            </div>*@
+
         <div class="form-group">
             <div class="col-md-12">
                 @Html.LabelFor(model => model.objtblLogin.varPassword, new { @class = " col-md-2" })
@@ -118,18 +118,19 @@
                     @Html.TextBoxFor(m => m.objtblLogin.varPassword, new { @class = "form-control", @Placeholder = "Password", id = "txtPassword", type = "password", minlength = "6" })
                     @Html.ValidationMessageFor(model => model.objtblLogin.varPassword)
                 </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-12">
-                @Html.LabelFor(model => model.varConfirmPassword, new { @class = "col-md-2" })
                 <div class="col-md-3">
-                    @Html.TextBoxFor(m => m.varConfirmPassword, new { @class = "form-control", @Placeholder = "Password", id = "txtPassword", type = "password", minlength = "6" })
-                    @Html.ValidationMessageFor(model => model.varConfirmPassword)
+                    <span style="float:left">
+                        @Html.LabelFor(model => model.varConfirmPassword)
+                        </span>
+                    </div>
+                        <div class="col-md-3">
+                            @Html.TextBoxFor(m => m.varConfirmPassword, new { @class = "form-control", @Placeholder = "Password", id = "txtPassword", type = "password", minlength = "6" })
+                            @Html.ValidationMessageFor(model => model.varConfirmPassword)
+                        </div>
                 </div>
             </div>
-        </div>
+
+    
 
         <div class="form-group">
             <div class="col-md-12">
@@ -139,25 +140,12 @@
                     @*@Html.ValidationMessageFor(model => model.tblEmployee.intReportingHead)*@
                     <span id="spnReptHead" style="display: none; color: #b94a48;">Reporting Head is Compulsory!!</span>
                 </div>
-            </div>
-        </div>
 
-        <div class="form-group">
-            <div class="col-md-12">
-                @*@Html.LabelFor(model => model.AccessId, new { @class = " col-md-2" })*@
-                @Html.Label("Access Levels", new { @class = " col-md-2" })
                 <div class="col-md-3">
-                    @Html.ListBoxFor(m => m.AccessId, @Model.AccessList as MultiSelectList, new { @class = "form-control", id = "lstAccess", name = "lstAccess" })
-                    @Html.ValidationMessageFor(model => model.tblEmployee.intReportingHead)
+                   
+                        @Html.LabelFor(model => model.objtblLogin.tblEmployee.IsActive)
+               
                 </div>
-            </div>
-        </div>
-
-
-
-        <div class="form-group">
-            <div class="col-md-12">
-                @Html.LabelFor(model => model.objtblLogin.tblEmployee.IsActive, new { @class = " col-md-2" })
                 <div class="col-md-3">
                     @Html.RadioButtonFor(model => model.objtblLogin.tblEmployee.IsActive, true, new { @checked = true })Active  &nbsp;
                     @Html.RadioButtonFor(model => model.objtblLogin.tblEmployee.IsActive, false) InActive
@@ -165,36 +153,88 @@
                 </div>
             </div>
         </div>
+
+        @*<div class="form-group">
+            <div class="col-md-12">
+                @Html.LabelFor(model => model.AccessId, new { @class = " col-md-2" })
+                @Html.Label("Access Levels", new { @class = " col-md-2" })*@
+                @*<div class="col-md-3">
+    @Html.ListBoxFor(m => m.AccessId, @Model.AccessList as MultiSelectList, new { @class = "form-control", id = "lstAccess", name = "lstAccess" }*@
+                       
+                        @*@Html.ValidationMessageFor(model => model.tblEmployee.intReportingHead)
+                    </div>*@
+            @*</div>
+        </div>*@
+
+
+    
+
         <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
+            <div class="col-md-12" >
+                @Html.LabelFor(model => model.AccessId, new { @class = " col-md-2" })
+                <div class="col-md-3">
+                    @for (int i = 0; i < Model.access.Count / 2; i++)
+                    {
+
+                        @Html.CheckBoxFor(b => b.access[i].IsActive, Model.access[i].intAccessID)  @Model.access[i].varAccessName
+
+                        @*@Html.CheckBoxFor(false, Model.access[i].intAccessID)  @Model.access[i].varAccessName*@
+                        @Html.HiddenFor(m => Model.access[i].intAccessID)
+                        @Html.HiddenFor(m => Model.access[i].varAccessName)
+
+                        <br />
+                    }
+                </div>
+                <div class="col-md-3">
+                    @for (int i = Model.access.Count / 2; i < Model.access.Count; i++)
+                    {
+
+                        @Html.CheckBoxFor(b => b.access[i].IsActive, Model.access[i].intAccessID)  @Model.access[i].varAccessName
+
+                        @*@Html.CheckBoxFor(false, Model.access[i].intAccessID)  @Model.access[i].varAccessName*@
+                        @Html.HiddenFor(m => Model.access[i].intAccessID)
+                        @Html.HiddenFor(m => Model.access[i].varAccessName)
+
+                        <br />
+                    }
+                </div>
+
+            </div>
+            </div>
+
+
+
+    
+        <div class="form-group" style="margin:60px">
+            <div class="col-md-offset-5 col-md-10">
                 <input type="submit" value="Create " id="btnCreate" class="btn btn-primary" onclick="fnValidation();" />
                 <input type="reset" value="Reset" class="btn btn-primary" onclick="fnReset();" />
             </div>
         </div>
     </div>
 }
-    @section Scripts {
-        @Scripts.Render("~/bundles/jqueryval")
-    }
-@*<tr>
-        <td style="width:150px">Access Levels</td>
-        <td>
-            <div id="divStudentlist" style="height: 200px; overflow: auto;border:solid 1px black; width:230px;">
-                @foreach (var names in @Model.AccessList)
-                {
-                    var checkBoxId = "chk" + names.Value;
-                    var tdId = "td" + names.Value;
-                    <table width="100%">
-                        <tr>
-                            <td style="width:2px">
-                                <input type="checkbox" id="@checkBoxId" style="margin-left:20px" value="@names.Value" />
-                            </td>
-                            <td id="@tdId" style="margin-left:-20px;width:100px">
-                                @names.Text
-                            </td>
-                        </tr>
-                    </table>
-                }
-            </div>
-        </td>
-    </tr>*@               
+            @section Scripts {
+                @Scripts.Render("~/bundles/jqueryval")
+            }
+            @*<tr>
+                    <td style="width:150px">Access Levels</td>
+                    <td>
+                        <div id="divStudentlist" style="height: 200px; overflow: auto;border:solid 1px black; width:230px;">
+                            @foreach (var names in @Model.AccessList)
+                            {
+                                var checkBoxId = "chk" + names.Value;
+                                var tdId = "td" + names.Value;
+                                <table width="100%">
+                                    <tr>
+                                        <td style="width:2px">
+                                            <input type="checkbox" id="@checkBoxId" style="margin-left:20px" value="@names.Value" />
+                                        </td>
+                                        <td id="@tdId" style="margin-left:-20px;width:100px">
+                                            @names.Text
+                                        </td>
+                                    </tr>
+                                </table>
+                            }
+                        </div>
+                    </td>
+                </tr>*@

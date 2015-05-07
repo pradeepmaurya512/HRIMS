@@ -166,3 +166,4 @@ D:\HRMS\HRIMS\AquatroHRIMS\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 D:\HRMS\HRIMS\AquatroHRIMS\obj\Debug\AquatroHRIMS.csprojResolveAssemblyReference.cache
 D:\HRMS\HRIMS\AquatroHRIMS\obj\Debug\AquatroHRIMS.dll
 D:\HRMS\HRIMS\AquatroHRIMS\obj\Debug\AquatroHRIMS.pdb
+D:\HRMS\HRIMS\AquatroHRIMS\bin\MvcCheckBoxList.dll

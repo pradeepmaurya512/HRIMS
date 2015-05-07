@@ -16,7 +16,7 @@ namespace AquatroHRIMS.Models
     {
         public int intAccessID { get; set; }
         public string varAccessName { get; set; }
-        public Nullable<bool> IsActive { get; set; }
+        public bool IsActive { get; set; }
         public Nullable<System.DateTime> dtCreatedOn { get; set; }
         public Nullable<System.DateTime> dtUpdatedOn { get; set; }
         public Nullable<int> intCreatedby { get; set; }

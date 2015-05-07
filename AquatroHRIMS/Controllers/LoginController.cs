@@ -15,7 +15,8 @@ namespace AquatroHRIMS.Controllers
 {
     public class LoginController : Controller
     {
-        HRIMSdbEntities db = new HRIMSdbEntities();        
+        HRIMSdbEntities db = new HRIMSdbEntities();   
+     
         public ActionResult CreateEmployee()
 
         {
@@ -71,13 +72,15 @@ namespace AquatroHRIMS.Controllers
             //=================================== End Employee Binding =====================================================//
 
             //======================Access Binding entity ==============================================================//
-            List<tblAccess> accessList = (from data in db.tblAccesses
-                                          orderby data.varAccessName ascending
-                             select data).ToList();
-            SelectList objAccessList = new SelectList(accessList, "intAccessID", "varAccessName", 0);
-            objLogin.AccessList = objAccessList;
+            //List<tblAccess> accessList = (from data in db.tblAccesses
+            //                              orderby data.varAccessName ascending
+            //                              select data).ToList();
+            //SelectList objAccessList = new SelectList(accessList, "intAccessID", "varAccessName", 0);
+            //objLogin.AccessList = objAccessList;
             //=====================End Access Binding =======================================================================//
 
+            objLogin.access = new List<tblAccess>();
+            objLogin.access = BindAccess();
 
             return View(objLogin); 
         }
@@ -85,10 +88,21 @@ namespace AquatroHRIMS.Controllers
         [HttpPost]
         public ActionResult CreateEmployee(LoginViewModel objtlogin, int[] AccessId)
         {
+            string accesslevels="";
             try
             {
-                string accesslevels = string.Join(",", AccessId);
+                //string accesslevels = string.Join(",", AccessId);
 
+                foreach (var item in objtlogin.access)
+                {
+                    if (item.IsActive == true) {
+                       int accid = item.intAccessID;
+                       
+                         // string str=string.Join(",", accid);
+                          accesslevels = accesslevels + ',' + accid;
+                    }
+                }
+                accesslevels = accesslevels.Remove(0,1);
                 string strOfficialEmailId = objtlogin.objtblLogin.tblEmployee.varOfficeEmailAdd;
                 string strUserName = objtlogin.objtblLogin.varLoginName;
                 string strPassword = objtlogin.objtblLogin.varPassword;
@@ -98,9 +112,28 @@ namespace AquatroHRIMS.Controllers
                 objtlogin.objtblLogin.IsActive = true;
 
                 db.tblLogins.Add(objtlogin.objtblLogin);
+  
+                //------------------- Checkbox
+                StringBuilder sb = new StringBuilder();
+                sb.Append(" ").AppendLine();
+
+                foreach (var item in objtlogin.access)
+                {
+                    if (item.IsActive == true)
+                    {
+                        sb.Append(item.intAccessID + ", ").AppendLine();
+                    }
+                }
+                ViewBag.Country = sb.ToString();
+               // ---------------------- checkbox
+
                 db.SaveChanges();
 
                 sendMail(strOfficialEmailId, strPassword);
+
+
+
+
 
                 ViewBag.Message = "Data has been submitted successfully!!.";
 
@@ -194,6 +227,17 @@ namespace AquatroHRIMS.Controllers
             {                
                 throw ex;
             }           
+        }
+
+
+
+        public List<tblAccess> BindAccess()
+        {
+            List<tblAccess> objaccess = (from data in db.tblAccesses
+                                         orderby data.varAccessName ascending
+                                         select data).ToList();
+
+            return objaccess;
         }
 	}
 }

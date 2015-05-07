@@ -18,18 +18,18 @@
                     @Html.TextBoxFor(model => model.varClientName, new { @class = "form-control", @placeholder = " Name ", id = "txtClientName", minlength = "2", maxlength = "25" })
                     @Html.ValidationMessageFor(model => model.varClientName)
                 </div>
-                </div>
+
+                        @Html.LabelFor(model => model.varClientEmailID, new { @class = " col-md-2" })      
+                    <div class="col-md-3">
+                        @Html.TextBoxFor(model => model.varClientEmailID, new { @class = "form-control", @placeholder = " Email Id ", id = "txtClientEmailId", type = "email" })
+                        @Html.ValidationMessageFor(model => model.varClientEmailID)
+                    </div>
+               
+
+        </div>
             </div>
 
-        <div class="form-group">
-            <div class="col-md-12">
-                @Html.LabelFor(model => model.varClientEmailID, new { @class = " col-md-2" })
-                <div class="col-md-3">
-                    @Html.TextBoxFor(model => model.varClientEmailID, new { @class = "form-control", @placeholder = " Email Id ", id = "txtClientEmailId" , type="email" })
-                    @Html.ValidationMessageFor(model => model.varClientEmailID)
-                </div>
-                </div>
-            </div>
+      
 
         <div class="form-group">
             <div class="col-md-12">
@@ -38,11 +38,6 @@
                     @Html.TextBoxFor(model => model.varClientPhoneNo, new { @class = "form-control", @placeholder = " Phone No. ", id = "txtClientPhoneNo"})
                     @Html.ValidationMessageFor(model => model.varClientPhoneNo)
                 </div>
-                </div>
-            </div>
-
-        <div class="form-group">
-            <div class="col-md-12">
                 @Html.LabelFor(model => model.varClientAddress, new { @class = " col-md-2" })
                 <div class="col-md-3">
                     @Html.TextAreaFor(model => model.varClientAddress, new { @class = "form-control", @placeholder = " Address ", id = "txtClientAddress", minlength = "2" })
@@ -50,7 +45,6 @@
                 </div>
                 </div>
             </div>
-
         <div class="form-group">
             <div class="col-md-12">
                 @Html.LabelFor(model => model.varClientDescription, new { @class = " col-md-2" })
@@ -61,7 +55,7 @@
                 </div>
             </div>
         <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
+            <div class="col-md-offset-5 col-md-10">
                 
                 <input type="submit" value="Create " id="btnCreate" class="btn btn-primary"/>
                 <input type="reset" value="Reset" class="btn btn-primary" onclick="fnReset();" />

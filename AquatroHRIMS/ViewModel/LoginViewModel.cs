@@ -12,7 +12,7 @@ namespace AquatroHRIMS.ViewModel
     {
 
         public tblLogin objtblLogin { get; set; }
-        public IList<SelectListItem> Access { get; set; }
+        //public IList<SelectListItem> Access { get; set; }
 
         public SelectList DepartmentModel { get; set; }
         public SelectList DesignationModel { get; set; }
@@ -27,7 +27,15 @@ namespace AquatroHRIMS.ViewModel
 
         
         public int[] AccessId { get; set; }
-        public MultiSelectList AccessList { get; set; }
+
+        //public MultiSelectList AccessList { get; set; }
+
+        public List<tblAccess> access { get; set; }
+        public bool IsSelected { get; set; }
+        public bool Status { get; set; }
+
+
+
     }
 
 
